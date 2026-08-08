@@ -6836,3 +6836,87 @@ form .btn,
     max-width: 100%;
   }
 }
+
+/* ============================================
+   STABLE CARDS — no hover morph / jump
+   ============================================ */
+.card:hover,
+.card-kids:hover,
+.card-interactive:hover,
+.card-hover:hover,
+.feature-card:hover,
+.feature-card.card-hover:hover,
+.lesson-card:hover,
+.course-card:hover,
+.welcome-card:hover,
+.stat-card:hover,
+.goal-card:hover,
+.dashboard-card:hover,
+.question-card:hover,
+.question-card-interactive:hover,
+.research-title-card:hover,
+.testimonial-card:hover,
+.hover-lift:hover,
+.hover-scale:hover,
+.hover-zoom:hover,
+.hover-bounce:hover,
+.hover-rotate:hover,
+.card-info:hover,
+.card-goals:hover,
+.card-tests:hover,
+.card-content:hover,
+.card-activities:hover {
+  transform: none !important;
+  scale: none !important;
+  animation: none !important;
+}
+
+.card:hover,
+.card-kids:hover,
+.card-hover:hover,
+.feature-card:hover,
+.lesson-card:hover,
+.course-card:hover,
+.welcome-card:hover,
+.stat-card:hover,
+.goal-card:hover,
+.dashboard-card:hover,
+.question-card:hover,
+.research-title-card:hover {
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1) !important;
+}
+
+.card:hover::before,
+.course-card:hover::before,
+.stat-card:hover::before,
+.question-card:hover::before {
+  opacity: 0 !important;
+}
+
+.course-card:hover .course-icon i,
+.course-card:hover .course-title,
+.stat-card:hover .stat-icon,
+.stat-card:hover .stat-icon i,
+.stat-card:hover .stat-title,
+.stat-card:hover .stat-number,
+.goal-card:hover .goal-icon i,
+.feature-card.card-hover:hover .icon,
+.testimonial-card:hover .avatar-img,
+.testimonial-card:hover .testimonial-quote {
+  transform: none !important;
+  color: inherit !important;
+}
+
+.card:focus-visible,
+.card-kids:focus-visible,
+.lesson-card:focus-visible,
+.course-card:focus-visible,
+.welcome-card:focus-visible,
+.stat-card:focus-visible,
+.goal-card:focus-visible,
+.dashboard-card:focus-visible,
+a.card:focus-visible,
+button.card:focus-visible {
+  outline: 3px solid #0284c7 !important;
+  outline-offset: 3px !important;
+}

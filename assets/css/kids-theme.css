@@ -246,8 +246,8 @@ a.btn-kids-tertiary:focus {
 }
 
 .card:hover, .card-kids:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-md) !important;
+  transform: none;
+  box-shadow: var(--shadow-sm) !important;
 }
 
 /* حدود عامة ناعمة */

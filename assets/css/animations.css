@@ -648,8 +648,8 @@ button.btn-kids-tertiary:hover {
 }
 
 .card-interactive:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
 /* Question Card Styles */

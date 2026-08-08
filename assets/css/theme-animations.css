@@ -412,8 +412,8 @@
 }
 
 .hover-lift:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px var(--shadow-color);
+  transform: none;
+  box-shadow: 0 4px 14px var(--shadow-color);
 }
 
 .hover-glow {
@@ -429,7 +429,7 @@
 }
 
 .hover-scale:hover {
-  transform: scale(1.05);
+  transform: none;
 }
 
 .hover-rotate {
@@ -437,7 +437,7 @@
 }
 
 .hover-rotate:hover {
-  transform: rotate(5deg);
+  transform: none;
 }
 
 /* ============================================

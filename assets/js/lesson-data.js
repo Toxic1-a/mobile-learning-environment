@@ -323,18 +323,15 @@ const groupsData = {
     ],
     lessons: {
       '1': {
-        title: 'مفهوم البرمجة',
+        title: 'مفهوم البرمجة والأكواد',
         content: `
           <div class="mb-5">
             <h4 class="fw-bold mb-3" style="color: var(--primary);">
               <i class="bi bi-code-slash me-2"></i>ما هي البرمجة؟
             </h4>
             <div class="alert alert-light border">
-              <p class="mb-2">
-                <strong>البرمجة</strong> هي كتابة تعليمات واضحة للكمبيوتر ليقوم بمهام محددة، مثل تشغيل لعبة أو حل مسألة حسابية.
-              </p>
               <p class="mb-0">
-                المبرمج يفكر في الخطوات أولاً، ثم يحوّلها إلى أوامر يفهمها الجهاز.
+                <strong>البرمجة</strong> هي كتابة تعليمات للكمبيوتر ليقوم بمهام معينة.
               </p>
             </div>
           </div>
@@ -342,246 +339,22 @@ const groupsData = {
         questions: {
           pretest_tf: {
             '1': { question: 'البرمجة هي كتابة تعليمات للكمبيوتر.', answer: true },
-            '2': { question: 'الكمبيوتر يفهم لغة البشر دون أي ترجمة.', answer: false },
-            '3': { question: 'التخطيط للخطوات مهم قبل كتابة البرنامج.', answer: true }
+            '2': { question: 'الأكواد غير مهمة في البرمجة.', answer: false }
           },
           pretest_mcq: {
             '1': {
               question: 'البرمجة تُستخدم في:',
               options: {
-                'أ': 'إنشاء التطبيقات والألعاب',
+                'أ': 'إنشاء التطبيقات',
                 'ب': 'الطبخ فقط',
-                'ج': 'غسل الملابس'
-              },
-              answer: 'أ'
-            },
-            '2': {
-              question: 'أول خطوة مفيدة قبل البرمجة:',
-              options: {
-                'أ': 'تجاهل المشكلة',
-                'ب': 'تحديد الخطوات المطلوبة',
-                'ج': 'إغلاق الجهاز'
-              },
-              answer: 'ب'
-            }
-          }
-        }
-      },
-      '2': {
-        title: 'مفهوم الأكواد',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-file-code me-2"></i>ما هي الأكواد؟
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                <strong>الكود</strong> هو مجموعة الأوامر المكتوبة بلغة برمجة معينة.
-              </p>
-              <p class="mb-0">
-                مثلما نكتب جملة بالعربية ليفهمها الإنسان، نكتب كوداً ليفهمه الكمبيوتر بعد ترجمته.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'الكود هو أوامر مكتوبة بلغة برمجة.', answer: true },
-            '2': { question: 'لا نحتاج إلى ترتيب واضح داخل الكود.', answer: false },
-            '3': { question: 'خطأ صغير في الكود قد يوقف البرنامج.', answer: true }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'الكود يشبه:',
-              options: {
-                'أ': 'وصفة خطوات للجهاز',
-                'ب': 'صورة فقط',
-                'ج': 'صوتاً عشوائياً'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '3': {
-        title: 'أنواع البرمجة',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-diagram-3 me-2"></i>أنواع البرمجة للمبتدئين
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                توجد برمجة مرئية بالكتل (مثل Scratch) مناسبة للمبتدئين، وبرمجة نصية تكتب فيها الأوامر بالحروف.
-              </p>
-              <p class="mb-0">
-                كلا النوعين يعتمد على نفس الفكرة: تسلسل التعليمات والمنطق.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'Scratch مثال على البرمجة بالمكعبات/الكتل.', answer: true },
-            '2': { question: 'البرمجة النصية لا تحتاج منطقاً.', answer: false },
-            '3': { question: 'أنواع البرمجة المختلفة تشترك في التفكير المنطقي.', answer: true }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'أنسب بداية للمبتدئين غالباً:',
-              options: {
-                'أ': 'برمجة الكتل المرئية',
-                'ب': 'إصلاح أجهزة بدون تعلم',
-                'ج': 'حفظ كلمات عشوائية'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '4': {
-        title: 'أساسيات البرمجة',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-list-ol me-2"></i>أساسيات مهمة
-            </h4>
-            <div class="alert alert-light border">
-              <ul class="mb-0">
-                <li><strong>التسلسل:</strong> تنفيذ الأوامر واحداً بعد الآخر.</li>
-                <li><strong>الشرط:</strong> تنفيذ أمر إذا تحقق شرط معين.</li>
-                <li><strong>التكرار:</strong> إعادة أمر عدة مرات.</li>
-              </ul>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'التسلسل يعني تنفيذ الأوامر بالترتيب.', answer: true },
-            '2': { question: 'التكرار يساعد على تقليل كتابة نفس الأمر مراراً.', answer: true },
-            '3': { question: 'الشرط لا علاقة له باتخاذ القرار في البرنامج.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'إذا أردنا إعادة رسم مربع 10 مرات نستخدم:',
-              options: {
-                'أ': 'التكرار',
-                'ب': 'حذف الكود',
-                'ج': 'إيقاف الجهاز'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '5': {
-        title: 'مشاريع برمجية بسيطة',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-puzzle me-2"></i>من الفكرة إلى مشروع
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                يمكن البدء بمشروع صغير مثل: تحية تظهر على الشاشة، أو عدّاد نقاط للعبة، أو قصة تفاعلية بسيطة.
-              </p>
-              <p class="mb-0">
-                المشروع الناجح يبدأ بفكرة واضحة ثم خطوات قصيرة قابلة للتجربة والتحسين.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'المشاريع الصغيرة مناسبة لتعلم البرمجة.', answer: true },
-            '2': { question: 'يجب أن يكون أول مشروع معقداً جداً.', answer: false },
-            '3': { question: 'تجربة البرنامج وتحسينه جزء من التعلم.', answer: true }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'أفضل مشروع أول للمبتدئ:',
-              options: {
-                'أ': 'تطبيق بسيط وواضح الهدف',
-                'ب': 'نظام بنوك كامل',
-                'ج': 'برنامج بدون فكرة'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '6': {
-        title: 'حل المشكلات بالبرمجة',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-lightning-charge me-2"></i>التفكير لحل المشكلة
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                نحدد المشكلة، نقسمها إلى أجزاء صغيرة، نجرب حلاً، ثم نراجع النتيجة ونصلح الأخطاء.
-              </p>
-              <p class="mb-0">
-                هذه الطريقة تُسمى أحياناً التفكير الحاسوبي أو حل المشكلات خطوة بخطوة.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'تقسيم المشكلة إلى أجزاء صغيرة يسهّل حلها.', answer: true },
-            '2': { question: 'الأخطاء في البرنامج تعني أننا لا نستطيع التعلم.', answer: false },
-            '3': { question: 'مراجعة النتيجة بعد التجربة خطوة مهمة.', answer: true }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'عند فشل البرنامج أول تصرف مفيد:',
-              options: {
-                'أ': 'مراجعة الخطوات والبحث عن الخطأ',
-                'ب': 'حذف كل شيء فوراً',
-                'ج': 'ترك المشكلة دون تفكير'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '7': {
-        title: 'مهارات التفكير المنطقي',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-brain me-2"></i>لماذا التفكير المنطقي مهم؟
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                التفكير المنطقي يساعدنا على ترتيب الأفكار، واكتشاف العلاقات بين الأسباب والنتائج، واتخاذ قرارات صحيحة.
-              </p>
-              <p class="mb-0">
-                وهو مهارة تفيد في البرمجة وفي الحياة اليومية أيضاً.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'التفكير المنطقي مفيد داخل البرمجة وخارجها.', answer: true },
-            '2': { question: 'الترتيب الواضح للأفكار يقلل الأخطاء.', answer: true },
-            '3': { question: 'البرمجة لا تحتاج أي منطق.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'التفكير المنطقي يساعد على:',
-              options: {
-                'أ': 'ترتيب الحلول واكتشاف الأخطاء',
-                'ب': 'تجاهل الخطوات',
-                'ج': 'العمل عشوائياً'
+                'ج': 'الرسم'
               },
               answer: 'أ'
             }
           }
         }
       }
+      // باقي الدروس...
     }
   },
   '3': {
@@ -605,11 +378,8 @@ const groupsData = {
               <i class="bi bi-shield-check me-2"></i>ما هو الأمان الرقمي؟
             </h4>
             <div class="alert alert-light border">
-              <p class="mb-2">
-                <strong>الأمان الرقمي</strong> هو مجموعة سلوكيات وأدوات تحمي معلوماتنا وأجهزتنا أثناء استخدام الإنترنت.
-              </p>
               <p class="mb-0">
-                الهدف أن نستخدم التقنية بثقة مع تقليل المخاطر.
+                <strong>الأمان الرقمي</strong> هو حماية المعلومات والبيانات من التهديدات.
               </p>
             </div>
           </div>
@@ -617,14 +387,13 @@ const groupsData = {
         questions: {
           pretest_tf: {
             '1': { question: 'الأمان الرقمي مهم لحماية البيانات.', answer: true },
-            '2': { question: 'استخدام الإنترنت لا يحتاج أي حذر.', answer: false },
-            '3': { question: 'الأمان الرقمي يشمل السلوك والأدوات معاً.', answer: true }
+            '2': { question: 'كلمات المرور القوية غير مهمة.', answer: false }
           },
           pretest_mcq: {
             '1': {
               question: 'الأمان الرقمي يحمي:',
               options: {
-                'أ': 'المعلومات الشخصية والأجهزة',
+                'أ': 'المعلومات الشخصية',
                 'ب': 'الطعام فقط',
                 'ج': 'الملابس'
               },
@@ -632,221 +401,8 @@ const groupsData = {
             }
           }
         }
-      },
-      '2': {
-        title: 'حماية البيانات',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-lock me-2"></i>كيف نحمي بياناتنا؟
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                نحفظ النسخ المهمة، لا نشارك ملفاتنا الخاصة علناً، ونستخدم إعدادات الخصوصية في التطبيقات.
-              </p>
-              <p class="mb-0">
-                البيانات مثل الاسم ورقم الهاتف والصور تحتاج حماية خاصة.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'الصور والبيانات الشخصية تحتاج حماية.', answer: true },
-            '2': { question: 'مشاركة كل شيء علناً دائماً فكرة آمنة.', answer: false },
-            '3': { question: 'إعدادات الخصوصية تساعد في حماية البيانات.', answer: true }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'من طرق حماية البيانات:',
-              options: {
-                'أ': 'ضبط الخصوصية وعدم مشاركة المعلومات الحساسة',
-                'ب': 'نشر كلمة المرور',
-                'ج': 'فتح كل الروابط المجهولة'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '3': {
-        title: 'قواعد الأمان الرقمي',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-clipboard-check me-2"></i>قواعد ذهبية
-            </h4>
-            <div class="alert alert-light border">
-              <ul class="mb-0">
-                <li>لا تفتح روابط أو ملفات من مصادر مجهولة.</li>
-                <li>استشر معلماً أو ولي أمر عند الشك.</li>
-                <li>حدّث التطبيقات والنظام عند توفر التحديثات.</li>
-              </ul>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'الروابط المجهولة قد تكون خطرة.', answer: true },
-            '2': { question: 'طلب المساعدة عند الشك تصرف صحيح.', answer: true },
-            '3': { question: 'تحديث التطبيقات لا علاقة له بالأمان.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'إذا وصلتك رسالة غريبة تحتوي رابطاً:',
-              options: {
-                'أ': 'لا تفتحه واستشر شخصاً موثوقاً',
-                'ب': 'اضغط فوراً',
-                'ج': 'شارك الرابط مع الجميع'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '4': {
-        title: 'حماية المعلومات الشخصية',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-person-lock me-2"></i>معلوماتك ليست للنشر
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                لا تشارك عنوان المنزل أو أرقام البطاقات أو كلمات المرور مع أشخاص لا تعرفهم.
-              </p>
-              <p class="mb-0">
-                فكر قبل النشر: هل هذه المعلومة مناسبة للجميع؟
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'عنوان المنزل من المعلومات الشخصية الحساسة.', answer: true },
-            '2': { question: 'يمكن مشاركة كلمة المرور مع أي شخص على الإنترنت.', answer: false },
-            '3': { question: 'التفكير قبل النشر يحمي الخصوصية.', answer: true }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'من المعلومات التي لا يجب مشاركتها علناً:',
-              options: {
-                'أ': 'كلمة المرور وبيانات البطاقة',
-                'ب': 'اسم مادة دراسية عامة',
-                'ج': 'لونك المفضل فقط'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '5': {
-        title: 'التهديدات الرقمية',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-exclamation-triangle me-2"></i>تعرف على المخاطر
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                من التهديدات الشائعة: الرسائل الاحتيالية، والبرمجيات الضارة، ومحاولات انتحال الهوية.
-              </p>
-              <p class="mb-0">
-                التعرف على هذه التهديدات يساعدنا على تجنبها مبكراً.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'الرسائل الاحتيالية من التهديدات الرقمية.', answer: true },
-            '2': { question: 'كل الملفات المرفقة آمنة دائماً.', answer: false },
-            '3': { question: 'معرفة التهديدات تساعد على الوقاية منها.', answer: true }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'مثال على تهديد رقمي:',
-              options: {
-                'أ': 'رسالة تطلب كلمة المرور بحجة جائزة وهمية',
-                'ب': 'قراءة قصة تعليمية',
-                'ج': 'حل واجب مدرسي'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '6': {
-        title: 'كلمات المرور القوية',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-key me-2"></i>كيف تصنع كلمة مرور قوية؟
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                كلمة المرور القوية طويلة، وتجمع حروفاً وأرقاماً ورموزاً، ولا تكون سهلة التخمين مثل تاريخ الميلاد.
-              </p>
-              <p class="mb-0">
-                ويفضّل استخدام كلمة مختلفة لكل حساب مهم.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'كلمة المرور القوية يجب أن تكون طويلة وصعبة التخمين.', answer: true },
-            '2': { question: 'استخدام 123456 كلمة مرور قوية.', answer: false },
-            '3': { question: 'يفضّل عدم تكرار نفس كلمة المرور في كل الحسابات.', answer: true }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'أفضل مثال لكلمة مرور قوية:',
-              options: {
-                'أ': 'مزيج طويل من حروف وأرقام ورموز',
-                'ب': 'اسمك فقط',
-                'ج': '1234'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '7': {
-        title: 'أفضل الممارسات الأمنية',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-check2-all me-2"></i>عادات رقمية آمنة
-            </h4>
-            <div class="alert alert-light border">
-              <ul class="mb-0">
-                <li>سجّل الخروج من الحسابات على الأجهزة المشتركة.</li>
-                <li>فعّل الحماية بخطوتين إن توفرت.</li>
-                <li>كن لطيفاً ومسؤولاً في التعامل الرقمي مع الآخرين.</li>
-              </ul>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'تسجيل الخروج من الأجهزة المشتركة عادة أمنية جيدة.', answer: true },
-            '2': { question: 'المسؤولية الرقمية جزء من الأمان.', answer: true },
-            '3': { question: 'ترك الحساب مفتوحاً على جهاز عام أمر آمن.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'من أفضل الممارسات الأمنية:',
-              options: {
-                'أ': 'تفعيل الحماية الإضافية وتسجيل الخروج عند الانتهاء',
-                'ب': 'مشاركة الحساب مع الجميع',
-                'ج': 'تجاهل رسائل التنبيه الأمنية دائماً'
-              },
-              answer: 'أ'
-            }
-          }
-        }
       }
+      // باقي الدروس...
     }
   },
   '4': {
@@ -863,257 +419,38 @@ const groupsData = {
     ],
     lessons: {
       '1': {
-        title: 'مفهوم الإبداع',
+        title: 'مفهوم الإبداع والابتكار',
         content: `
           <div class="mb-5">
             <h4 class="fw-bold mb-3" style="color: var(--primary);">
               <i class="bi bi-lightbulb me-2"></i>ما هو الإبداع؟
             </h4>
             <div class="alert alert-light border">
-              <p class="mb-2">
-                <strong>الإبداع</strong> هو القدرة على إنتاج أفكار جديدة ومفيدة أو تقديم حلول بطرق غير تقليدية.
-              </p>
               <p class="mb-0">
-                كل تلميذ يمكنه تنمية إبداعه بالملاحظة والتجربة والسؤال.
+                <strong>الإبداع</strong> هو القدرة على إنتاج أفكار جديدة ومفيدة.
               </p>
             </div>
           </div>
         `,
         questions: {
           pretest_tf: {
-            '1': { question: 'الإبداع يعني إنتاج أفكار جديدة ومفيدة.', answer: true },
-            '2': { question: 'الإبداع مهارة يمكن تنميتها.', answer: true },
-            '3': { question: 'الإبداع مقصور على الرسم فقط.', answer: false }
+            '1': { question: 'الإبداع مهم في التكنولوجيا.', answer: true },
+            '2': { question: 'الابتكار غير مفيد.', answer: false }
           },
           pretest_mcq: {
             '1': {
-              question: 'الإبداع يظهر عندما:',
+              question: 'الإبداع يُستخدم في:',
               options: {
-                'أ': 'نبتكر حلاً جديداً لمشكلة',
-                'ب': 'نكرر نفس الخطأ دون تفكير',
-                'ج': 'نتوقف عن المحاولة'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '2': {
-        title: 'التفكير الإبداعي',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-stars me-2"></i>كيف نفكر بطريقة إبداعية؟
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                نطرح أسئلة، نجمع أفكاراً كثيرة أولاً، ثم نختار أفضلها ونحسّنها.
-              </p>
-              <p class="mb-0">
-                لا نسخر من الأفكار في مرحلة العصف الذهني؛ التقييم يأتي لاحقاً.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'العصف الذهني يساعد على جمع أفكار كثيرة.', answer: true },
-            '2': { question: 'التفكير الإبداعي يبدأ بطرح الأسئلة.', answer: true },
-            '3': { question: 'يجب رفض كل فكرة جديدة فوراً.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'خطوة مفيدة في التفكير الإبداعي:',
-              options: {
-                'أ': 'جمع أفكار متعددة ثم تحسينها',
-                'ب': 'اختيار أول فكرة دون مراجعة',
-                'ج': 'إيقاف النقاش فوراً'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '3': {
-        title: 'إنشاء مشاريع مبتكرة',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-rocket-takeoff me-2"></i>من الفكرة إلى مشروع
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                المشروع المبتكر يحل حاجة حقيقية: مثل تطبيق تذكير للمذاكرة، أو قصة رقمية تعليمية، أو لعبة تشرح معلومة علمية.
-              </p>
-              <p class="mb-0">
-                ابدأ صغيراً، ثم طوّر المشروع بعد تجربة المستخدمين.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'المشروع المبتكر يحاول حل حاجة حقيقية.', answer: true },
-            '2': { question: 'البدء بمشروع صغير ثم تطويره فكرة جيدة.', answer: true },
-            '3': { question: 'لا فائدة من تجربة المشروع مع الآخرين.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'مثال على مشروع مبتكر للتلاميذ:',
-              options: {
-                'أ': 'قصة رقمية تعلّم مهارة مفيدة',
-                'ب': 'نسخ واجب دون فهم',
-                'ج': 'إغلاق الجهاز طوال اليوم'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '4': {
-        title: 'حل المشكلات بطرق إبداعية',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-tools me-2"></i>حلول خارج الصندوق
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                عندما تواجه مشكلة، جرّب أكثر من حل، واستفد من أدوات مختلفة، وتعاون مع زملائك.
-              </p>
-              <p class="mb-0">
-                الفشل المؤقت جزء طبيعي من الوصول إلى حل أفضل.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'تجربة أكثر من حل يزيد فرص النجاح.', answer: true },
-            '2': { question: 'التعاون قد يفتح أفكاراً جديدة.', answer: true },
-            '3': { question: 'الفشل المؤقت يعني التوقف النهائي.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'عند مواجهة مشكلة صعبة:',
-              options: {
-                'أ': 'نجرب حلولًا متعددة ونراجع النتائج',
-                'ب': 'نستسلم مباشرة',
-                'ج': 'نلوم الأداة فقط دون تفكير'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '5': {
-        title: 'تطوير أفكار جديدة',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-journal-richtext me-2"></i>كيف نطور الفكرة؟
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                سجّل الفكرة، ابحث عن أمثلة مشابهة، أضف تحسينات، ثم اختبرها على نطاق صغير.
-              </p>
-              <p class="mb-0">
-                دفتر الأفكار أو ملاحظات الهاتف تساعد على عدم نسيان الإلهام.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'تسجيل الأفكار يساعد على تطويرها لاحقاً.', answer: true },
-            '2': { question: 'اختبار الفكرة على نطاق صغير مفيد.', answer: true },
-            '3': { question: 'البحث عن أمثلة مشابهة يضعف الإبداع دائماً.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'طريقة جيدة لتطوير فكرة:',
-              options: {
-                'أ': 'تسجيلها وتحسينها ثم اختبارها',
-                'ب': 'نسيانها فوراً',
-                'ج': 'رفض أي تعديل عليها'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '6': {
-        title: 'الابتكار في التكنولوجيا',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-cpu me-2"></i>التكنولوجيا مساحة للابتكار
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                يمكننا استخدام التطبيقات والبرمجة والتصميم لابتكار حلول تعليمية واجتماعية مفيدة.
-              </p>
-              <p class="mb-0">
-                الابتكار لا يعني اختراع شيء ضخم دائماً؛ تحسين بسيط ونافع يُعد ابتكاراً.
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'يمكن استخدام التكنولوجيا لابتكار حلول مفيدة.', answer: true },
-            '2': { question: 'التحسين الصغير النافع يُعد شكلاً من الابتكار.', answer: true },
-            '3': { question: 'الابتكار مستحيل للتلاميذ.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'مثال على ابتكار تقني بسيط:',
-              options: {
-                'أ': 'تطبيق تذكير يومي للمذاكرة',
-                'ب': 'كسر جهاز عمداً',
-                'ج': 'إهمال التعلم'
-              },
-              answer: 'أ'
-            }
-          }
-        }
-      },
-      '7': {
-        title: 'تنمية روح الإبداع',
-        content: `
-          <div class="mb-5">
-            <h4 class="fw-bold mb-3" style="color: var(--primary);">
-              <i class="bi bi-emoji-smile me-2"></i>حافظ على فضولك
-            </h4>
-            <div class="alert alert-light border">
-              <p class="mb-2">
-                روح الإبداع تنمو بالممارسة، وتقبّل الخطأ، وحب التعلم، وتشجيع الزملاء.
-              </p>
-              <p class="mb-0">
-                اسأل دائماً: كيف يمكنني تحسين هذا؟ وما الذي لم يجربه أحد من قبل؟
-              </p>
-            </div>
-          </div>
-        `,
-        questions: {
-          pretest_tf: {
-            '1': { question: 'الممارسة تساعد على تنمية الإبداع.', answer: true },
-            '2': { question: 'تشجيع الزملاء يدعم بيئة إبداعية.', answer: true },
-            '3': { question: 'الخوف الدائم من الخطأ ينمّي الإبداع.', answer: false }
-          },
-          pretest_mcq: {
-            '1': {
-              question: 'أفضل عادة لتنمية روح الإبداع:',
-              options: {
-                'أ': 'التجربة والتعلم من الأخطاء',
-                'ب': 'تجنب أي تحدٍ جديد',
-                'ج': 'السخرية من أفكار الآخرين'
+                'أ': 'إنشاء تطبيقات جديدة',
+                'ب': 'الطبخ فقط',
+                'ج': 'الرسم'
               },
               answer: 'أ'
             }
           }
         }
       }
+      // باقي الدروس...
     }
   }
 };
