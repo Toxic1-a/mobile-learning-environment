@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* الخط العربي الموحد يُحمَّل من HTML (Google Fonts — Cairo) */
 
 /* تم إزالة متغيرات الألوان المتضاربة - الآن تستخدم theme-colors.css */
 
@@ -12,10 +12,10 @@
 /* تم إزالة الوضع الداكن - يتم استخدام نظام الألوان الموحد من theme-colors.css */
 
 html, body {
-  font-family: 'Inter', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
   scroll-behavior: smooth;
-  background-color: var(--bg-cream) !important;
-  color: var(--text-navy) !important;
+  background: linear-gradient(160deg, rgba(79, 172, 254, 0.10) 0%, rgba(0, 242, 254, 0.06) 45%, #f0f9ff 100%) !important;
+  color: var(--text-navy, #161748) !important;
   line-height: 1.6;
   font-weight: 400;
   transition: none; /* إزالة التحولات لتجنب تداخل الألوان */
@@ -49,7 +49,7 @@ html {
 
 /* Responsive Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
   font-weight: 600;
   line-height: 1.3;
   color: var(--text-primary);
@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -286,7 +286,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-brand {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
   font-weight: 700;
   font-size: 1.5rem;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -572,7 +572,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #3f8efc !important;
   font-size: 1.5rem !important;
   font-weight: 700 !important;
-  font-family: 'Cairo', 'Tajawal', sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
   text-decoration: none !important;
   display: block !important;
   visibility: visible !important;
@@ -1544,7 +1544,7 @@ body.bg-light {
 .btn {
   border-radius: 0.75rem;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
@@ -6015,6 +6015,134 @@ video {
   margin-top: 0.5rem;
 }
 
-
-
-
+/* SITE UNITY OVERRIDES */
+html, body, body.site-body {
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
+  background: linear-gradient(160deg, rgba(79, 172, 254, 0.10) 0%, rgba(0, 242, 254, 0.06) 45%, #f0f9ff 100%) !important;
+  background-attachment: fixed !important;
+  color: #161748 !important;
+  padding-top: 88px !important;
+}
+@media (max-width: 991.98px) {
+  html, body, body.site-body { padding-top: 76px !important; }
+}
+.navbar.navbar-kids,
+.navbar-kids {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
+  border: none !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 0 0 1.5rem 1.5rem;
+  border-bottom: 4px solid rgba(79, 172, 254, 0.45) !important;
+  z-index: 1030;
+  min-height: 72px;
+}
+.navbar-kids .navbar-brand-text {
+  color: #ffffff !important;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 1.35rem !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.4rem 0.85rem !important;
+  border-radius: 0.65rem !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.navbar-kids .nav-link {
+  color: #ffffff !important;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
+  font-weight: 600 !important;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.85rem;
+}
+.navbar-kids .nav-link:hover,
+.navbar-kids .nav-link.active {
+  background: rgba(79, 172, 254, 0.28) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+.btn-kids-primary,
+.btn-kids-secondary,
+.btn-kids-tertiary,
+a.btn-kids-primary,
+a.btn-kids-secondary,
+a.btn-kids-tertiary,
+.btn-kids-tertiary.btn-interactive {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  border: none !important;
+  color: #ffffff !important;
+  border-radius: 15px !important;
+  font-weight: 700 !important;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
+  box-shadow: 0 8px 24px rgba(79, 172, 254, 0.3) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.25rem !important;
+}
+.navbar-kids .btn-kids-tertiary {
+  width: auto !important;
+  font-size: 0.9rem !important;
+  padding: 0.55rem 1.1rem !important;
+}
+.btn-kids-primary:hover,
+.btn-kids-secondary:hover,
+.btn-kids-tertiary:hover,
+a.btn-kids-tertiary:hover {
+  color: #ffffff !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 12px 32px rgba(79, 172, 254, 0.4) !important;
+  text-decoration: none !important;
+}
+.btn-primary,
+.btn.btn-primary {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
+}
+.btn-primary:hover,
+.btn.btn-primary:hover {
+  background: linear-gradient(135deg, #3d8bfe, #00d4fe) !important;
+  color: #ffffff !important;
+}
+.btn-outline-primary {
+  border: 2px solid #4facfe !important;
+  color: #00b4ff !important;
+  background: transparent !important;
+}
+.btn-outline-primary:hover {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+}
+.card {
+  border-radius: 20px !important;
+  border: 1px solid rgba(79, 172, 254, 0.12) !important;
+}
+.kids-card-header {
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.14), rgba(0, 242, 254, 0.10)) !important;
+  color: #161748 !important;
+}
+.footer.bg-dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+}
+.footer .footer-link,
+.footer .footer-bottom-link,
+.footer .footer-description,
+.footer .footer-copyright,
+.footer .social-title {
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none;
+}
+.footer .footer-link:hover,
+.footer .footer-bottom-link:hover {
+  color: #00f2fe !important;
+}
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+}
+.navbar-toggler-icon {
+  filter: invert(1) grayscale(100%);
+}

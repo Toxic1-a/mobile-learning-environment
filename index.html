@@ -6,29 +6,16 @@
   <title>الصفحة الرئيسية | بيئة التعلم النقال</title>
   <meta name="description" content="بيئة تعلم نقال تفاعلية مع واقع معزز ودروس واختبارات">
   <meta name="theme-color" content="#4facfe">
-  
-  <!-- CSS Files - ملفات الأنماط -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- 🎨 Kids Theme Colors - نظام الألوان الموحد للأطفال -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="assets/css/theme-colors.css" rel="stylesheet">
-  <!-- 🎨 Kids Theme Animations - حركات الأطفال التفاعلية -->
   <link href="assets/css/theme-animations.css" rel="stylesheet">
-  <!-- 🎨 Main CSS - ملف موحد لجميع الأنماط -->
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
   <link href="assets/css/styles.css?v=bluegray-1" rel="stylesheet">
-  <link rel="icon" href="data:,">
-  
+
   <style>
-    /* إضافات سريعة للتأكد من عمل التصميم */
-    body {
-      background: #FDF6E3 !important;
-      color: #161748 !important;
-      font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
-      min-height: 100vh;
-    }
-    
     .btn-primary {
       background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
       border: none;
@@ -36,41 +23,14 @@
       padding: 12px 24px;
       transition: all 0.3s ease;
     }
-    
     .btn-primary:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
     }
-    
-    .card {
-      background: white;
-      border-radius: 20px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 30px rgba(79, 172, 254, 0.25);
-    }
-    
-    .hero-section {
-      background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-    
-    .text-gradient {
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
   </style>
+  <link rel="icon" href="data:,">
 </head>
-<body>
+<body class="site-body">
   <nav class="navbar navbar-expand-lg navbar-kids fixed-top" aria-label="الشريط العلوي">
     <div class="container">
       <!-- Main Site Title -->
@@ -266,9 +226,91 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-light py-4 mt-5">
-    <div class="container text-center">
-      <p class="text-muted mb-0">Copyright © All rights reserved by Rasha Nabil</p>
+    <footer class="footer bg-dark text-light py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Brand Section -->
+        <div class="col-12 col-lg-4">
+          <div class="footer-brand">
+            <h5 class="footer-title mb-3">
+              <i class="bi bi-phone-fill me-2"></i>بيئة التعلم النقال
+            </h5>
+            <p class="footer-description mb-4">
+              منصة تعليمية متطورة تجمع بين التكنولوجيا الحديثة والتعلم التفاعلي لتوفير تجربة تعليمية مميزة للطلاب والمعلمين.
+            </p>
+            <div class="footer-social">
+              <h6 class="social-title mb-3">تابعنا على</h6>
+              <div class="social-links">
+                <a href="#" class="social-link facebook" aria-label="فيسبوك">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-link twitter" aria-label="تويتر">
+                  <i class="bi bi-twitter"></i>
+                </a>
+                <a href="#" class="social-link linkedin" aria-label="لينكد إن">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="#" class="social-link youtube" aria-label="يوتيوب">
+                  <i class="bi bi-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="footer-section">
+            <h6 class="footer-heading mb-3">
+              <i class="bi bi-link-45deg me-2"></i>روابط سريعة
+            </h6>
+            <ul class="footer-links">
+              <li><a href="index.html" class="footer-link"><i class="bi bi-house me-2"></i>الرئيسية</a></li>
+              <li><a href="instructions.html" class="footer-link"><i class="bi bi-info-circle me-2"></i>التعليمات</a></li>
+              <li><a href="about.html" class="footer-link"><i class="bi bi-person-circle me-2"></i>من نحن</a></li>
+              <li><a href="contact.html" class="footer-link"><i class="bi bi-telephone me-2"></i>تواصل معنا</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Courses -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="footer-section">
+            <h6 class="footer-heading mb-3">
+              <i class="bi bi-people me-2"></i>المجموعات التعليمية
+            </h6>
+            <ul class="footer-links">
+              <li><a href="login.html" class="footer-link"><i class="bi bi-1-circle me-2"></i>المجموعة الأولى</a></li>
+              <li><a href="login.html" class="footer-link"><i class="bi bi-2-circle me-2"></i>المجموعة الثانية</a></li>
+              <li><a href="login.html" class="footer-link"><i class="bi bi-3-circle me-2"></i>المجموعة الثالثة</a></li>
+              <li><a href="login.html" class="footer-link"><i class="bi bi-4-circle me-2"></i>المجموعة الرابعة</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <hr class="footer-divider my-4">
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-6">
+            <p class="footer-copyright mb-0">
+              Copyright © All rights reserved by Rasha Nabil
+            </p>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="footer-bottom-links">
+              <a href="#" class="footer-bottom-link">سياسة الخصوصية</a>
+              <a href="#" class="footer-bottom-link">شروط الاستخدام</a>
+              <a href="#" class="footer-bottom-link">ملفات تعريف الارتباط</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-user-info mt-2">
+          <span id="signedInUser" class="text-muted small"></span>
+        </div>
+      </div>
     </div>
   </footer>
 

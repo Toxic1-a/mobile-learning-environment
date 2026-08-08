@@ -4,176 +4,63 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>الصفحة الرئيسية للطالب | بيئة التعلم النقال</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="assets/css/theme-colors.css" rel="stylesheet">
+  <link href="assets/css/theme-animations.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
   <link href="assets/css/styles.css?v=bluegray-1" rel="stylesheet">
-  <!-- 🎨 Unified Kids Theme Color Palette - MUST be first! -->
-    <!-- ðŸŽ¨ Unified Gradient Theme -->`n  <link href="assets/css/unified-kids-theme.css" rel="stylesheet"><link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-    <!-- ðŸŽ¨ Unified Gradient Theme -->`n  <link href="assets/css/unified-kids-theme.css" rel="stylesheet"><style>
-    body {
-      font-family: 'Cairo', 'Tajawal', sans-serif;
-      background: var(--bg-cream) !important;
-      background-attachment: fixed;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-      color: var(--text-navy) !important;
+
+  <style>
+    .welcome-card,
+    .course-card,
+    .stat-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(79, 172, 254, 0.12);
+      border: 1px solid rgba(79, 172, 254, 0.15);
+      color: #161748;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
-    /* Force text visibility */
-    * { color: var(--text-navy) !important; }
-    
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--text-blue) !important;
-      font-weight: 600 !important;
-    }
-    
-    p, span, div { color: var(--text-navy) !important; }
-    
-    .text-muted { color: var(--text-muted) !important; }
-    
-    .student-header {
-      background: var(--header-gradient);
-      color: var(--text-white);
-      padding: 1rem 0;
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .welcome-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-color-soft);
-      transition: all 0.3s ease;
-      color: var(--text-navy) !important;
-    }
-    
-    .welcome-card h2, .welcome-card p, .welcome-card span {
-      color: #1f2937 !important;
-    }
-    
-    .welcome-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-    
-    .course-card {
-      background: #22235a;
-      border-radius: 16px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-      border: 1px solid rgba(233,238,242,0.08);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      color: #e9eef2 !important;
-    }
-    
-    .course-card h5, .course-card p, .course-card span {
-      color: #1f2937 !important;
-    }
-    
-    .course-card:hover {
+    .welcome-card:hover,
+    .course-card:hover,
+    .stat-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(57,160,202,0.35);
-      border-color: var(--info);
+      box-shadow: 0 12px 30px rgba(79, 172, 254, 0.22);
     }
-    
+    .welcome-card h2,
+    .welcome-card p,
+    .welcome-card span,
+    .course-card h5,
+    .course-card p,
+    .course-card span,
+    .stat-card h3,
+    .stat-card h4,
+    .stat-card h5,
+    .stat-card h6,
+    .stat-item h4,
+    .stat-item span {
+      color: #161748 !important;
+    }
+    .course-card { cursor: pointer; }
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      border-color: var(--primary);
-      border-radius: 12px;
-      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+      border: none;
+      border-radius: 16px;
       font-weight: 600;
-      transition: all 0.3s ease;
-      font-family: var(--font-family-primary);
     }
-    
-    .btn-primary:hover {
-      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-      border-color: var(--accent-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(57,160,202,0.35);
-    }
-    
-    .btn-outline-danger {
-      border-color: #dc2626;
-      color: #dc2626;
-      border-radius: 12px;
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      font-family: var(--font-family-primary);
-    }
-    
-    .btn-outline-danger:hover {
-      background: #dc2626;
-      border-color: #dc2626;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
-    }
-    
+    .btn-outline-danger { border-radius: 12px; font-weight: 600; }
     .progress-bar {
-      background: linear-gradient(90deg, var(--info), var(--primary));
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
       border-radius: 10px;
     }
-    
-    .stat-card {
-      background: #22235a;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-      border: 1px solid rgba(233,238,242,0.08);
-      transition: all 0.3s ease;
-      color: #e9eef2 !important;
-    }
-    
-    .stat-card h3, .stat-card h4, .stat-card h5, .stat-card h6 {
-      color: #1f2937 !important;
-    }
-    
-    .stat-item h4, .stat-item span {
-      color: #1f2937 !important;
-    }
-    
-    .stat-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-    
-    /* Additional text visibility fixes */
-    .badge {
-      color: white !important;
-    }
-    
-    .btn {
-      color: white !important;
-    }
-    
-    .btn-outline-primary {
-      color: #2563eb !important;
-      border-color: #2563eb !important;
-    }
-    
-    .btn-outline-secondary {
-      color: #6b7280 !important;
-      border-color: #6b7280 !important;
-    }
-    
-    .btn-outline-danger {
-      color: #dc2626 !important;
-      border-color: #dc2626 !important;
-    }
-    
-    /* Force visibility for all text elements */
-    .container, .row, .col-12, .col-md-6, .col-lg-4 {
-      color: #1f2937 !important;
-    }
   </style>
-  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-    <!-- ðŸŽ¨ Unified Gradient Theme -->`n  <link href="assets/css/unified-kids-theme.css" rel="stylesheet"></head>
-<body style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.05) 0%, rgba(0, 242, 254, 0.05) 100%) !important; color: var(--text-navy) !important;">
+  <link rel="icon" href="data:,">
+</head>
+<body class="site-body">
   <nav class="navbar navbar-expand-lg navbar-kids fixed-top" aria-label="الشريط العلوي">
     <div class="container">
       <!-- Main Site Title -->
@@ -358,7 +245,95 @@
     </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="footer bg-dark text-light py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Brand Section -->
+        <div class="col-12 col-lg-4">
+          <div class="footer-brand">
+            <h5 class="footer-title mb-3">
+              <i class="bi bi-phone-fill me-2"></i>بيئة التعلم النقال
+            </h5>
+            <p class="footer-description mb-4">
+              منصة تعليمية متطورة تجمع بين التكنولوجيا الحديثة والتعلم التفاعلي لتوفير تجربة تعليمية مميزة للطلاب والمعلمين.
+            </p>
+            <div class="footer-social">
+              <h6 class="social-title mb-3">تابعنا على</h6>
+              <div class="social-links">
+                <a href="#" class="social-link facebook" aria-label="فيسبوك">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-link twitter" aria-label="تويتر">
+                  <i class="bi bi-twitter"></i>
+                </a>
+                <a href="#" class="social-link linkedin" aria-label="لينكد إن">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="#" class="social-link youtube" aria-label="يوتيوب">
+                  <i class="bi bi-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="footer-section">
+            <h6 class="footer-heading mb-3">
+              <i class="bi bi-link-45deg me-2"></i>روابط سريعة
+            </h6>
+            <ul class="footer-links">
+              <li><a href="index.html" class="footer-link"><i class="bi bi-house me-2"></i>الرئيسية</a></li>
+              <li><a href="instructions.html" class="footer-link"><i class="bi bi-info-circle me-2"></i>التعليمات</a></li>
+              <li><a href="about.html" class="footer-link"><i class="bi bi-person-circle me-2"></i>من نحن</a></li>
+              <li><a href="contact.html" class="footer-link"><i class="bi bi-telephone me-2"></i>تواصل معنا</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Courses -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="footer-section">
+            <h6 class="footer-heading mb-3">
+              <i class="bi bi-people me-2"></i>المجموعات التعليمية
+            </h6>
+            <ul class="footer-links">
+              <li><a href="login.html" class="footer-link"><i class="bi bi-1-circle me-2"></i>المجموعة الأولى</a></li>
+              <li><a href="login.html" class="footer-link"><i class="bi bi-2-circle me-2"></i>المجموعة الثانية</a></li>
+              <li><a href="login.html" class="footer-link"><i class="bi bi-3-circle me-2"></i>المجموعة الثالثة</a></li>
+              <li><a href="login.html" class="footer-link"><i class="bi bi-4-circle me-2"></i>المجموعة الرابعة</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <hr class="footer-divider my-4">
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-6">
+            <p class="footer-copyright mb-0">
+              Copyright © All rights reserved by Rasha Nabil
+            </p>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="footer-bottom-links">
+              <a href="#" class="footer-bottom-link">سياسة الخصوصية</a>
+              <a href="#" class="footer-bottom-link">شروط الاستخدام</a>
+              <a href="#" class="footer-bottom-link">ملفات تعريف الارتباط</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-user-info mt-2">
+          <span id="signedInUser" class="text-muted small"></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
     // Initialize student home page

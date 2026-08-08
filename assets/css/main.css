@@ -24,9 +24,9 @@ html {
 }
 
 body {
-  background: #FDF6E3 !important;
+  background: linear-gradient(160deg, rgba(79, 172, 254, 0.10) 0%, rgba(0, 242, 254, 0.06) 45%, #f0f9ff 100%) !important;
   color: #161748 !important;
-  font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
   min-height: 100vh;
   letter-spacing: normal;
   line-height: 1.6;

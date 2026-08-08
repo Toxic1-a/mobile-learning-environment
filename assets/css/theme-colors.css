@@ -31,10 +31,12 @@
      BACKGROUND COLORS - ألوان الخلفيات
      ============================================ */
   
-  --bg-primary: #FDF6E3;           /* الخلفية الأساسية */
+  --bg-primary: #f0f9ff;           /* الخلفية الأساسية — أزرق فاتح */
   --bg-card: #FFFFFF;              /* خلفية البطاقات */
   --bg-light: #F8FAFC;             /* خلفية فاتحة */
+  --bg-site: linear-gradient(160deg, rgba(79, 172, 254, 0.10) 0%, rgba(0, 242, 254, 0.06) 45%, #f0f9ff 100%);
   --bg-gradient: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+  --font-family-arabic: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
   
   /* ============================================
      TEXT COLORS - ألوان النصوص
@@ -110,7 +112,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* Force light mode colors */
-    --bg-primary: #FDF6E3 !important;
+    --bg-primary: #f0f9ff !important;
     --bg-card: #FFFFFF !important;
     --text-primary: #161748 !important;
     --text-secondary: #334155 !important;
@@ -126,13 +128,72 @@
   box-sizing: border-box;
 }
 
-body {
-  background: var(--bg-primary) !important;
+body,
+body.site-body {
+  background: var(--bg-site) !important;
+  background-attachment: fixed !important;
   color: var(--text-primary) !important;
-  font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+  font-family: var(--font-family-arabic) !important;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 88px !important; /* ثابت تحت الشريط العلوي */
+}
+
+@media (max-width: 991.98px) {
+  body,
+  body.site-body {
+    padding-top: 76px !important;
+  }
+}
+
+/* Soft kids card headers (content pages) */
+.kids-card-header {
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.14), rgba(0, 242, 254, 0.10)) !important;
+  color: #161748 !important;
+  border-bottom: 1px solid rgba(79, 172, 254, 0.18);
+  border-radius: 20px 20px 0 0 !important;
+  padding: 1rem 1.25rem;
+}
+
+.kids-card-header .card-title,
+.kids-card-header h3,
+.kids-card-header h4,
+.kids-card-header h5 {
+  color: #161748 !important;
+}
+
+.kids-card-header-info {
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.16), rgba(157, 249, 239, 0.12)) !important;
+}
+
+.kids-card-header-success {
+  background: linear-gradient(135deg, rgba(157, 249, 239, 0.22), rgba(79, 172, 254, 0.10)) !important;
+}
+
+.kids-card-header-warning {
+  background: linear-gradient(135deg, rgba(255, 194, 111, 0.22), rgba(79, 172, 254, 0.08)) !important;
+}
+
+.kids-card-header-danger {
+  background: linear-gradient(135deg, rgba(255, 107, 129, 0.16), rgba(79, 172, 254, 0.08)) !important;
+}
+
+.page-content-header .display-4,
+.page-content-header h1 {
+  color: #00b4ff !important;
+}
+
+body.lesson-page {
+  background: var(--bg-site) !important;
+}
+
+body.lesson-page .background-overlay,
+body.lesson-page .parallax-layer,
+body.lesson-page .animated-grid,
+body.lesson-page .floating-particles-bg,
+body.lesson-page .floating-shape {
+  display: none !important;
 }
 
 /* ============================================

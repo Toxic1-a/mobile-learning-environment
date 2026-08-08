@@ -45,7 +45,7 @@
      ============================================ */
   
   --bg-white: var(--white);        /* أبيض نقي */
-  --bg-cream: #FFFEF7;             /* كريمي فاتح */
+  --bg-cream: #f0f9ff;             /* أزرق فاتح متوافق مع هوية الموقع */
   --bg-light: #F7FAFC;             /* رمادي فاتح جداً */
   --bg-gradient-light: rgba(79, 172, 254, 0.1);   /* تدرج فاتح */
   --bg-gradient-medium: rgba(0, 242, 254, 0.1);   /* تدرج متوسط */
@@ -122,8 +122,8 @@ html {
 }
 
 body {
-  font-family: 'Poppins', 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
-  background-color: var(--bg-cream);
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
+  background: linear-gradient(160deg, rgba(79, 172, 254, 0.10) 0%, rgba(0, 242, 254, 0.06) 45%, #f0f9ff 100%);
   color: var(--text-dark);
   line-height: 1.6;
   margin: 0;
@@ -136,7 +136,7 @@ body {
    ============================================ */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', 'Cairo', sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: var(--space-md);
@@ -160,7 +160,7 @@ p {
    ============================================ */
 
 .btn {
-  font-family: 'Poppins', 'Cairo', sans-serif;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
   font-weight: 600;
   border-radius: var(--radius-md);
   padding: var(--space-md) var(--space-lg);
