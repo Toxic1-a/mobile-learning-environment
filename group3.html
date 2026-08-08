@@ -16,6 +16,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <!-- 🎨 Main CSS - ملف موحد لجميع الأنماط -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
+  <link href="assets/css/styles.css?v=bluegray-1" rel="stylesheet">
   <link rel="icon" href="data:,">
   
   <style>
@@ -85,24 +87,29 @@
   <div class="floating-shape triangle" style="top: 25%; right: 10%; animation-delay: 4s;"></div>
   <div class="floating-shape square" style="bottom: 15%; left: 15%; animation-delay: 8s;"></div>
   
-  <nav class="navbar navbar-expand-lg navbar-kids fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-kids fixed-top" aria-label="الشريط العلوي">
     <div class="container">
+      <!-- Main Site Title -->
       <div class="navbar-brand-container">
         <span class="navbar-brand-text">بيئة التعلم النقال</span>
       </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="تبديل القائمة">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="index.html">🏠 الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">ℹ️ من نحن</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">📞 تواصل معنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="instructions.html">📋 التعليمات</a></li>
           <li class="nav-item"><a class="nav-link" href="objectives.html">🎯 الأهداف العامة</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">👥 من نحن</a></li>
           <li class="nav-item"><a class="nav-link" href="dashboard.html">📊 لوحة المتابعة</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">📞 تواصل معنا</a></li>
         </ul>
+
         <div class="d-flex flex-column flex-lg-row gap-2 align-items-center">
-          <span class="nav-link text-muted" id="studentInfo">مرحباً بك</span>
+          <a href="login.html" class="btn-kids-tertiary btn-interactive" id="loginBtn" aria-label="اختيار المجموعة">👥 اختيار المجموعة</a>
+          <!-- زر الخروج تم إزالته -->
         </div>
       </div>
     </div>
@@ -229,6 +236,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- 🚀 Main JS - ملف موحد لجميع الوظائف -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/scroll-to-top.js"></script>
+  <script src="assets/js/fixed-header.js"></script>
   
   <!-- Lesson Data - بيانات الدروس -->
   <script src="assets/js/lesson-data.js"></script>

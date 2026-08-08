@@ -16,6 +16,8 @@
   <link href="assets/css/theme-animations.css" rel="stylesheet">
   <!-- 🎨 Main CSS - ملف موحد لجميع الأنماط -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
+  <link href="assets/css/styles.css?v=bluegray-1" rel="stylesheet">
   <link rel="icon" href="data:,">
   
   <style>
@@ -25,15 +27,6 @@
       color: #161748 !important;
       font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
       min-height: 100vh;
-    }
-    
-    .navbar {
-      background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
-      box-shadow: 0 4px 20px rgba(79, 172, 254, 0.25);
-    }
-    
-    .navbar-brand, .nav-link {
-      color: white !important;
     }
     
     .btn-primary {
@@ -78,27 +71,29 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-kids fixed-top" aria-label="الشريط العلوي">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        🎓 بيئة التعلم النقال
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <!-- Main Site Title -->
+      <div class="navbar-brand-container">
+        <span class="navbar-brand-text">بيئة التعلم النقال</span>
+      </div>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="تبديل القائمة">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html">🏠 الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">ℹ️ من نحن</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">📞 تواصل معنا</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">🏠 الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="instructions.html">📋 التعليمات</a></li>
           <li class="nav-item"><a class="nav-link" href="objectives.html">🎯 الأهداف العامة</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">👥 من نحن</a></li>
           <li class="nav-item"><a class="nav-link" href="dashboard.html">📊 لوحة المتابعة</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">📞 تواصل معنا</a></li>
         </ul>
-        <div class="d-flex gap-2">
-          <a href="login.html" class="btn btn-outline-light btn-sm">
-            <i class="bi bi-box-arrow-in-right me-1"></i>تسجيل الدخول
-          </a>
+
+        <div class="d-flex flex-column flex-lg-row gap-2 align-items-center">
+          <a href="login.html" class="btn-kids-tertiary btn-interactive" id="loginBtn" aria-label="اختيار المجموعة">👥 اختيار المجموعة</a>
+          <!-- زر الخروج تم إزالته -->
         </div>
       </div>
     </div>
@@ -281,5 +276,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- 🚀 Main JS - ملف موحد لجميع الوظائف -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/scroll-to-top.js"></script>
+  <script src="assets/js/fixed-header.js"></script>
 </body>
 </html>

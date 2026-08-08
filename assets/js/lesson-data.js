@@ -1160,9 +1160,15 @@ function loadLessonData(group, lesson) {
   loadQuestions(lessonData.questions);
   
   // تحديث الروابط
-  document.getElementById('group-link').href = `group${group}.html`;
-  document.getElementById('group-link').textContent = `📚 المجموعة ${group}`;
-  document.getElementById('back-to-group').href = `group${group}.html`;
+  const groupLink = document.getElementById('group-link');
+  if (groupLink) {
+    groupLink.href = `group${group}.html`;
+    groupLink.textContent = `📚 المجموعة ${group}`;
+  }
+  const backToGroup = document.getElementById('back-to-group');
+  if (backToGroup) {
+    backToGroup.href = `group${group}.html`;
+  }
   
   // تحديث الدرس التالي فقط إن وُجد في البيانات
   const nextLesson = String(parseInt(lesson, 10) + 1);
