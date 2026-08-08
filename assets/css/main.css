@@ -81,7 +81,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1:hover, h2:hover, h3:hover {
-  animation: textGlow 2s ease-in-out infinite;
+  /* no glow animation — keep headings fully opaque/readable */
+  opacity: 1;
 }
 
 p, span, label, li {
@@ -218,7 +219,9 @@ p, span, label, li {
 }
 
 .card-interactive:hover {
-  animation: cardFloat 3s ease-in-out infinite;
+  animation: none;
+  opacity: 1;
+  visibility: visible;
 }
 
 .card-header {

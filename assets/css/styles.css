@@ -2093,20 +2093,35 @@ body.bg-light {
   border-color: var(--primary);
 }
 
-/* Fade-in Animation for Cards — never leave opacity:0 as resting style
-   (hover must not cancel animation into a hidden state) */
-.card {
-  opacity: 1;
+/* Cards stay visible — no opacity entrance animation.
+   Fade-in + hover previously snapped cards back to opacity:0. */
+.card,
+.card-kids,
+.lesson-card,
+.course-card,
+.feature-card,
+.welcome-card,
+.stat-card,
+.goal-card,
+.dashboard-card,
+.research-title-card,
+.question-card,
+.card-interactive,
+.card-hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
   transform: none;
-  animation: fadeInUp 0.8s ease-out both;
 }
 
-.card:nth-child(1) { animation-delay: 0.1s; }
-.card:nth-child(2) { animation-delay: 0.2s; }
-.card:nth-child(3) { animation-delay: 0.3s; }
-.card:nth-child(4) { animation-delay: 0.4s; }
-.card:nth-child(5) { animation-delay: 0.5s; }
-.card:nth-child(6) { animation-delay: 0.6s; }
+.card:nth-child(1),
+.card:nth-child(2),
+.card:nth-child(3),
+.card:nth-child(4),
+.card:nth-child(5),
+.card:nth-child(6) {
+  animation-delay: 0s;
+}
 
 .nav-tabs .nav-link {
   border-radius: 0.5rem 0.5rem 0 0;
@@ -2168,11 +2183,11 @@ body.bg-light {
   }
 }
 
-/* Scroll-triggered animations */
+/* Scroll-triggered animations — keep content visible (never opacity:0) */
 .fade-in-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .fade-in-on-scroll.visible {
@@ -2181,20 +2196,20 @@ body.bg-light {
 }
 
 .slide-in-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.8s ease-out;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .slide-in-left.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
 }
 
 .slide-in-right {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.8s ease-out;
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .slide-in-right.visible {
@@ -2280,7 +2295,9 @@ body.bg-light {
 
 .icon:hover {
   animation: none;
-  transform: scale(1.1);
+  transform: none;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* تأثيرات التحميل */
@@ -2645,17 +2662,20 @@ body.bg-light {
   }
 }
 
-/* Course Card Animations */
+/* Course cards: no opacity fade-in (avoids hover vanishing) */
 .course-card {
-  animation: fadeInUp 0.6s ease-out;
+  opacity: 1 !important;
+  animation: none !important;
 }
 
-.course-card:nth-child(1) { animation-delay: 0.1s; }
-.course-card:nth-child(2) { animation-delay: 0.2s; }
-.course-card:nth-child(3) { animation-delay: 0.3s; }
-.course-card:nth-child(4) { animation-delay: 0.4s; }
-.course-card:nth-child(5) { animation-delay: 0.5s; }
-.course-card:nth-child(6) { animation-delay: 0.6s; }
+.course-card:nth-child(1),
+.course-card:nth-child(2),
+.course-card:nth-child(3),
+.course-card:nth-child(4),
+.course-card:nth-child(5),
+.course-card:nth-child(6) {
+  animation-delay: 0s;
+}
 
 /* Search and Filter Styles */
 .search-filter-section {
@@ -6839,11 +6859,20 @@ form .btn,
 }
 
 /* ============================================
-   HOVER SAFETY — keep content visible & readable
-   Do NOT set animation:none on elements that fade in
-   (that reverts opacity:0 and makes them vanish).
+   HOVER SAFETY — never hide / blank content
+   Allowed: subtle shadow or underline only.
+   Forbidden: opacity:0, invisible text, extreme transforms.
    ============================================ */
 a:hover,
+p:hover,
+span:hover,
+li:hover,
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover,
 .nav-link:hover,
 .btn:hover,
 .btn-primary:hover,
@@ -6853,6 +6882,60 @@ a:hover,
 .btn-kids-secondary:hover,
 .btn-kids-tertiary:hover,
 button:hover,
+.card:hover,
+.card:hover *,
+.card-kids:hover,
+.card-kids:hover *,
+.card-interactive:hover,
+.card-interactive:hover *,
+.card-hover:hover,
+.card-hover:hover *,
+.feature-card:hover,
+.feature-card:hover *,
+.feature-card.card-hover:hover,
+.lesson-card:hover,
+.lesson-card:hover *,
+.course-card:hover,
+.course-card:hover *,
+.welcome-card:hover,
+.welcome-card:hover *,
+.stat-card:hover,
+.stat-card:hover *,
+.goal-card:hover,
+.goal-card:hover *,
+.dashboard-card:hover,
+.dashboard-card:hover *,
+.question-card:hover,
+.question-card:hover *,
+.question-card-interactive:hover,
+.research-title-card:hover,
+.testimonial-card:hover,
+.hover-lift:hover,
+.hover-scale:hover,
+.hover-zoom:hover,
+.hover-bounce:hover,
+.hover-rotate:hover,
+.card-info:hover,
+.card-goals:hover,
+.card-tests:hover,
+.card-content:hover,
+.card-activities:hover,
+.navbar-brand:hover,
+.navbar-brand-text:hover,
+.footer-link:hover,
+.group-button:hover,
+.fade-in-scroll:hover,
+.slide-up-scroll:hover,
+.slide-left-scroll:hover,
+.slide-right-scroll:hover,
+.scale-in-scroll:hover,
+.stagger-children:hover > *,
+.list-unstyled li:hover,
+.objectives-section ul li:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .card:hover,
 .card-kids:hover,
 .card-interactive:hover,
@@ -6879,57 +6962,63 @@ button:hover,
 .card-tests:hover,
 .card-content:hover,
 .card-activities:hover,
-.navbar-brand:hover,
-.navbar-brand-text:hover,
-.footer-link:hover,
-.group-button:hover {
+.list-unstyled li:hover,
+.objectives-section ul li:hover {
+  transform: none !important;
+  scale: none !important;
+  filter: none !important;
+}
+
+/* Readable contrast on light cards (never dark-on-dark / light-on-light) */
+.card:hover,
+.card-kids:hover,
+.lesson-card:hover,
+.course-card:hover,
+.welcome-card:hover,
+.feature-card:hover,
+.stat-card:hover,
+.goal-card:hover,
+.dashboard-card:hover {
+  background-color: #ffffff !important;
+  color: #161748 !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12) !important;
+}
+
+.card:hover .card-body,
+.card:hover .card-title,
+.card:hover p,
+.card:hover li,
+.card:hover h1,
+.card:hover h2,
+.card:hover h3,
+.card:hover h4,
+.card:hover h5,
+.card:hover h6,
+.card:hover .lead,
+.card:hover .text-muted,
+.lesson-card:hover h4,
+.lesson-card:hover p,
+.feature-card:hover p,
+.feature-card:hover h3,
+.feature-card:hover h4,
+.course-card:hover .course-title,
+.stat-card:hover .stat-title,
+.stat-card:hover .stat-number {
+  color: #161748 !important;
+  -webkit-text-fill-color: #161748 !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-.card:hover,
-.card-kids:hover,
-.card-interactive:hover,
-.card-hover:hover,
-.feature-card:hover,
-.feature-card.card-hover:hover,
-.lesson-card:hover,
-.course-card:hover,
-.welcome-card:hover,
-.stat-card:hover,
-.goal-card:hover,
-.dashboard-card:hover,
-.question-card:hover,
-.question-card-interactive:hover,
-.research-title-card:hover,
-.testimonial-card:hover,
-.hover-lift:hover,
-.hover-scale:hover,
-.hover-zoom:hover,
-.hover-bounce:hover,
-.hover-rotate:hover,
-.card-info:hover,
-.card-goals:hover,
-.card-tests:hover,
-.card-content:hover,
-.card-activities:hover {
-  transform: none !important;
-  scale: none !important;
-}
-
-.card:hover,
-.card-kids:hover,
-.card-hover:hover,
-.feature-card:hover,
-.lesson-card:hover,
-.course-card:hover,
-.welcome-card:hover,
-.stat-card:hover,
-.goal-card:hover,
-.dashboard-card:hover,
-.question-card:hover,
-.research-title-card:hover {
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1) !important;
+/* Keep intentional white text on colored headers/buttons */
+.card:hover .card-header,
+.card:hover .card-header *,
+.card:hover .btn,
+.card:hover .btn *,
+.card:hover .badge,
+.card:hover .progress-badge,
+.card:hover .lesson-number {
+  -webkit-text-fill-color: currentColor;
 }
 
 .card:hover::before,
@@ -6937,6 +7026,7 @@ button:hover,
 .stat-card:hover::before,
 .question-card:hover::before {
   opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .course-card:hover .course-icon i,
@@ -6954,11 +7044,17 @@ button:hover,
   visibility: visible !important;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 .navbar-kids .nav-link:hover,
 .navbar-kids .nav-link:focus {
   color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   opacity: 1 !important;
   visibility: visible !important;
+  text-decoration: underline;
 }
 
 .btn-primary:hover,
@@ -6968,8 +7064,10 @@ button:hover,
 .btn-kids-tertiary:hover,
 a.btn-kids-tertiary:hover {
   color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   opacity: 1 !important;
   visibility: visible !important;
+  text-decoration: none;
 }
 
 .card:focus-visible,

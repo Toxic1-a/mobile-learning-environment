@@ -225,67 +225,13 @@ class ScrollAnimationsManager {
     }
 
     applyAnimation(element, type) {
-        const animations = {
-            fadeIn: {
-                from: { opacity: 0 },
-                to: { opacity: 1 },
-                duration: 600,
-                easing: 'ease-out'
-            },
-            fadeInUp: {
-                from: { opacity: 0, transform: 'translateY(30px)' },
-                to: { opacity: 1, transform: 'translateY(0)' },
-                duration: 800,
-                easing: 'ease-out'
-            },
-            slideUp: {
-                from: { opacity: 0, transform: 'translateY(50px)' },
-                to: { opacity: 1, transform: 'translateY(0)' },
-                duration: 700,
-                easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
-            },
-            slideLeft: {
-                from: { opacity: 0, transform: 'translateX(-50px)' },
-                to: { opacity: 1, transform: 'translateX(0)' },
-                duration: 700,
-                easing: 'ease-out'
-            },
-            slideRight: {
-                from: { opacity: 0, transform: 'translateX(50px)' },
-                to: { opacity: 1, transform: 'translateX(0)' },
-                duration: 700,
-                easing: 'ease-out'
-            },
-            scaleIn: {
-                from: { opacity: 0, transform: 'scale(0.8)' },
-                to: { opacity: 1, transform: 'scale(1)' },
-                duration: 600,
-                easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
-            }
-        };
-
-        const animation = animations[type];
-        if (!animation) return;
-
-        // تطبيق الأنيميشن باستخدام Web Animations API
-        if ('animate' in element) {
-            element.animate([
-                animation.from,
-                animation.to
-            ], {
-                duration: animation.duration,
-                easing: animation.easing,
-                fill: 'forwards'
-            });
-        } else {
-            // Fallback للدعم القديم
-            this.applyFallbackAnimation(element, animation);
-        }
-
-        // إضافة كلاس للانتهاء
-        setTimeout(() => {
-            element.classList.add('animation-complete');
-        }, animation.duration);
+        // Never animate from opacity:0 — hover used to cancel fill:forwards
+        // and snap content back to invisible. Keep elements readable always.
+        element.style.opacity = '1';
+        element.style.visibility = 'visible';
+        element.style.transform = 'none';
+        element.classList.add('visible', 'animation-complete');
+        void type;
     }
 
     applyFallbackAnimation(element, animation) {

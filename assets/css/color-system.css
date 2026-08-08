@@ -620,9 +620,12 @@ button:focus {
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-5px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  transform: none;
+  opacity: 1 !important;
+  visibility: visible !important;
   border-color: var(--primary-indigo) !important;
+  color: var(--text-dark) !important;
 }
 
 .card-title {

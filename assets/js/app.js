@@ -304,29 +304,29 @@
     refresh();
   }
 
-  // Enhanced Visual Effects with Modern Animations
+  // Enhanced Visual Effects — shadow only on hover (never hide via opacity/transform)
   function addVisualEffects() {
-    // Enhanced Button Effects
     document.querySelectorAll('.btn').forEach(btn => {
       btn.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-3px) scale(1.02)';
-        this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+        this.style.opacity = '1';
+        this.style.visibility = 'visible';
+        this.style.boxShadow = '0 6px 16px rgba(0,0,0,0.12)';
       });
       btn.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
         this.style.boxShadow = '';
       });
     });
 
-    // Enhanced Card Effects
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-8px) scale(1.02)';
-        this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
+        this.style.opacity = '1';
+        this.style.visibility = 'visible';
+        this.style.transform = 'none';
+        this.style.boxShadow = '0 4px 14px rgba(15,23,42,0.12)';
       });
       card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
         this.style.boxShadow = '';
+        this.style.transform = '';
       });
     });
 
@@ -1116,14 +1116,18 @@
       }, 16);
     }
 
-    // Add hover effects to stat cards
+    // Stat cards: keep visible; subtle shadow only
     statCards.forEach(card => {
       card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-8px) scale(1.02)';
+        this.style.opacity = '1';
+        this.style.visibility = 'visible';
+        this.style.transform = 'none';
+        this.style.boxShadow = '0 4px 14px rgba(15,23,42,0.12)';
       });
       
       card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
+        this.style.transform = '';
+        this.style.boxShadow = '';
       });
     });
 

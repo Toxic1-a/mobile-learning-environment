@@ -247,7 +247,9 @@ a.btn-kids-tertiary:focus {
 
 .card:hover, .card-kids:hover {
   transform: none;
-  box-shadow: var(--shadow-sm) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12) !important;
 }
 
 /* حدود عامة ناعمة */
