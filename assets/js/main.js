@@ -323,12 +323,24 @@ class LessonQuizManager {
         const form = button.closest('form');
         if (!form || form.dataset.submitted === 'true') return;
 
-        form.dataset.submitted = 'true';
-        
-        const quizId = form.id.replace('-form', '');
         const answers = this.collectAnswers(form);
+        const expected = this.getExpectedQuestionNames(window.lessonCorrectAnswers || {});
+        if (expected.length > 0) {
+            const missing = expected.filter((name) => answers[name] == null);
+            if (missing.length > 0) {
+                showError('يرجى الإجابة على جميع الأسئلة قبل التقييم');
+                return;
+            }
+        } else if (Object.keys(answers).length === 0) {
+            showError('يرجى اختيار إجابات قبل التقييم');
+            return;
+        }
+
+        form.dataset.submitted = 'true';
+
+        const quizId = form.id.replace('-form', '');
         const results = this.calculateResults(answers, quizId);
-        
+
         this.displayResults(results, form);
         this.saveResults(quizId, results);
     }
@@ -348,16 +360,43 @@ class LessonQuizManager {
 
     calculateResults(answers, quizId) {
         const correctAnswers = window.lessonCorrectAnswers || {};
+        const expectedQuestions = this.getExpectedQuestionNames(correctAnswers);
         let correct = 0;
         let total = 0;
         const details = {};
-        
-        Object.keys(answers).forEach(questionName => {
+
+        // Score against the full answer key when available (not only answered radios)
+        const questionNames = expectedQuestions.length > 0
+            ? expectedQuestions
+            : Object.keys(answers);
+
+        // If answer key is missing, unlock content so students are not blocked
+        if (expectedQuestions.length === 0 && Object.keys(answers).length > 0) {
+            console.warn('lessonCorrectAnswers مفقودة — سيتم فتح المحتوى بعد التقييم');
+            Object.keys(answers).forEach((questionName) => {
+                total++;
+                correct++;
+                details[questionName] = {
+                    correct: true,
+                    userAnswer: answers[questionName],
+                    correctAnswer: null
+                };
+            });
+            return {
+                correct,
+                total,
+                percentage: 100,
+                details,
+                passed: true
+            };
+        }
+
+        questionNames.forEach((questionName) => {
             total++;
             const userAnswer = answers[questionName];
             const correctAnswer = this.getCorrectAnswer(questionName, correctAnswers);
             const isCorrect = this.answersMatch(userAnswer, correctAnswer);
-            
+
             if (isCorrect) {
                 correct++;
                 details[questionName] = { correct: true, userAnswer, correctAnswer };
@@ -365,9 +404,9 @@ class LessonQuizManager {
                 details[questionName] = { correct: false, userAnswer, correctAnswer };
             }
         });
-        
+
         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-        
+
         return {
             correct,
             total,
@@ -375,6 +414,20 @@ class LessonQuizManager {
             details,
             passed: percentage >= 60
         };
+    }
+
+    /**
+     * Build full list of question input names from the lesson answer key.
+     */
+    getExpectedQuestionNames(correctAnswers) {
+        const names = [];
+        Object.keys(correctAnswers.pretest_tf || {}).forEach((num) => {
+            names.push(`pretest_tf_${num}`);
+        });
+        Object.keys(correctAnswers.pretest_mcq || {}).forEach((num) => {
+            names.push(`pretest_mcq_${num}`);
+        });
+        return names;
     }
 
     /**
@@ -411,21 +464,26 @@ class LessonQuizManager {
     displayResults(results, form) {
         // Hide form
         form.style.display = 'none';
-        
+
         // Create results container
         const resultsContainer = document.createElement('div');
         resultsContainer.className = 'quiz-results';
         resultsContainer.innerHTML = this.generateResultsHTML(results);
-        
+
         // Insert results
         form.parentElement.appendChild(resultsContainer);
-        
+
+        const openBtn = resultsContainer.querySelector('#open-lesson-content');
+        if (openBtn) {
+            openBtn.addEventListener('click', () => this.showLessonContent());
+        }
+
         // Show results with animation
         setTimeout(() => {
             resultsContainer.classList.add('show');
         }, 100);
-        
-        // Show lesson content if passed
+
+        // Unlock lesson content when passed (≥60%)
         if (results.passed) {
             this.showLessonContent();
         }
@@ -435,7 +493,7 @@ class LessonQuizManager {
         const statusClass = results.passed ? 'success' : 'danger';
         const statusIcon = results.passed ? 'bi-check-circle-fill' : 'bi-x-circle-fill';
         const statusText = results.passed ? 'ممتاز!' : 'تحتاج للمحاولة مرة أخرى';
-        
+
         return `
             <div class="card shadow-lg border-0">
                 <div class="card-header text-white bg-${statusClass}">
@@ -448,7 +506,7 @@ class LessonQuizManager {
                         <div class="display-1 fw-bold text-${statusClass}">${results.percentage}%</div>
                         <p class="lead">${statusText}</p>
                     </div>
-                    
+
                     <div class="row mb-4">
                         <div class="col-6">
                             <div class="card bg-light">
@@ -467,12 +525,15 @@ class LessonQuizManager {
                             </div>
                         </div>
                     </div>
-                    
-                    ${results.passed ? 
-                        '<div class="alert alert-success"><strong>تهانينا!</strong> يمكنك الآن مشاهدة محتوى الدرس.</div>' :
-                        '<div class="alert alert-warning"><strong>نصيحة:</strong> حاول مرة أخرى لتحسين نتيجتك.</div>'
+
+                    ${results.passed
+                        ? `<div class="alert alert-success"><strong>تهانينا!</strong> يمكنك الآن مشاهدة محتوى الدرس.</div>
+                           <button type="button" class="btn btn-primary btn-lg me-2" id="open-lesson-content">
+                             <i class="bi bi-book me-2"></i>عرض محتوى الدرس
+                           </button>`
+                        : '<div class="alert alert-warning"><strong>نصيحة:</strong> تحتاج إلى 60٪ على الأقل لفتح المحتوى. حاول مرة أخرى.</div>'
                     }
-                    
+
                     <button type="button" class="btn btn-secondary" onclick="location.reload()">
                         <i class="bi bi-arrow-clockwise me-2"></i>إعادة الاختبار
                     </button>
@@ -483,10 +544,29 @@ class LessonQuizManager {
 
     showLessonContent() {
         const lessonContent = document.getElementById('lesson-content');
-        if (lessonContent) {
-            lessonContent.style.display = 'block';
-            lessonContent.scrollIntoView({ behavior: 'smooth' });
+        if (!lessonContent) {
+            console.error('عنصر #lesson-content غير موجود');
+            return;
         }
+
+        lessonContent.classList.add('lesson-unlocked');
+        lessonContent.removeAttribute('hidden');
+        lessonContent.style.setProperty('display', 'block', 'important');
+        lessonContent.style.setProperty('visibility', 'visible', 'important');
+        lessonContent.style.setProperty('opacity', '1', 'important');
+
+        const body = document.getElementById('lesson-content-body');
+        if (body) {
+            body.style.setProperty('visibility', 'visible', 'important');
+            body.style.setProperty('opacity', '1', 'important');
+        }
+
+        // Scroll below fixed navbar
+        window.setTimeout(() => {
+            const offset = 100;
+            const top = lessonContent.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }, 150);
     }
 
     saveResults(quizId, results) {

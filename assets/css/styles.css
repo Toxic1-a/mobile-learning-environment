@@ -6677,6 +6677,36 @@ form .btn,
   max-width: 360px;
 }
 
+/* Unlock lesson body after passing pretest */
+#lesson-content.lesson-unlocked {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  scroll-margin-top: 6rem;
+}
+
+#lesson-content.lesson-unlocked,
+#lesson-content.lesson-unlocked .card,
+#lesson-content.lesson-unlocked #lesson-content-body {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Unlock lesson body after passing pretest */
+#lesson-content.lesson-unlocked {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  scroll-margin-top: 6rem;
+}
+
+#lesson-content.lesson-unlocked,
+#lesson-content.lesson-unlocked .card,
+#lesson-content.lesson-unlocked #lesson-content-body {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 #lesson-content .d-flex.justify-content-between {
   flex-wrap: wrap;
   gap: 0.75rem;
