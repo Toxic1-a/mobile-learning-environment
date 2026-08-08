@@ -2093,11 +2093,12 @@ body.bg-light {
   border-color: var(--primary);
 }
 
-/* Fade-in Animation for Cards */
+/* Fade-in Animation for Cards — never leave opacity:0 as resting style
+   (hover must not cancel animation into a hidden state) */
 .card {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 1;
+  transform: none;
+  animation: fadeInUp 0.8s ease-out both;
 }
 
 .card:nth-child(1) { animation-delay: 0.1s; }
@@ -3074,8 +3075,8 @@ body.bg-light {
 }
 
 .testimonial-card:hover .testimonial-quote {
-  opacity: 0.5;
-  transform: scale(1.1);
+  opacity: 1;
+  transform: none;
 }
 
 /* Responsive Testimonials */
@@ -6838,8 +6839,54 @@ form .btn,
 }
 
 /* ============================================
-   STABLE CARDS — no hover morph / jump
+   HOVER SAFETY — keep content visible & readable
+   Do NOT set animation:none on elements that fade in
+   (that reverts opacity:0 and makes them vanish).
    ============================================ */
+a:hover,
+.nav-link:hover,
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-outline-primary:hover,
+.btn-kids-primary:hover,
+.btn-kids-secondary:hover,
+.btn-kids-tertiary:hover,
+button:hover,
+.card:hover,
+.card-kids:hover,
+.card-interactive:hover,
+.card-hover:hover,
+.feature-card:hover,
+.feature-card.card-hover:hover,
+.lesson-card:hover,
+.course-card:hover,
+.welcome-card:hover,
+.stat-card:hover,
+.goal-card:hover,
+.dashboard-card:hover,
+.question-card:hover,
+.question-card-interactive:hover,
+.research-title-card:hover,
+.testimonial-card:hover,
+.hover-lift:hover,
+.hover-scale:hover,
+.hover-zoom:hover,
+.hover-bounce:hover,
+.hover-rotate:hover,
+.card-info:hover,
+.card-goals:hover,
+.card-tests:hover,
+.card-content:hover,
+.card-activities:hover,
+.navbar-brand:hover,
+.navbar-brand-text:hover,
+.footer-link:hover,
+.group-button:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .card:hover,
 .card-kids:hover,
 .card-interactive:hover,
@@ -6868,7 +6915,6 @@ form .btn,
 .card-activities:hover {
   transform: none !important;
   scale: none !important;
-  animation: none !important;
 }
 
 .card:hover,
@@ -6904,7 +6950,26 @@ form .btn,
 .testimonial-card:hover .avatar-img,
 .testimonial-card:hover .testimonial-quote {
   transform: none !important;
-  color: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.navbar-kids .nav-link:hover,
+.navbar-kids .nav-link:focus {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.btn-primary:hover,
+.btn.btn-primary:hover,
+.btn-kids-primary:hover,
+.btn-kids-secondary:hover,
+.btn-kids-tertiary:hover,
+a.btn-kids-tertiary:hover {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .card:focus-visible,
