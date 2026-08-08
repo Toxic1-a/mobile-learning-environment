@@ -426,16 +426,17 @@ p {
 
 @media (max-width: 768px) {
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
   
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.5rem; }
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
   
   .btn {
     padding: var(--space-md);
-    font-size: 0.9rem;
+    font-size: 1rem;
+    min-height: 44px;
   }
   
   .card-body {
@@ -455,6 +456,7 @@ p {
   .btn {
     width: 100%;
     margin-bottom: var(--space-sm);
+    min-height: 48px;
   }
   
   .quiz-option {

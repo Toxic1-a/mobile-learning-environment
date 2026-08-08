@@ -12,7 +12,7 @@
   <link href="assets/css/theme-animations.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-  <link href="assets/css/styles.css?v=header-brand-4" rel="stylesheet">
+  <link href="assets/css/styles.css?v=device-opt-1" rel="stylesheet">
   <link rel="icon" href="data:,">
 </head>
 <body class="site-body">
@@ -69,18 +69,18 @@
       <div class="col-12">
         <div class="card border-0 shadow-sm">
           <div class="card-body">
-            <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <div class="d-flex flex-column flex-md-row flex-wrap justify-content-between align-items-stretch align-items-md-center gap-3">
               <h5 class="mb-0">
                 <i class="bi bi-gear-fill me-2 text-primary"></i>
                 إدارة البيانات
               </h5>
-              <div class="d-flex gap-2">
-                <button class="btn btn-outline-primary btn-sm" onclick="updateDashboard()">
-                  <i class="bi bi-arrow-clockwise me-1"></i>
+              <div class="d-flex flex-column flex-sm-row gap-2 dashboard-actions">
+                <button class="btn btn-outline-primary" type="button" onclick="updateDashboard()" aria-label="تحديث البيانات">
+                  <i class="bi bi-arrow-clockwise me-1" aria-hidden="true"></i>
                   تحديث البيانات
                 </button>
-                <button class="btn btn-outline-danger btn-sm" onclick="resetStatistics()">
-                  <i class="bi bi-trash-fill me-1"></i>
+                <button class="btn btn-outline-danger" type="button" onclick="resetStatistics()" aria-label="تصفير الإحصائيات">
+                  <i class="bi bi-trash-fill me-1" aria-hidden="true"></i>
                   تصفير الإحصائيات
                 </button>
               </div>
@@ -482,41 +482,63 @@
       return `منذ ${days} يوم`;
     }
 
-    // فحص تسجيل دخول الإدارة
-    function checkAdminLogin() {
-      const adminLoginStatus = localStorage.getItem('adminLoggedIn');
-      const adminUser = localStorage.getItem('adminUser');
-      const adminLoginTime = localStorage.getItem('adminLoginTime');
-      
-      if (!adminLoginStatus || adminLoginStatus !== 'true') {
-        alert('يجب تسجيل دخول الإدارة أولاً للوصول إلى لوحة المتابعة');
-        window.location.href = 'admin-login.html';
-        return false;
+    function getAdminUserData() {
+      const adminUserRaw = localStorage.getItem('adminUser');
+      if (adminUserRaw) {
+        try {
+          return JSON.parse(adminUserRaw);
+        } catch (error) {
+          console.error('خطأ في تحليل بيانات المستخدم:', error);
+        }
       }
-      
-      if (!adminUser) {
-        alert('بيانات المستخدم غير موجودة. يرجى تسجيل الدخول مرة أخرى');
-        localStorage.removeItem('adminLoggedIn');
-        window.location.href = 'admin-login.html';
-        return false;
+
+      if (localStorage.getItem('userType') === 'admin') {
+        try {
+          const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+          if (currentUser.username) {
+            return currentUser;
+          }
+        } catch (error) {
+          console.error('خطأ في تحليل بيانات المستخدم:', error);
+        }
       }
-      
-      try {
-        const userData = JSON.parse(adminUser);
-        
-        // عرض معلومات المدير المسجل
-        displayAdminInfo(userData);
-        return true;
-      } catch (error) {
-        console.error('خطأ في تحليل بيانات المستخدم:', error);
-        alert('خطأ في بيانات المستخدم. يرجى تسجيل الدخول مرة أخرى');
-        localStorage.clear();
-        window.location.href = 'admin-login.html';
-        return false;
+
+      return null;
+    }
+
+    function clearAdminSession() {
+      localStorage.removeItem('adminLoggedIn');
+      localStorage.removeItem('adminUser');
+      localStorage.removeItem('adminLoginTime');
+      if (localStorage.getItem('userType') === 'admin') {
+        localStorage.removeItem('userType');
+        localStorage.removeItem('currentUser');
       }
     }
 
-    // عرض معلومات المدير
+    function checkAdminLogin() {
+      const userData = getAdminUserData();
+      const hasLegacySession = localStorage.getItem('adminLoggedIn') === 'true';
+      const hasModernSession = localStorage.getItem('userType') === 'admin';
+
+      if (!userData || (!hasLegacySession && !hasModernSession)) {
+        alert('يجب تسجيل دخول الإدارة أولاً للوصول إلى لوحة المتابعة');
+        clearAdminSession();
+        window.location.href = 'admin-login.html';
+        return false;
+      }
+
+      localStorage.setItem('adminLoggedIn', 'true');
+      localStorage.setItem('adminUser', JSON.stringify({
+        username: userData.username,
+        loginTime: userData.loginTime || new Date().toISOString()
+      }));
+      localStorage.setItem('userType', 'admin');
+
+      displayAdminInfo(userData);
+      return true;
+    }
+
     function displayAdminInfo(adminUser) {
       const adminInfoElement = document.getElementById('adminInfo');
       if (adminInfoElement) {
@@ -529,51 +551,33 @@
       }
     }
 
-    // تسجيل الخروج من الإدارة
-    function adminLogout() {
-      if (confirm('هل أنت متأكد من تسجيل الخروج من لوحة الإدارة؟')) {
-        localStorage.removeItem('adminLoggedIn');
-        localStorage.removeItem('adminUser');
-        window.location.href = 'admin-login.html';
-      }
-    }
-
-    // تحديث جميع البيانات
     function refreshAllData() {
       lmsManager.updateDashboard();
       updateRecentActivity();
     }
 
-    // تحديث تلقائي كل 30 ثانية
     setInterval(refreshAllData, 30000);
 
-    // تحديث عند تحميل الصفحة
     document.addEventListener('DOMContentLoaded', function() {
       if (checkAdminLogin()) {
         refreshAllData();
-        
-        // إضافة زر تسجيل الخروج
         addLogoutButton();
       }
     });
 
-    // دالة تسجيل الخروج
     function adminLogout() {
       if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
-        // مسح جميع بيانات تسجيل الدخول
-        localStorage.removeItem('adminLoggedIn');
-        localStorage.removeItem('adminUser');
-        localStorage.removeItem('adminLoginTime');
-        
-        
-        // توجيه لصفحة تسجيل الدخول
+        clearAdminSession();
         window.location.href = 'admin-login.html';
       }
     }
 
-    // إضافة زر تسجيل الخروج
     function addLogoutButton() {
+      if (document.getElementById('adminLogoutBtn')) return;
+
       const logoutBtn = document.createElement('button');
+      logoutBtn.id = 'adminLogoutBtn';
+      logoutBtn.type = 'button';
       logoutBtn.className = 'btn btn-outline-danger btn-sm';
       logoutBtn.innerHTML = '<i class="bi bi-box-arrow-right me-1"></i>تسجيل الخروج';
       logoutBtn.onclick = adminLogout;
@@ -581,17 +585,15 @@
       const navbarNav = document.querySelector('.navbar-nav');
       if (navbarNav) {
         const li = document.createElement('li');
-        li.className = 'nav-item';
+        li.className = 'nav-item ms-xl-2';
         li.appendChild(logoutBtn);
         navbarNav.appendChild(li);
       }
     }
   </script>
-  
-  <!-- نظام التبديل بين الوضع الفاتح والداكن - DISABLED -->
+
   <script src="assets/js/scroll-to-top.js"></script>
   <script src="assets/js/fixed-header.js"></script>
-  <!-- Contrast Fix JavaScript -->
   <script src="assets/js/contrast-fix.js" defer></script>
 </body>
 </html>

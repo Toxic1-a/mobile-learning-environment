@@ -13,7 +13,7 @@
   <link href="assets/css/theme-animations.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-  <link href="assets/css/styles.css?v=header-brand-4" rel="stylesheet">
+  <link href="assets/css/styles.css?v=device-opt-1" rel="stylesheet">
   <link rel="icon" href="data:,">
 </head>
 <body class="site-body">
@@ -402,17 +402,19 @@
   <script>window.pageId = 'about';</script>
   <script src="assets/js/lms-system.js"></script>
   <script>
-    // فحص تسجيل دخول الإدارة للوصول لرابط لوحة المتابعة
     function checkAdminAccess() {
-      const adminLoginStatus = localStorage.getItem('adminLoggedIn');
-      const dashboardLink = document.querySelector('a[href="dashboard.html"]');
+      const isAdmin =
+        (localStorage.getItem('adminLoggedIn') === 'true' && localStorage.getItem('adminUser')) ||
+        localStorage.getItem('userType') === 'admin';
+      const dashboardLink = document.querySelector('a[href="dashboard.html"], a[href="admin-login.html"]');
       
       if (dashboardLink) {
-        if (adminLoginStatus === 'true') {
-          dashboardLink.innerHTML = '<i class="bi bi-graph-up me-1"></i>لوحة المتابعة';
+        if (isAdmin) {
+          dashboardLink.href = 'dashboard.html';
+          dashboardLink.innerHTML = '📊 لوحة المتابعة';
         } else {
           dashboardLink.href = 'admin-login.html';
-          dashboardLink.innerHTML = '<i class="bi bi-shield-lock me-1"></i>تسجيل دخول الإدارة';
+          dashboardLink.innerHTML = '🔐 تسجيل دخول الإدارة';
         }
       }
     }

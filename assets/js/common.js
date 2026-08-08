@@ -4,20 +4,25 @@
  * مع دعم Loading States و Skeleton Screens
  */
 
+function isAdminLoggedIn() {
+  if (localStorage.getItem('adminLoggedIn') === 'true' && localStorage.getItem('adminUser')) {
+    return true;
+  }
+  return localStorage.getItem('userType') === 'admin';
+}
+
 // فحص تسجيل دخول الإدارة للوصول لرابط لوحة المتابعة
 function checkAdminAccess() {
-  const adminLoginStatus = localStorage.getItem('adminLoggedIn');
-  const dashboardLink = document.querySelector('a[href="dashboard.html"]');
+  const dashboardLink = document.querySelector('a[href="dashboard.html"], a[href="admin-login.html"]');
   
   if (dashboardLink) {
-    if (adminLoginStatus === 'true') {
-      // المدير مسجل دخول - السماح بالوصول
+    if (isAdminLoggedIn()) {
+      dashboardLink.href = 'dashboard.html';
       dashboardLink.style.display = 'block';
-      dashboardLink.innerHTML = '<i class="bi bi-graph-up me-1"></i>لوحة المتابعة';
+      dashboardLink.innerHTML = '📊 لوحة المتابعة';
     } else {
-      // المدير غير مسجل دخول - توجيه لصفحة تسجيل الدخول
       dashboardLink.href = 'admin-login.html';
-      dashboardLink.innerHTML = '<i class="bi bi-shield-lock me-1"></i>تسجيل دخول الإدارة';
+      dashboardLink.innerHTML = '🔐 تسجيل دخول الإدارة';
     }
   }
 }

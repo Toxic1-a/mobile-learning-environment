@@ -15,7 +15,7 @@
   <link href="assets/css/theme-animations.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-  <link href="assets/css/styles.css?v=header-brand-4" rel="stylesheet">
+  <link href="assets/css/styles.css?v=device-opt-1" rel="stylesheet">
 
   <style>
     .group-selection-container {
@@ -424,24 +424,13 @@
 
         // توجيه للصفحة المناسبة حسب المجموعة
         setTimeout(() => {
-          let targetPage = 'lesson.html'; // الصفحة الافتراضية
-          
-          switch(groupId) {
-            case 'group1':
-              targetPage = 'group1.html';
-              break;
-            case 'group2':
-              targetPage = 'group2.html';
-              break;
-            case 'group3':
-              targetPage = 'group3.html';
-              break;
-            case 'group4':
-              targetPage = 'group4.html';
-              break;
-          }
-          
-          window.location.href = targetPage;
+          const groupMap = {
+            group1: 'group1.html?group=1',
+            group2: 'group2.html?group=2',
+            group3: 'group3.html?group=3',
+            group4: 'group4.html?group=4'
+          };
+          window.location.href = groupMap[groupId] || 'login.html';
         }, 500);
       } else {
         alert('حدث خطأ في تسجيل الدخول. يرجى المحاولة مرة أخرى.');
@@ -466,8 +455,6 @@
       });
     }
   </script>
-  
-  <!-- نظام التبديل بين الوضع الفاتح والداكن -->
 <script src="assets/js/scroll-to-top.js"></script>
   <script src="assets/js/fixed-header.js"></script>
 </body>

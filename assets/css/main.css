@@ -720,22 +720,31 @@ p, span, label, li {
     border-radius: 16px;
   }
   
-  .btn {
+  /* Primary action buttons go full-width; keep compact controls flexible */
+  main .btn:not(.btn-close):not(.navbar-toggler),
+  .hero-buttons .btn,
+  .group-button,
+  #submit-pretest,
+  #reset-pretest {
     width: 100%;
     margin-bottom: 12px;
     padding: 14px 20px;
     font-size: 16px;
+    min-height: 48px;
   }
 
   .navbar-kids .btn,
   .navbar-kids .btn-kids-tertiary,
-  .btn-group .btn {
+  .btn-group .btn,
+  .card-body .d-flex .btn,
+  .footer .btn {
     width: auto;
     margin-bottom: 0;
   }
 
   .navbar-kids .navbar-collapse .btn-kids-tertiary,
-  .hero-buttons .btn {
+  .hero-buttons .btn,
+  .card-body .d-flex.gap-2 .btn {
     width: 100%;
   }
   
@@ -774,9 +783,9 @@ p, span, label, li {
 }
 
 @media (max-width: 576px) {
-  .btn {
-    padding: 12px 16px;
-    font-size: 14px;
+  main .btn:not(.btn-close) {
+    padding: 14px 16px;
+    font-size: 16px;
   }
   
   .card-body {

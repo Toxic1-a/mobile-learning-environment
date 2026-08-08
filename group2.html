@@ -17,7 +17,7 @@
   <link href="assets/css/theme-animations.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-  <link href="assets/css/styles.css?v=header-brand-4" rel="stylesheet">
+  <link href="assets/css/styles.css?v=device-opt-1" rel="stylesheet">
 
   <style>
     .lesson-card {
@@ -185,25 +185,25 @@
         </div>
         <div class="card-body">
           <div class="row text-center">
-            <div class="col-md-3">
+            <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-number text-primary" id="completed-lessons">0</div>
                 <div class="stat-label">دروس مكتملة</div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-number text-success" id="total-quizzes">0</div>
                 <div class="stat-label">اختبارات مكتملة</div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-number text-info" id="average-score">0%</div>
                 <div class="stat-label">متوسط النتائج</div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-number text-warning" id="time-spent">0 دقيقة</div>
                 <div class="stat-label">وقت التعلم</div>
@@ -365,7 +365,7 @@
       // تحديث رابط المجموعة التالية
       const nextGroup = parseInt(group) + 1;
       if (nextGroup <= 4) {
-        document.getElementById('next-group').href = `group${nextGroup}.html`;
+        document.getElementById('next-group').href = `group${nextGroup}.html?group=${nextGroup}`;
         document.getElementById('next-group').style.display = 'inline-block';
       }
     }

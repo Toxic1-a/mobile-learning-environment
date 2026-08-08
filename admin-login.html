@@ -12,7 +12,7 @@
   <link href="assets/css/theme-animations.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
-  <link href="assets/css/styles.css?v=header-brand-4" rel="stylesheet">
+  <link href="assets/css/styles.css?v=device-opt-1" rel="stylesheet">
 
   <style>
     .admin-login-card,
@@ -246,21 +246,27 @@
         
         // Check admin credentials
         if (username === 'admin' && password === 'rasha123') {
-          // Store admin session
+          const loginTime = new Date().toLocaleString('ar-SA');
           const adminData = {
             username: username,
-            loginTime: new Date().toLocaleString('ar-SA'),
+            loginTime: loginTime,
             userType: 'admin',
             rememberMe: rememberMe
           };
-          
+          const adminUser = {
+            username: username,
+            loginTime: loginTime
+          };
+
+          // Keep dashboard + modern auth session keys in sync
           localStorage.setItem('currentUser', JSON.stringify(adminData));
           localStorage.setItem('userType', 'admin');
+          localStorage.setItem('adminLoggedIn', 'true');
+          localStorage.setItem('adminUser', JSON.stringify(adminUser));
+          localStorage.setItem('adminLoginTime', Date.now().toString());
           
-          // Show success message
           showSuccessToast('تم تسجيل الدخول بنجاح');
           
-          // Redirect to dashboard
           setTimeout(() => {
             window.location.href = 'dashboard.html';
           }, 1000);
@@ -310,82 +316,19 @@
       });
     }
 
-    // نظام تسجيل دخول الإدارة
-    function adminLogin() {
-      const username = document.getElementById('adminUsername').value.trim();
-      const password = document.getElementById('adminPassword').value.trim();
-
-      if (!username || !password) {
-        alert('يرجى إدخال اسم المستخدم وكلمة المرور');
-        return;
-      }
-
-      // بيانات الإدارة (في التطبيق الحقيقي ستكون من قاعدة البيانات)
-      const adminCredentials = {
-        'admin': ['admin123', 'rasha123'],      // كلمات مرور متعددة للـ admin
-        'مدير': ['admin123', 'rasha123'],      // كلمات مرور متعددة للمدير
-        'administrator': ['admin123', 'rasha123'],
-        'rasha': ['rasha123', 'admin123'],     // حساب إضافي باسم rasha
-        'رشا': ['rasha123', 'admin123']        // حساب إضافي بالعربية
-      };
-
-      // التحقق من اسم المستخدم وكلمة المرور
-      if (adminCredentials[username] && adminCredentials[username].includes(password)) {
-        // تسجيل دخول ناجح
-        const adminUser = {
-          username: username,
-          loginTime: new Date().toISOString()
-        };
-
-        // حفظ البيانات في localStorage
-        localStorage.setItem('adminLoggedIn', 'true');
-        localStorage.setItem('adminUser', JSON.stringify(adminUser));
-        
-        // إضافة timestamp للتحقق من صحة الجلسة
-        localStorage.setItem('adminLoginTime', new Date().getTime().toString());
-
-
-        alert('تم تسجيل الدخول بنجاح!');
-        
-        // توجيه للوحة المتابعة
-        setTimeout(() => {
-          window.location.href = 'dashboard.html';
-        }, 1000);
-      } else {
-        alert('اسم المستخدم أو كلمة المرور غير صحيحة');
-      }
-    }
-
-    // تسجيل الدخول عند الضغط على Enter
+    // Redirect if already logged in as admin
     document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('adminPassword').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          adminLogin();
-        }
-      });
+      const isAdmin =
+        (localStorage.getItem('adminLoggedIn') === 'true' && localStorage.getItem('adminUser')) ||
+        localStorage.getItem('userType') === 'admin';
 
-      // تنظيف البيانات القديمة عند تحميل الصفحة
-      const adminLoginStatus = localStorage.getItem('adminLoggedIn');
-      const adminUser = localStorage.getItem('adminUser');
-      
-      // فحص إذا كان المدير مسجل دخول بالفعل
-      if (adminLoginStatus === 'true' && adminUser) {
-        try {
-          const userData = JSON.parse(adminUser);
-          // توجيه مباشر للوحة المتابعة
-          window.location.href = 'dashboard.html';
-        } catch (error) {
-          // مسح البيانات التالفة
-          localStorage.clear();
-        }
+      if (isAdmin) {
+        window.location.href = 'dashboard.html';
       }
     });
   </script>
-  
-  <!-- نظام التبديل بين الوضع الفاتح والداكن -->
-<script src="assets/js/scroll-to-top.js"></script>
+
+  <script src="assets/js/scroll-to-top.js"></script>
   <script src="assets/js/fixed-header.js"></script>
 </body>
 </html>
-
-

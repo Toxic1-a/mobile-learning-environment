@@ -14,19 +14,24 @@
 // ============================================
 
 // فحص تسجيل دخول الإدارة للوصول لرابط لوحة المتابعة
+function isAdminLoggedIn() {
+  if (localStorage.getItem('adminLoggedIn') === 'true' && localStorage.getItem('adminUser')) {
+    return true;
+  }
+  return localStorage.getItem('userType') === 'admin';
+}
+
 function checkAdminAccess() {
-  const adminLoginStatus = localStorage.getItem('adminLoggedIn');
-  const dashboardLink = document.querySelector('a[href="dashboard.html"]');
+  const dashboardLink = document.querySelector('a[href="dashboard.html"], a[href="admin-login.html"]');
   
   if (dashboardLink) {
-    if (adminLoginStatus === 'true') {
-      // المدير مسجل دخول - السماح بالوصول
+    if (isAdminLoggedIn()) {
+      dashboardLink.href = 'dashboard.html';
       dashboardLink.style.display = 'block';
-      dashboardLink.innerHTML = '<i class="bi bi-graph-up me-1"></i>لوحة المتابعة';
+      dashboardLink.innerHTML = '📊 لوحة المتابعة';
     } else {
-      // المدير غير مسجل دخول - توجيه لصفحة تسجيل الدخول
       dashboardLink.href = 'admin-login.html';
-      dashboardLink.innerHTML = '<i class="bi bi-shield-lock me-1"></i>تسجيل دخول الإدارة';
+      dashboardLink.innerHTML = '🔐 تسجيل دخول الإدارة';
     }
   }
 }
@@ -237,18 +242,22 @@ class LessonQuizManager {
     }
 
     setupEventListeners() {
-        // Submit button events
+        // Use closest() so clicks on icons/text inside buttons still work
         document.addEventListener('click', (e) => {
-            if (e.target.id === 'submit-pretest' || e.target.id === 'submit-quiz') {
-                this.handleQuizSubmit(e.target);
+            const submitBtn = e.target.closest('#submit-pretest, #submit-quiz');
+            if (submitBtn) {
+                e.preventDefault();
+                this.handleQuizSubmit(submitBtn);
+                return;
             }
-            
-            if (e.target.id === 'reset-pretest' || e.target.id === 'reset-quiz') {
+
+            const resetBtn = e.target.closest('#reset-pretest, #reset-quiz');
+            if (resetBtn) {
+                e.preventDefault();
                 this.resetQuiz();
             }
         });
 
-        // Radio button events
         document.addEventListener('change', (e) => {
             if (e.target.type === 'radio') {
                 this.handleAnswerSelection(e.target);
@@ -257,24 +266,12 @@ class LessonQuizManager {
     }
 
     initializeQuizzes() {
+        // Event delegation in setupEventListeners handles submit/reset;
+        // only ensure progress UI exists for current forms.
         const quizForms = document.querySelectorAll('form[id$="-form"]');
-        quizForms.forEach(form => {
-            this.setupQuizForm(form);
+        quizForms.forEach(() => {
+            this.updateProgress();
         });
-    }
-
-    setupQuizForm(form) {
-        const quizId = form.id.replace('-form', '');
-        const submitBtn = form.querySelector('button[type="button"]');
-        const resetBtn = form.querySelector('button[id$="-reset"]');
-        
-        if (submitBtn) {
-            submitBtn.addEventListener('click', () => this.handleQuizSubmit(submitBtn));
-        }
-        
-        if (resetBtn) {
-            resetBtn.addEventListener('click', () => this.resetQuiz());
-        }
     }
 
     handleAnswerSelection(radioInput) {
@@ -324,7 +321,9 @@ class LessonQuizManager {
 
     handleQuizSubmit(button) {
         const form = button.closest('form');
-        if (!form) return;
+        if (!form || form.dataset.submitted === 'true') return;
+
+        form.dataset.submitted = 'true';
         
         const quizId = form.id.replace('-form', '');
         const answers = this.collectAnswers(form);
