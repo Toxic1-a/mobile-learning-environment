@@ -2,7 +2,8 @@
  * 📚 LESSON SYSTEM - نظام إدارة الدروس والاختبارات
  * 
  * نظام شامل لإدارة الدروس والاختبارات مع قفل المحتوى
- * يحتاج الطالب للحصول على 60% على الأقل لفتح المحتوى
+ * الاختبار القبلي لتحديد المستوى فقط (يفتح المحتوى بأي نتيجة)
+ * الاختبار النهائي يتطلب 60% على الأقل
  * 
  * @version 1.0 - Kids Learning Platform
  * @date December 2024
@@ -14,7 +15,7 @@ class LessonSystem {
         this.quizData = null;
         this.studentAnswers = {};
         this.correctAnswers = {};
-        this.minimumScore = 60; // 60% minimum to unlock content
+        this.minimumScore = 60; // final/posttest only — pretest always unlocks
         this.init();
     }
 
@@ -244,7 +245,10 @@ class LessonSystem {
         }
 
         results.percentage = Math.round((results.correctAnswers / results.totalQuestions) * 100);
-        results.passed = results.percentage >= this.minimumScore;
+        // Pretest is diagnostic: always continue. Final exam still needs ≥60%.
+        results.isPretest = true;
+        results.passed = true;
+        results.unlocksContent = true;
 
         return results;
     }
@@ -258,13 +262,13 @@ class LessonSystem {
 
         // Show results message
         const message = this.createResultsMessage(results);
-        this.showMessage(message, results.passed ? 'success' : 'danger');
+        this.showMessage(message, 'success');
 
-        // Show/hide lesson content
-        this.toggleLessonContent(results.passed);
+        // Pretest always unlocks content
+        this.toggleLessonContent(results.unlocksContent !== false);
 
         // Update buttons
-        this.updateQuizButtons(results.passed);
+        this.updateQuizButtons(true);
     }
 
     /**
@@ -291,13 +295,7 @@ class LessonSystem {
     createResultsMessage(results) {
         const scoreText = `نتيجتك: ${results.correctAnswers}/${results.totalQuestions} (${results.percentage}%)`;
         
-        if (results.passed) {
-            return `🎉 ممتاز! ${scoreText}<br>يمكنك الآن مشاهدة محتوى الدرس!`;
-        } else {
-            const needed = Math.ceil((this.minimumScore / 100) * results.totalQuestions);
-            const moreNeeded = needed - results.correctAnswers;
-            return `📚 ${scoreText}<br>تحتاج إلى ${moreNeeded} إجابة صحيحة إضافية لفتح المحتوى. حاول مرة أخرى!`;
-        }
+        return `📊 ${scoreText}<br>الاختبار القبلي لتحديد المستوى فقط — يمكنك الآن مشاهدة محتوى الدرس.`;
     }
 
     /**

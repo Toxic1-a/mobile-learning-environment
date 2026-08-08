@@ -382,12 +382,15 @@ class LessonQuizManager {
                     correctAnswer: null
                 };
             });
+            const isPretest = this.isPretestQuiz(quizId);
             return {
                 correct,
                 total,
                 percentage: 100,
                 details,
-                passed: true
+                passed: true,
+                isPretest,
+                unlocksContent: true
             };
         }
 
@@ -406,14 +409,25 @@ class LessonQuizManager {
         });
 
         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+        const isPretest = this.isPretestQuiz(quizId);
+        // Pretest: diagnostic only — always continue to content.
+        // Final/posttest: require ≥60% to pass.
+        const passed = isPretest ? true : percentage >= 60;
 
         return {
             correct,
             total,
             percentage,
             details,
-            passed: percentage >= 60
+            passed,
+            isPretest,
+            unlocksContent: isPretest || passed
         };
+    }
+
+    isPretestQuiz(quizId) {
+        const id = String(quizId || '').toLowerCase();
+        return id.includes('pretest') || id === 'pre';
     }
 
     /**
@@ -483,22 +497,27 @@ class LessonQuizManager {
             resultsContainer.classList.add('show');
         }, 100);
 
-        // Unlock lesson content when passed (≥60%)
-        if (results.passed) {
+        // Pretest always unlocks; final/posttest only if passed (≥60%)
+        if (results.unlocksContent) {
             this.showLessonContent();
         }
     }
 
     generateResultsHTML(results) {
-        const statusClass = results.passed ? 'success' : 'danger';
-        const statusIcon = results.passed ? 'bi-check-circle-fill' : 'bi-x-circle-fill';
-        const statusText = results.passed ? 'ممتاز!' : 'تحتاج للمحاولة مرة أخرى';
+        const isPretest = !!results.isPretest;
+        const statusClass = isPretest ? 'info' : (results.passed ? 'success' : 'danger');
+        const statusIcon = isPretest
+            ? 'bi-clipboard-data'
+            : (results.passed ? 'bi-check-circle-fill' : 'bi-x-circle-fill');
+        const statusText = isPretest
+            ? 'تم تحديد مستواك — يمكنك متابعة المحتوى'
+            : (results.passed ? 'ممتاز! اجتزت الاختبار النهائي' : 'تحتاج إلى 60٪ على الأقل في الاختبار النهائي');
 
         return `
             <div class="card shadow-lg border-0">
                 <div class="card-header text-white bg-${statusClass}">
                     <h3 class="h4 mb-0">
-                        <i class="bi ${statusIcon} me-2"></i>نتائج الاختبار
+                        <i class="bi ${statusIcon} me-2"></i>${isPretest ? 'نتيجة الاختبار القبلي' : 'نتائج الاختبار النهائي'}
                     </h3>
                 </div>
                 <div class="card-body text-center">
@@ -526,12 +545,12 @@ class LessonQuizManager {
                         </div>
                     </div>
 
-                    ${results.passed
-                        ? `<div class="alert alert-success"><strong>تهانينا!</strong> يمكنك الآن مشاهدة محتوى الدرس.</div>
-                           <button type="button" class="btn btn-primary btn-lg me-2" id="open-lesson-content">
+                    ${isPretest || results.passed
+                        ? `<div class="alert alert-success"><strong>${isPretest ? 'تم التقييم!' : 'تهانينا!'}</strong> ${isPretest ? 'الاختبار القبلي لتحديد المستوى فقط — يمكنك الآن مشاهدة محتوى الدرس.' : 'يمكنك المتابعة.'}</div>
+                           ${isPretest ? `<button type="button" class="btn btn-primary btn-lg me-2" id="open-lesson-content">
                              <i class="bi bi-book me-2"></i>عرض محتوى الدرس
-                           </button>`
-                        : '<div class="alert alert-warning"><strong>نصيحة:</strong> تحتاج إلى 60٪ على الأقل لفتح المحتوى. حاول مرة أخرى.</div>'
+                           </button>` : ''}`
+                        : '<div class="alert alert-warning"><strong>نصيحة:</strong> في الاختبار النهائي تحتاج إلى 60٪ على الأقل. حاول مرة أخرى.</div>'
                     }
 
                     <button type="button" class="btn btn-secondary" onclick="location.reload()">
