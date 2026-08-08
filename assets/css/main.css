@@ -256,8 +256,22 @@ p, span, label, li {
   background: var(--primary-gradient);
   box-shadow: 0 4px 20px var(--shadow-color);
   padding: 15px 0;
-  position: relative;
   overflow: hidden;
+}
+
+.navbar:not(.fixed-top) {
+  position: relative;
+}
+
+.navbar.fixed-top,
+.navbar-kids.fixed-top {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  z-index: 1030 !important;
 }
 
 .navbar::before {

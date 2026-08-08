@@ -269,11 +269,23 @@ a.btn-kids-tertiary:focus {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
   border: none;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-  border-radius: 0 0 2rem 2rem;
+  border-radius: 0 0 1.25rem 1.25rem;
   backdrop-filter: blur(15px);
   border-bottom: 4px solid rgba(59, 130, 246, 0.5);
+  z-index: 1030;
+}
+
+.navbar-kids:not(.fixed-top) {
   position: relative;
-  z-index: 1000;
+}
+
+.navbar-kids.fixed-top {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
 }
 
 .navbar-kids .navbar-brand-text {

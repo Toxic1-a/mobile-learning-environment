@@ -6027,15 +6027,57 @@ html, body, body.site-body {
   html, body, body.site-body { padding-top: 76px !important; }
 }
 .navbar.navbar-kids,
-.navbar-kids {
+.navbar-kids,
+.navbar.navbar-kids.fixed-top,
+.navbar-kids.fixed-top {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  inset-inline: 0 !important;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
   border: none !important;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35) !important;
-  border-radius: 0 0 1.5rem 1.5rem;
+  border-radius: 0 0 1.25rem 1.25rem !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
   border-bottom: 4px solid rgba(79, 172, 254, 0.45) !important;
-  z-index: 1030;
+  z-index: 1030 !important;
   min-height: 72px;
 }
+
+/* Keep footer full-bleed under fixed header layouts */
+.footer.footer,
+footer.footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Admin/login pages: normal document flow (not flex-centered body) */
+body.site-body {
+  display: block !important;
+  align-items: initial !important;
+  min-height: 100vh;
+}
+
+body.site-body > main.container,
+body.site-body > main {
+  width: 100%;
+  flex: none !important;
+}
+/* Hide legacy duplicate brand boxes injected by older JS */
+.navbar .site-name-container,
+.navbar-kids .site-name-container {
+  display: none !important;
+}
+
 .navbar-kids .navbar-brand-text {
   color: #ffffff !important;
   font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;

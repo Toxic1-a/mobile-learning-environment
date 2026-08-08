@@ -2318,81 +2318,37 @@
     if (page === 'dashboard') initDashboard();
   });
 
-  // Force brand visibility for Netlify
+  // Ensure a single brand title in the navbar (no injected duplicates)
   function forceBrandVisibility() {
-    // Try both selectors
-    const brand = document.querySelector('.navbar-brand');
-    const siteNameContainer = document.querySelector('.site-name-container a');
-    
-    if (brand) {
-      // Force visibility with JavaScript
-      brand.style.display = 'block';
-      brand.style.visibility = 'visible';
-      brand.style.opacity = '1';
-      brand.style.color = '#3f8efc';
-      brand.style.fontSize = '1.5rem';
-      brand.style.fontWeight = '700';
-      brand.style.background = 'white';
-      brand.style.padding = '0.5rem 1rem';
-      brand.style.borderRadius = '0.375rem';
-      brand.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-      brand.style.marginRight = '1rem';
-      brand.style.minWidth = '200px';
-      brand.style.textAlign = 'center';
-      brand.style.position = 'relative';
-      brand.style.zIndex = '999';
-      
-      // Ensure text content is there
-      if (!brand.textContent || brand.textContent.trim() === '') {
-        brand.textContent = 'بيئة التعلم النقال';
+    const existingBrand = document.querySelector(
+      '.navbar-kids .navbar-brand-text, .navbar .navbar-brand-text, .navbar-brand-text, .navbar-brand'
+    );
+
+    // Remove legacy injected white-box brand duplicates
+    document.querySelectorAll('.site-name-container').forEach((duplicate) => {
+      duplicate.remove();
+    });
+
+    if (existingBrand) {
+      if (!existingBrand.textContent || existingBrand.textContent.trim() === '') {
+        existingBrand.textContent = 'بيئة التعلم النقال';
       }
-      
-      console.log('Brand visibility forced:', brand.textContent);
+      return;
     }
-    
-    if (siteNameContainer) {
-      // Force visibility for new container
-      siteNameContainer.style.display = 'block';
-      siteNameContainer.style.visibility = 'visible';
-      siteNameContainer.style.opacity = '1';
-      siteNameContainer.style.color = '#3f8efc';
-      siteNameContainer.style.fontSize = '1.5rem';
-      siteNameContainer.style.fontWeight = '700';
-      siteNameContainer.style.background = 'white';
-      siteNameContainer.style.padding = '0.5rem 1rem';
-      siteNameContainer.style.borderRadius = '0.375rem';
-      siteNameContainer.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-      siteNameContainer.style.minWidth = '200px';
-      siteNameContainer.style.textAlign = 'center';
-      siteNameContainer.style.position = 'relative';
-      siteNameContainer.style.zIndex = '999';
-      
-      // Ensure text content is there
-      if (!siteNameContainer.textContent || siteNameContainer.textContent.trim() === '') {
-        siteNameContainer.textContent = 'بيئة التعلم النقال';
-      }
-      
-      console.log('Site name container visibility forced:', siteNameContainer.textContent);
-    }
-    
-    // If neither exists, create one
-    if (!brand && !siteNameContainer) {
-      const navbar = document.querySelector('.navbar .container');
-      if (navbar) {
-        const newContainer = document.createElement('div');
-        newContainer.className = 'site-name-container';
-        newContainer.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; margin-right: 2rem !important;';
-        
-        const newLink = document.createElement('a');
-        newLink.href = 'index.html';
-        newLink.textContent = 'بيئة التعلم النقال';
-        newLink.style.cssText = 'color: #3f8efc !important; font-size: 1.5rem !important; font-weight: 700 !important; text-decoration: none !important; display: block !important; visibility: visible !important; opacity: 1 !important; background: white !important; padding: 0.5rem 1rem !important; border-radius: 0.375rem !important; box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important; min-width: 200px !important; text-align: center !important;';
-        
-        newContainer.appendChild(newLink);
-        navbar.insertBefore(newContainer, navbar.firstChild);
-        
-        console.log('Site name container created and added');
-      }
-    }
+
+    // Only create a brand if the navbar exists and has no brand at all
+    const navbar = document.querySelector('.navbar .container');
+    if (!navbar) return;
+
+    const brandContainer = document.createElement('div');
+    brandContainer.className = 'navbar-brand-container';
+
+    const brandText = document.createElement('a');
+    brandText.href = 'index.html';
+    brandText.className = 'navbar-brand-text';
+    brandText.textContent = 'بيئة التعلم النقال';
+
+    brandContainer.appendChild(brandText);
+    navbar.insertBefore(brandContainer, navbar.firstChild);
   }
 })();
