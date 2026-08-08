@@ -1,0 +1,1191 @@
+﻿/**
+ * Kids-Friendly Theme Styles - الألوان الجديدة للأطفال
+ * نظام ألوان مخصص للأطفال من سن 6-12 سنة
+ * ألوان نابضة بالحياة ومريحة للعين
+ */
+
+/* تطبيق الألوان الجديدة */
+body {
+  background: var(--bg-white) !important;
+  color: var(--text-dark);
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+/* عناوين وروابط ونصوص */
+h1, h2, h3, h4, h5, h6 { 
+  color: var(--primary-indigo); 
+}
+
+p, li, small, span { 
+  color: var(--text-dark); 
+}
+
+a, .nav-link { 
+  color: var(--link-primary); 
+  transition: color var(--transition-smooth); 
+}
+
+a:hover, .nav-link:hover { 
+  color: var(--link-hover); 
+}
+
+/* الأزرار الجديدة - جميع الأزرار لها نفس التدرج النيلي-الوردي */
+.btn-kids-primary {
+  background: linear-gradient(135deg, #FFA8B6, #5EDFFF) !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 18px 24px !important;
+  border-radius: 15px !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  box-shadow: 0 8px 32px rgba(94, 223, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  outline: none !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.btn-kids-primary:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(255, 168, 182, 0.4) !important;
+  color: #ffffff !important;
+  filter: brightness(1.1) !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.btn-kids-primary:focus {
+  outline: none !important;
+  box-shadow: var(--shadow-md) !important;
+  color: var(--text-white) !important;
+  text-decoration: none !important;
+}
+
+.btn-kids-primary:active {
+  outline: none !important;
+  color: var(--text-white) !important;
+  text-decoration: none !important;
+}
+
+.btn-kids-secondary {
+  background: linear-gradient(135deg, #FFA8B6, #5EDFFF) !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 18px 24px !important;
+  border-radius: 15px !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  box-shadow: 0 8px 32px rgba(94, 223, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  outline: none !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.btn-kids-secondary:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(255, 168, 182, 0.4) !important;
+  color: #ffffff !important;
+  filter: brightness(1.1) !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.btn-kids-secondary:focus {
+  outline: none !important;
+  box-shadow: var(--shadow-md) !important;
+  color: var(--text-white) !important;
+  text-decoration: none !important;
+}
+
+.btn-kids-secondary:active {
+  outline: none !important;
+  color: var(--text-white) !important;
+  text-decoration: none !important;
+}
+
+.btn-kids-tertiary {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 18px 24px !important;
+  border-radius: 15px !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  box-shadow: 0 8px 32px rgba(79, 172, 254, 0.3) !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  outline: none !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* Force override for all btn-kids-tertiary buttons */
+a.btn-kids-tertiary, button.btn-kids-tertiary {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px rgba(79, 172, 254, 0.3) !important;
+}
+
+.btn-kids-tertiary:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(79, 172, 254, 0.4) !important;
+  color: #ffffff !important;
+  filter: brightness(1.1) !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+/* إزالة تأثيرات Bootstrap الافتراضية للأزرار */
+a.btn-kids-primary,
+a.btn-kids-secondary,
+a.btn-kids-tertiary {
+  text-decoration: none !important;
+  color: var(--text-white) !important;
+}
+
+a.btn-kids-primary:hover,
+a.btn-kids-secondary:hover,
+a.btn-kids-tertiary:hover {
+  text-decoration: none !important;
+  color: var(--text-white) !important;
+}
+
+a.btn-kids-primary:visited,
+a.btn-kids-secondary:visited,
+a.btn-kids-tertiary:visited {
+  text-decoration: none !important;
+  color: var(--text-white) !important;
+}
+
+a.btn-kids-primary:focus,
+a.btn-kids-secondary:focus,
+a.btn-kids-tertiary:focus {
+  text-decoration: none !important;
+  color: var(--text-white) !important;
+  outline: none !important;
+}
+
+/* أزرار Bootstrap العامة */
+.btn.btn-primary {
+  background: linear-gradient(135deg, #FFA8B6, #5EDFFF) !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 18px 24px !important;
+  border-radius: 15px !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  box-shadow: 0 8px 32px rgba(94, 223, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  outline: none !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.btn.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(255, 168, 182, 0.4) !important;
+  color: #ffffff !important;
+  filter: brightness(1.1) !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.btn.btn-outline-primary {
+  background: linear-gradient(135deg, #FFA8B6, #5EDFFF) !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 0.875rem 1.75rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 32px rgba(94, 223, 255, 0.3);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn.btn-outline-primary:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(255, 168, 182, 0.4);
+  color: #ffffff !important;
+  filter: brightness(1.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* البطاقات الجديدة */
+.card, .card-kids {
+  background: var(--bg-white) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: 2rem !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: var(--transition-smooth) !important;
+  overflow: hidden;
+}
+
+.card:hover, .card-kids:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* حدود عامة ناعمة */
+.border, .border-top, .border-end, .border-bottom, .border-start {
+  border-color: var(--border-light) !important;
+}
+
+.card-kids-header {
+  background: var(--gradient-header);
+  color: var(--text-white);
+  padding: 1.5rem;
+  border-radius: 2rem 2rem 0 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* التنقل الجديد */
+.navbar-kids {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
+  border: none;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 2rem 2rem;
+  backdrop-filter: blur(15px);
+  border-bottom: 4px solid rgba(59, 130, 246, 0.5);
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-kids .navbar-brand-text {
+  color: #ffffff !important;
+  font-weight: 900;
+  font-size: 1.8rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 1), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
+.navbar-kids .nav-link {
+  color: #ffffff !important;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 2px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar-kids .nav-link:hover {
+  background: rgba(59, 130, 246, 0.3) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* تحسين زر اختيار المجموعة */
+.navbar-kids .btn-kids-tertiary {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.8rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.navbar-kids .btn-kids-tertiary:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* العناوين الجديدة */
+.title-kids-primary {
+  color: #161748 !important;
+  background: none !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #161748 !important;
+  -webkit-text-stroke: 0 !important;
+  filter: none !important;
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+/* تحسين عنوان الهيرو للتباين والوضوح */
+.hero-title {
+  color: #161748 !important;
+  background: none !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #161748 !important;
+  -webkit-text-stroke: 0 !important;
+  filter: none !important;
+  font-weight: 900 !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 0.4px !important;
+  line-height: 1.4 !important;
+}
+
+.hero-subtitle {
+  color: var(--text-medium) !important;
+  opacity: 0.95;
+}
+
+@media (min-width: 992px) {
+  .hero-title { font-size: 3rem; }
+}
+
+.title-kids-secondary {
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 2rem;
+  text-shadow: 0 3px 6px rgba(236, 72, 153, 0.3);
+}
+
+/* الخلفيات المتحركة الجديدة */
+.bg-kids-gradient-1 {
+  background: var(--gradient-header);
+}
+
+.bg-kids-gradient-2 {
+  background: var(--gradient-button);
+}
+
+.bg-kids-gradient-3 {
+  background: var(--gradient-info);
+}
+
+.bg-kids-gradient-4 {
+  background: var(--gradient-goals);
+}
+
+.bg-kids-gradient-5 {
+  background: var(--gradient-tests);
+}
+
+.bg-kids-gradient-6 {
+  background: var(--gradient-content);
+}
+
+.bg-kids-gradient-7 {
+  background: var(--gradient-activities);
+}
+
+/* العناصر العائمة */
+.floating-clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  opacity: 0.6;
+  animation: floatCloud 20s infinite linear;
+}
+
+.cloud:before {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+.cloud:after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+/* النجوم المتحركة */
+.floating-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  color: var(--primary-amber);
+  font-size: 1.5rem;
+  animation: twinkle 3s infinite;
+}
+
+/* الحركات */
+@keyframes floatCloud {
+  0% { transform: translateX(-100px) translateY(0px); }
+  100% { transform: translateX(calc(100vw + 100px)) translateY(-50px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+  50% { transform: scale(1.05) rotate(5deg); }
+  70% { transform: scale(0.9) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes slideInUp {
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* تطبيق الحركات */
+.animate-bounce-in {
+  animation: bounceIn 0.8s var(--transition-bounce);
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.6s var(--transition-smooth);
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* جميع الأزرار موحدة لجميع الأجهزة - لا توجد اختلافات */
+
+/* التحسينات للجوال */
+@media (max-width: 768px) {
+  .title-kids-primary {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #161748 !important;
+    background: none !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #161748 !important;
+    -webkit-text-stroke: 0 !important;
+    filter: none !important;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+  }
+  
+  .title-kids-secondary {
+    font-size: 1.5rem;
+  }
+  
+  /* جميع الأزرار موحدة - لا توجد اختلافات */
+  
+  .card-kids {
+    border-radius: 1.5rem;
+  }
+  
+  .navbar-kids {
+    border-radius: 0 0 1.5rem 1.5rem;
+    padding: 10px 0;
+  }
+  
+  .navbar-kids .navbar-brand-text {
+    font-size: 1.5rem !important;
+    color: #ffffff !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 1), 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 900 !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+  }
+  
+  .navbar-kids .nav-link {
+    font-size: 0.9rem !important;
+    padding: 8px 12px !important;
+    margin: 1px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+  }
+  
+  /* جميع الأزرار موحدة - لا توجد اختلافات */
+  
+  /* تحسين Mobile Menu */
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-radius: 15px;
+    margin-top: 1rem;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    z-index: 1000;
+  }
+  
+  .navbar-collapse .nav-link {
+    color: #1e293b !important;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+  
+  .navbar-collapse .nav-link:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6 !important;
+    transform: translateX(5px);
+  }
+  
+  .navbar-collapse .d-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .navbar-collapse .btn-kids-tertiary {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  /* تحسين النصوص في الموبايل */
+  .hero-title {
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
+    padding: 25px !important;
+    margin-bottom: 25px;
+    font-weight: 900 !important;
+    color: #161748 !important;
+    background: none !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #161748 !important;
+    -webkit-text-stroke: 0 !important;
+    filter: none !important;
+    letter-spacing: 0.3px !important;
+  }
+  
+  .hero-actions {
+    padding: 25px !important;
+  }
+  
+  /* جميع الأزرار موحدة - لا توجد اختلافات */
+  
+  .creativity-sticker {
+    width: 100px !important;
+    top: 15px !important;
+    right: 15px !important;
+  }
+}
+
+/* Hero Actions Layout - موحد لجميع الأجهزة */
+.hero-actions {
+  padding: 30px;
+}
+
+.hero-actions .row {
+  margin: 0;
+}
+
+.hero-actions .btn-kids-tertiary {
+  padding: 18px 24px !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  border-radius: 15px !important;
+  margin-bottom: 15px !important;
+  transition: all 0.3s ease !important;
+  background: linear-gradient(135deg, #FFA8B6, #5EDFFF) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px rgba(94, 223, 255, 0.3) !important;
+  width: 100% !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.hero-actions .btn-kids-tertiary:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(255, 168, 182, 0.4) !important;
+  filter: brightness(1.1) !important;
+}
+
+/* Desktop: زرين جنب بعض - نفس التنسيق */
+@media (min-width: 769px) {
+  .hero-actions .col-md-6 .btn-kids-tertiary {
+    margin-bottom: 15px !important;
+  }
+  
+  .hero-actions .col-12 .btn-kids-tertiary {
+    margin-bottom: 15px !important;
+  }
+}
+
+/* جميع الأزرار موحدة لجميع الأجهزة - لا توجد اختلافات */
+
+/* Creativity Sticker Style */
+.creativity-sticker {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.creativity-sticker:hover {
+  transform: scale(1.1) rotate(5deg);
+  opacity: 1;
+  filter: drop-shadow(0 12px 25px rgba(0,0,0,0.3));
+}
+
+/* ملحقات الاستيكرز والصور اللطيفة للأطفال */
+.sticker {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: inline-block;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.15));
+  transition: transform 0.25s ease;
+}
+
+.sticker:hover { 
+  transform: translateY(-4px) scale(1.04); 
+}
+
+.sticker-sm { width: 48px; height: 48px; }
+.sticker-lg { width: 96px; height: 96px; }
+.sticker-xl { width: 140px; height: 140px; }
+
+.sticker-row { 
+  display: flex; 
+  justify-content: center; 
+  gap: 12px; 
+  margin-bottom: 0.5rem; 
+}
+
+.sticker-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-white);
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+/* استيكرات الزوايا حول العناصر (الهيرو/الكروت الكبيرة) */
+.corner-sticker { 
+  position: absolute; 
+  z-index: 0; 
+  opacity: 0.95; 
+  pointer-events: none; 
+}
+
+.corner-top-left { 
+  top: -24px; 
+  left: -24px; 
+  transform: rotate(-8deg); 
+}
+
+.corner-top-right { 
+  top: -24px; 
+  right: -24px; 
+  transform: rotate(8deg); 
+}
+
+.corner-bottom-left { 
+  bottom: -24px; 
+  left: -24px; 
+  transform: rotate(6deg); 
+}
+
+.corner-bottom-right { 
+  bottom: -24px; 
+  right: -24px; 
+  transform: rotate(-6deg); 
+}
+
+/* شخصية GIF ثابتة للتشجيع */
+.floating-helper-gif {
+  position: fixed; 
+  bottom: 18px; 
+  right: 18px; 
+  width: 110px; 
+  height: auto; 
+  z-index: 999;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.2));
+}
+
+/* Animated GIF Elements - Smart Integration */
+.animated-element {
+  max-width: 120px;
+  height: auto;
+  animation: float 4s ease-in-out infinite;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.animated-element:hover {
+  transform: scale(1.05);
+}
+
+.hero-animated-left {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  max-width: 100px;
+  z-index: 5;
+}
+
+.hero-animated-right {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  max-width: 100px;
+  z-index: 5;
+}
+
+/* Background GIF Elements */
+.bg-gif {
+  position: absolute;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+  max-width: 200px;
+  animation: slowFloat 8s ease-in-out infinite;
+}
+
+.bg-gif-1 {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.bg-gif-2 {
+  top: 60%;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+.bg-gif-3 {
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 4s;
+}
+
+/* Button GIF Integration */
+.btn-gif {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Section Divider GIFs */
+.section-divider-gif {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+  opacity: 0.8;
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+/* Additional Animation Keyframes */
+@keyframes slowFloat {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-15px) rotate(1deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(-1deg); 
+  }
+  75% { 
+    transform: translateY(-20px) rotate(0.5deg); 
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 768px) {
+  .sticker-lg { width: 72px; height: 72px; }
+  .sticker-xl { width: 100px; height: 100px; }
+  .corner-top-left, .corner-top-right, .corner-bottom-left, .corner-bottom-right {
+    transform: none; opacity: 0.9;
+  }
+  .floating-helper-gif { width: 80px; bottom: 12px; right: 12px; }
+  
+  /* Hide large animated elements on mobile for performance */
+  .animated-element { display: none; }
+  .bg-gif { display: none; }
+  .section-divider-gif { max-width: 200px; }
+}
+
+/* أزرار خاصة بـ Delightex */
+.btn[href*="delightex"] {
+  background: var(--gradient-button) !important;
+  border: none !important;
+  color: var(--text-white) !important;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-bounce);
+}
+
+.btn[href*="delightex"]:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+  color: var(--text-white) !important;
+  filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+  .btn[href*="delightex"] {
+    font-size: 0.9rem;
+    padding: 12px 24px;
+  }
+}
+
+/* =============================================
+   Accessibility Enhancements
+   ============================================= */
+
+/* دعم prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .btn-kids-primary:hover,
+  .btn-kids-secondary:hover,
+  .btn-kids-tertiary:hover,
+  .btn.btn-primary:hover,
+  .btn.btn-outline-primary:hover {
+    transform: none !important;
+  }
+  
+  .card-kids:hover {
+    transform: none !important;
+  }
+  
+  .floating-clouds .cloud,
+  .floating-stars .star {
+    animation: none !important;
+  }
+  
+  .animated-element,
+  .bg-gif,
+  .section-divider-gif {
+    animation: none !important;
+  }
+}
+
+/* تحسين Focus States للـ Accessibility */
+.btn-kids-primary:focus,
+.btn-kids-secondary:focus,
+.btn-kids-tertiary:focus,
+.btn.btn-primary:focus,
+.btn.btn-outline-primary:focus,
+.btn[href*="delightex"]:focus {
+  outline: 3px solid rgba(59, 130, 246, 0.5) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+.nav-link:focus,
+a:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.5) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+.card-kids:focus,
+.question-card:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+/* تحسين Contrast للألوان */
+@media (prefers-contrast: high) {
+  .btn-kids-primary,
+  .btn-kids-secondary,
+  .btn-kids-tertiary,
+  .btn.btn-primary,
+  .btn.btn-outline-primary,
+  .btn[href*="delightex"] {
+    border: 2px solid #000 !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  
+  .btn-kids-primary:hover,
+  .btn-kids-secondary:hover,
+  .btn-kids-tertiary:hover,
+  .btn.btn-primary:hover,
+  .btn.btn-outline-primary:hover,
+  .btn[href*="delightex"]:hover {
+    background: #000 !important;
+    color: #fff !important;
+  }
+  
+  .card-kids {
+    border: 2px solid #000 !important;
+  }
+  
+  .text-primary {
+    color: #000 !important;
+  }
+}
+
+/* تحسين للـ Screen Readers */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* إضافة ARIA Support */
+[aria-hidden="true"] {
+  display: none !important;
+}
+
+[aria-expanded="true"]::after {
+  content: " (مفتوح)";
+  position: absolute;
+  left: -9999px;
+}
+
+[aria-expanded="false"]::after {
+  content: " (مغلق)";
+  position: absolute;
+  left: -9999px;
+}
+
+/* تحسين Keyboard Navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* تحسين Form Elements للـ Accessibility */
+.form-control:focus,
+.form-select:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.5) !important;
+  outline-offset: 2px !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+.form-check-input:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.5) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* تحسين Error States */
+.is-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2) !important;
+}
+
+.is-invalid:focus {
+  outline: 2px solid #dc3545 !important;
+  outline-offset: 2px !important;
+}
+
+/* تحسين Success States */
+.is-valid {
+  border-color: #198754 !important;
+  box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.2) !important;
+}
+
+.is-valid:focus {
+  outline: 2px solid #198754 !important;
+  outline-offset: 2px !important;
+}
+
+/* تحسين Loading States للـ Accessibility */
+.btn-loading {
+  position: relative;
+}
+
+.btn-loading::after {
+  content: "جاري التحميل...";
+  position: absolute;
+  left: -9999px;
+}
+
+/* تحسين Image Accessibility */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img[alt=""] {
+  border: 2px dashed #dc3545;
+}
+
+/* تحسين Print Styles للـ Accessibility */
+@media print {
+  .btn-kids-primary,
+  .btn-kids-secondary,
+  .btn-kids-tertiary,
+  .btn.btn-primary,
+  .btn.btn-outline-primary,
+  .btn[href*="delightex"] {
+    background: #000 !important;
+    color: #fff !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .card-kids {
+    border: 1px solid #000 !important;
+    background: #fff !important;
+  }
+  
+  .floating-clouds,
+  .floating-stars,
+  .animated-element,
+  .bg-gif {
+    display: none !important;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  a[href^="#"]:after {
+    content: "";
+  }
+}
+
+/* FORCE OVERRIDE - Ensure btn-kids-tertiary uses blue gradient */
+.btn-kids-tertiary, 
+a.btn-kids-tertiary, 
+button.btn-kids-tertiary,
+.btn-kids-tertiary.btn-interactive {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 32px rgba(79, 172, 254, 0.3) !important;
+}
+
+.btn-kids-tertiary:hover, 
+a.btn-kids-tertiary:hover, 
+button.btn-kids-tertiary:hover,
+.btn-kids-tertiary.btn-interactive:hover {
+  background: linear-gradient(135deg, #3d8bfe, #00d4f0) !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(79, 172, 254, 0.4) !important;
+  color: #ffffff !important;
+}
+
+/* تحسين Dark Mode Support - DISABLED FOR LIGHT-ONLY THEME */
+/*
+@media (prefers-color-scheme: dark) {
+  .btn-kids-primary,
+  .btn-kids-secondary,
+  .btn-kids-tertiary,
+  .btn.btn-primary,
+  .btn.btn-outline-primary,
+  .btn[href*="delightex"] {
+    background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%) !important;
+    color: #fff !important;
+  }
+  
+  .card-kids {
+    background: #1f2937 !important;
+    color: #f9fafb !important;
+    border-color: #374151 !important;
+  }
+  
+  .text-primary {
+    color: #60a5fa !important;
+  }
+}
+*/

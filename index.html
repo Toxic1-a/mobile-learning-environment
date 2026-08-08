@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الصفحة الرئيسية | بيئة التعلم النقال</title>
+  <meta name="description" content="بيئة تعلم نقال تفاعلية مع واقع معزز ودروس واختبارات">
+  <meta name="theme-color" content="#4facfe">
+  
+  <!-- CSS Files - ملفات الأنماط -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- 🎨 Kids Theme Colors - نظام الألوان الموحد للأطفال -->
+  <link href="assets/css/theme-colors.css" rel="stylesheet">
+  <!-- 🎨 Kids Theme Animations - حركات الأطفال التفاعلية -->
+  <link href="assets/css/theme-animations.css" rel="stylesheet">
+  <!-- 🎨 Main CSS - ملف موحد لجميع الأنماط -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="icon" href="data:,">
+  
+  <style>
+    /* إضافات سريعة للتأكد من عمل التصميم */
+    body {
+      background: #FDF6E3 !important;
+      color: #161748 !important;
+      font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+      min-height: 100vh;
+    }
+    
+    .navbar {
+      background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+      box-shadow: 0 4px 20px rgba(79, 172, 254, 0.25);
+    }
+    
+    .navbar-brand, .nav-link {
+      color: white !important;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+      border: none;
+      border-radius: 16px;
+      padding: 12px 24px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+    }
+    
+    .card {
+      background: white;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(79, 172, 254, 0.25);
+    }
+    
+    .hero-section {
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        🎓 بيئة التعلم النقال
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">🏠 الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">ℹ️ من نحن</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">📞 تواصل معنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="objectives.html">🎯 الأهداف العامة</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">📊 لوحة المتابعة</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a href="login.html" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-box-arrow-in-right me-1"></i>تسجيل الدخول
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <h1 class="display-4 fw-bold mb-4">
+              مرحباً بك في 
+              <span class="text-gradient">بيئة التعلم النقال</span>
+            </h1>
+            <p class="lead mb-4">
+              منصة تعليمية تفاعلية مصممة خصيصاً للأطفال من سن 6-12 سنة، 
+              تجمع بين التكنولوجيا الحديثة والتعلم الممتع
+            </p>
+            <div class="hero-buttons">
+              <a href="#groups" class="btn btn-primary btn-lg me-3">
+                <i class="bi bi-book me-2"></i>ابدأ التعلم
+              </a>
+              <a href="about.html" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-info-circle me-2"></i>اعرف المزيد
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image text-center">
+            <div class="floating-elements">
+              <div class="floating-icon" style="top: 20%; left: 10%; animation-delay: 0s;">
+                <i class="bi bi-laptop" style="font-size: 3rem; color: #4facfe;"></i>
+              </div>
+              <div class="floating-icon" style="top: 30%; right: 15%; animation-delay: 1s;">
+                <i class="bi bi-phone" style="font-size: 3rem; color: #00f2fe;"></i>
+              </div>
+              <div class="floating-icon" style="top: 50%; left: 5%; animation-delay: 2s;">
+                <i class="bi bi-tablet" style="font-size: 3rem; color: #8E9DFF;"></i>
+              </div>
+              <div class="floating-icon" style="top: 70%; right: 10%; animation-delay: 3s;">
+                <i class="bi bi-headphones" style="font-size: 3rem; color: #FFA8B6;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-3">مميزات المنصة</h2>
+        <p class="lead text-muted">تعلم تفاعلي وممتع مع أحدث التقنيات</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-robot" style="font-size: 3rem; color: #4facfe;"></i>
+              </div>
+              <h4 class="fw-bold mb-3">ذكاء اصطناعي</h4>
+              <p class="text-muted">تعلم مع الذكاء الاصطناعي وتجربة تفاعلية متقدمة</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-eye" style="font-size: 3rem; color: #00f2fe;"></i>
+              </div>
+              <h4 class="fw-bold mb-3">واقع معزز</h4>
+              <p class="text-muted">استكشف العالم من خلال تقنية الواقع المعزز</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-graph-up" style="font-size: 3rem; color: #8E9DFF;"></i>
+              </div>
+              <h4 class="fw-bold mb-3">تتبع التقدم</h4>
+              <p class="text-muted">راقب تقدمك التعليمي مع إحصائيات مفصلة</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Groups Section -->
+  <section id="groups" class="py-5" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(0, 242, 254, 0.05));">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-3">المجموعات التعليمية</h2>
+        <p class="lead text-muted">اختر مجموعتك وابدأ رحلة التعلم</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <div class="group-icon mb-3">
+                <i class="bi bi-1-circle-fill" style="font-size: 3rem; color: #4facfe;"></i>
+              </div>
+              <h4 class="fw-bold mb-3">المجموعة الأولى</h4>
+              <p class="text-muted mb-4">التكنولوجيا وتطبيقاتها</p>
+              <a href="group1.html?group=1" class="btn btn-primary">
+                <i class="bi bi-arrow-left me-2"></i>ابدأ التعلم
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <div class="group-icon mb-3">
+                <i class="bi bi-2-circle-fill" style="font-size: 3rem; color: #00f2fe;"></i>
+              </div>
+              <h4 class="fw-bold mb-3">المجموعة الثانية</h4>
+              <p class="text-muted mb-4">البرمجة والأكواد</p>
+              <a href="group2.html?group=2" class="btn btn-primary">
+                <i class="bi bi-arrow-left me-2"></i>ابدأ التعلم
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <div class="group-icon mb-3">
+                <i class="bi bi-3-circle-fill" style="font-size: 3rem; color: #8E9DFF;"></i>
+              </div>
+              <h4 class="fw-bold mb-3">المجموعة الثالثة</h4>
+              <p class="text-muted mb-4">الأمان الرقمي</p>
+              <a href="group3.html?group=3" class="btn btn-primary">
+                <i class="bi bi-arrow-left me-2"></i>ابدأ التعلم
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <div class="group-icon mb-3">
+                <i class="bi bi-4-circle-fill" style="font-size: 3rem; color: #FFA8B6;"></i>
+              </div>
+              <h4 class="fw-bold mb-3">المجموعة الرابعة</h4>
+              <p class="text-muted mb-4">الإبداع والابتكار</p>
+              <a href="group4.html?group=4" class="btn btn-primary">
+                <i class="bi bi-arrow-left me-2"></i>ابدأ التعلم
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light py-4 mt-5">
+    <div class="container text-center">
+      <p class="text-muted mb-0">Copyright © All rights reserved by Rasha Nabil</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files - ملفات الجافا سكريبت -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- 🚀 Main JS - ملف موحد لجميع الوظائف -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

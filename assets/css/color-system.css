@@ -1,0 +1,1153 @@
+﻿/**
+ * ═══════════════════════════════════════════════════════════════
+ * نظام الألوان الموحد الجديد للأطفال - UNIFIED KIDS COLOR SYSTEM
+ * بيئة التعلم النقال - Mobile Learning Environment
+ * 
+ * ⚠️ هذا الملف يطبق المتغيرات من theme-colors.css على عناصر الصفحة
+ * ⚠️ نظام ألوان مخصص للأطفال من سن 6-12 سنة
+ * ⚠️ ألوان نابضة بالحياة ومريحة للعين
+ * 
+ * @version 4.0 - Kids Optimized Theme
+ * @date October 16, 2025
+ * ═══════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL STYLES - الأنماط العامة
+   ═══════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+  min-height: 100vh;
+  letter-spacing: normal;
+  line-height: 1.6;
+  transition: none; /* إزالة التحولات */
+}
+
+/* إزالة أي خلفيات متدرجة من body */
+body::before,
+body::after {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY - الطباعة والنصوص
+   ═══════════════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-indigo) !important;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+p, span, label, li {
+  color: var(--text-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RADIO BUTTONS & QUIZ FIXES - إصلاح أزرار الراديو والاختبارات
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Fix radio buttons - single circle only */
+input[type="radio"],
+.form-check-input[type="radio"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid #6c757d !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  position: relative !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  float: left !important;
+  box-sizing: border-box !important;
+}
+
+/* Remove all pseudo-elements */
+input[type="radio"]::before,
+input[type="radio"]::after,
+.form-check-input[type="radio"]::before,
+.form-check-input[type="radio"]::after {
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Remove Bootstrap backgrounds */
+input[type="radio"]:not(:checked),
+.form-check-input[type="radio"]:not(:checked) {
+  background-image: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Checked state - blue color */
+input[type="radio"]:checked,
+.form-check-input[type="radio"]:checked {
+  background-image: none !important;
+  background-color: #0d6efd !important;
+  background: #0d6efd !important;
+  border-color: #0d6efd !important;
+}
+
+/* Check mark inside the circle */
+input[type="radio"]:checked::after,
+.form-check-input[type="radio"]:checked::after {
+  content: "✓" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Remove focus effects */
+input[type="radio"]:focus,
+.form-check-input[type="radio"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25) !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* Hover effect */
+input[type="radio"]:hover,
+.form-check-input[type="radio"]:hover {
+  border-color: #0d6efd !important;
+  transform: scale(1.1) !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* Make labels clickable */
+.form-check-label {
+  cursor: pointer !important;
+  user-select: none !important;
+  -webkit-user tag: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* Ensure radio input is properly connected to label */
+.form-check-input {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* Make the entire label area clickable */
+.form-check-label:hover {
+  background-color: rgba(13, 110, 253, 0.1) !important;
+  transform: scale(1.02) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Remove pseudo-elements from labels */
+input[type="radio"] + label::before,
+input[type="radio"] + label::after,
+.form-check-input[type="radio"] + .form-check-label::before,
+.form-check-input[type="radio"] + .form-check-label::after {
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Remove icons */
+.form-check-label i::before,
+.form-check-label i::after {
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Style labels */
+.form-check-label {
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  color: #495057 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  margin-left: 8px !important;
+}
+
+.form-check-label:hover {
+  color: #0d6efd !important;
+}
+
+/* Style icons */
+.form-check-label i {
+  font-size: 1.3rem !important;
+  transition: all 0.3s ease !important;
+  color: #0d6efd !important;
+  display: inline-block !important;
+}
+
+.form-check:hover .form-check-label i {
+  transform: scale(1.2) !important;
+  color: #0d6efd !important;
+}
+
+/* Style answer options */
+.form-check {
+  padding: 15px 20px !important;
+  background: rgba(248, 249, 250, 0.8) !important;
+  border-radius: 15px !important;
+  border: 2px solid transparent !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  margin-bottom: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.form-check:hover {
+  background: rgba(13, 110, 253, 0.1) !important;
+  border-color: #0d6efd !important;
+  transform: translateX(5px) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   OBJECTIVES SECTION - قسم الأهداف التعليمية
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Ensure objectives list items are always visible */
+.objectives-section .list-unstyled li {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  overflow: visible !important;
+  margin-bottom: 15px !important;
+  padding: 15px 20px !important;
+  background: rgba(13, 110, 253, 0.08) !important;
+  border-radius: 12px !important;
+  border-right: 5px solid #0d6efd !important;
+  transition: all 0.3s ease !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  color: var(--text-navy) !important;
+  box-shadow: 0 2px 8px rgba(13, 110, 253, 0.1) !important;
+  align-items: center !important;
+}
+
+.objectives-section .list-unstyled li:hover {
+  background: rgba(13, 110, 253, 0.15) !important;
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+}
+
+.objectives-section .list-unstyled li i {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-left: 12px !important;
+  font-size: 1.3rem !important;
+  color: #0d6efd !important;
+}
+
+/* Objectives section styling */
+.objectives-section {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 202, 240, 0.1));
+  border-radius: 20px;
+  padding: 25px;
+  margin: 25px 0;
+  border: 2px solid rgba(13, 110, 253, 0.2);
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+}
+
+.objectives-section .fw-bold {
+  background: rgba(13, 110, 253, 0.05) !important;
+  border-right: 4px solid #0d6efd !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLOATING GO UP BUTTON - زر العودة للأعلى العائم
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Floating Go Up Button Container */
+.floating-go-up {
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Show button when scrolled */
+.floating-go-up.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Button styling */
+.floating-go-up-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button hover effects */
+.floating-go-up-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.floating-go-up-btn:active {
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* Icon styling */
+.floating-go-up-btn i {
+  font-size: 24px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.floating-go-up-btn:hover i {
+  transform: translateY(-2px);
+}
+
+/* Ripple effect */
+.floating-go-up-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.floating-go-up-btn:active::before {
+  width: 120px;
+  height: 120px;
+}
+
+/* Pulse animation */
+.floating-go-up-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .floating-go-up {
+    left: 15px;
+    bottom: 20px;
+  }
+  
+  .floating-go-up-btn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .floating-go-up-btn i {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-go-up {
+    left: 10px;
+    bottom: 15px;
+  }
+  
+  .floating-go-up-btn {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .floating-go-up-btn i {
+    font-size: 18px;
+  }
+}
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.text-secondary {
+  color: var(--text-medium) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LINKS - الروابط
+   ═══════════════════════════════════════════════════════════════ */
+
+a {
+  color: var(--link-primary);
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVIGATION - التنقل (موحد عبر جميع الأجهزة)
+   ═══════════════════════════════════════════════════════════════ */
+
+.navbar,
+.navbar-kids {
+  background: var(--gradient-header) !important;
+  border: none;
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 0;
+  border-radius: 0 0 2rem 2rem;
+}
+
+.navbar-brand,
+.navbar-brand-text {
+  color: var(--text-white) !important;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand:hover,
+.navbar-brand-text:hover {
+  color: var(--primary-amber) !important;
+  transform: scale(1.05);
+}
+
+.nav-link {
+  color: var(--text-white) !important;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-smooth);
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: var(--text-white) !important;
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.35) !important;
+  color: var(--text-white) !important;
+  font-weight: 700;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--text-white);
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+/* تأكيد خلفية navbar collapse على الموبايل */
+.navbar-collapse {
+  background: var(--bg-white) !important;
+  border-radius: var(--border-radius-sm);
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* ألوان النصوص في dropdown الموبايل */
+@media (max-width: 991.98px) {
+  .navbar-collapse .nav-link {
+    color: var(--text-dark) !important;
+  }
+  
+  .navbar-collapse .nav-link:hover,
+  .navbar-collapse .nav-link.active {
+    color: var(--primary-indigo) !important;
+    background: var(--bg-secondary) !important;
+  }
+}
+
+/* أزرار navbar موحدة */
+.navbar .btn,
+.navbar-kids .btn {
+  background: var(--gradient-button) !important;
+  color: var(--text-white) !important;
+  border: none !important;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS - الأزرار
+   ═══════════════════════════════════════════════════════════════ */
+
+.btn {
+  border-radius: var(--border-radius-md);
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  transition: var(--transition-bounce);
+  border: none;
+}
+
+/* توحيد جميع الأزرار بنفس تنسيق الألوان الجديدة */
+.btn-primary,
+.btn-secondary,
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger,
+.btn-light,
+.btn-dark {
+  background: var(--gradient-button) !important;
+  border: none !important;
+  color: var(--text-white) !important;
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-bounce);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover,
+.btn-success:hover,
+.btn-info:hover,
+.btn-warning:hover,
+.btn-danger:hover,
+.btn-light:hover,
+.btn-dark:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: var(--shadow-md);
+  color: var(--text-white) !important;
+  filter: brightness(1.1);
+  background: var(--gradient-button) !important;
+}
+
+.btn:focus,
+button:focus {
+  outline: 2px solid var(--primary-indigo);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARDS - البطاقات
+   ═══════════════════════════════════════════════════════════════ */
+
+.card {
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border: 2px solid var(--border-light) !important;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-smooth);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  border-color: var(--primary-indigo) !important;
+}
+
+.card-title {
+  color: var(--primary-indigo) !important;
+  font-weight: 700;
+}
+
+.card-text,
+.card-body {
+  color: var(--text-dark) !important;
+}
+
+.card-header {
+  background: var(--bg-secondary) !important;
+  color: var(--primary-indigo) !important;
+  border-bottom: 2px solid var(--border-light);
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION-SPECIFIC CARDS - بطاقات مخصصة للأقسام
+   ═══════════════════════════════════════════════════════════════ */
+
+/* بطاقات المعلومات - أزرق فاتح 💙 */
+.card-info {
+  border-color: var(--section-info) !important;
+  border-left: 4px solid var(--section-info) !important;
+}
+
+.card-info .card-header {
+  background: var(--gradient-info) !important;
+  color: var(--text-white) !important;
+}
+
+.card-info:hover {
+  border-color: var(--section-info) !important;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+}
+
+/* بطاقات الأهداف - أخضر 💚 */
+.card-goals {
+  border-color: var(--section-goals) !important;
+  border-left: 4px solid var(--section-goals) !important;
+}
+
+.card-goals .card-header {
+  background: var(--gradient-goals) !important;
+  color: var(--text-white) !important;
+}
+
+.card-goals:hover {
+  border-color: var(--section-goals) !important;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+}
+
+/* بطاقات الاختبارات - برتقالي 🧡 */
+.card-tests {
+  border-color: var(--section-tests) !important;
+  border-left: 4px solid var(--section-tests) !important;
+}
+
+.card-tests .card-header {
+  background: var(--gradient-tests) !important;
+  color: var(--text-white) !important;
+}
+
+.card-tests:hover {
+  border-color: var(--section-tests) !important;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+}
+
+/* بطاقات المحتوى - بنفسجي 💜 */
+.card-content {
+  border-color: var(--section-content) !important;
+  border-left: 4px solid var(--section-content) !important;
+}
+
+.card-content .card-header {
+  background: var(--gradient-content) !important;
+  color: var(--text-white) !important;
+}
+
+.card-content:hover {
+  border-color: var(--section-content) !important;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
+}
+
+/* بطاقات النشاطات - أصفر 💛 */
+.card-activities {
+  border-color: var(--section-activities) !important;
+  border-left: 4px solid var(--section-activities) !important;
+}
+
+.card-activities .card-header {
+  background: var(--gradient-activities) !important;
+  color: var(--text-white) !important;
+}
+
+.card-activities:hover {
+  border-color: var(--section-activities) !important;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORMS - النماذج
+   ═══════════════════════════════════════════════════════════════ */
+
+.form-control,
+.form-select,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border: 2px solid var(--border-light) !important;
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem;
+  transition: all var(--transition-smooth);
+}
+
+.form-control:focus,
+.form-select:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--primary-indigo) !important;
+  box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.25) !important;
+  outline: none;
+}
+
+.form-control::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+}
+
+label,
+.form-label {
+  color: var(--text-dark) !important;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TABLES - الجداول
+   ═══════════════════════════════════════════════════════════════ */
+
+.table {
+  color: var(--text-dark) !important;
+  border-color: var(--border-light) !important;
+}
+
+.table thead th {
+  background: var(--bg-secondary) !important;
+  color: var(--primary-indigo) !important;
+  border-color: var(--border-light) !important;
+  font-weight: 700;
+}
+
+.table tbody tr {
+  background: var(--bg-white) !important;
+  border-color: var(--border-light) !important;
+}
+
+.table tbody tr:hover {
+  background: var(--bg-secondary) !important;
+}
+
+.table td,
+.table th {
+  color: var(--text-dark) !important;
+  border-color: var(--border-light) !important;
+  padding: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DROPDOWNS - القوائم المنسدلة
+   ═══════════════════════════════════════════════════════════════ */
+
+.dropdown-menu {
+  background: var(--bg-white) !important;
+  border: 2px solid var(--border-light) !important;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.dropdown-item {
+  color: var(--text-dark) !important;
+  transition: all var(--transition-smooth);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: var(--bg-secondary) !important;
+  color: var(--primary-indigo) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MODALS - النوافذ المنبثقة
+   ═══════════════════════════════════════════════════════════════ */
+
+.modal-content {
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border: 2px solid var(--border-light) !important;
+  border-radius: var(--border-radius-md);
+}
+
+.modal-header {
+  background: var(--bg-secondary) !important;
+  color: var(--primary-indigo) !important;
+  border-bottom: 2px solid var(--border-light) !important;
+}
+
+.modal-body {
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+}
+
+.modal-footer {
+  background: var(--bg-secondary) !important;
+  border-top: 2px solid var(--border-light) !important;
+}
+
+.modal-title {
+  color: var(--primary-indigo) !important;
+  font-weight: 700;
+}
+
+.btn-close {
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ALERTS - التنبيهات
+   ═══════════════════════════════════════════════════════════════ */
+
+.alert {
+  border-radius: var(--border-radius-sm);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid;
+}
+
+.alert-primary {
+  background: var(--bg-secondary);
+  border-color: var(--primary-indigo);
+  color: var(--primary-indigo);
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--primary-amber);
+  color: var(--primary-amber);
+}
+
+.alert-danger {
+  background: rgba(236, 72, 153, 0.1);
+  border-color: var(--primary-pink);
+  color: var(--primary-pink);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER - التذييل
+   ═══════════════════════════════════════════════════════════════ */
+
+.footer {
+  background: var(--text-dark) !important;
+  color: var(--text-white) !important;
+  padding: 2rem 0;
+}
+
+.footer h5,
+.footer h6 {
+  color: var(--text-white) !important;
+}
+
+.footer p,
+.footer li,
+.footer span {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer a {
+  color: var(--primary-green);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--primary-amber);
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY CLASSES - فئات مساعدة
+   ═══════════════════════════════════════════════════════════════ */
+
+.bg-light {
+  background: var(--bg-secondary) !important;
+  color: var(--text-dark) !important;
+}
+
+.bg-white {
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+}
+
+.bg-cream {
+  background: var(--bg-cream) !important;
+  color: var(--text-dark) !important;
+}
+
+.border {
+  border-color: var(--border-light) !important;
+}
+
+.border-primary {
+  border-color: var(--primary-indigo) !important;
+}
+
+.border-secondary {
+  border-color: var(--primary-pink) !important;
+}
+
+/* فئات ألوان الأقسام */
+.bg-info-section {
+  background: var(--gradient-info) !important;
+  color: var(--text-white) !important;
+}
+
+.bg-goals-section {
+  background: var(--gradient-goals) !important;
+  color: var(--text-white) !important;
+}
+
+.bg-tests-section {
+  background: var(--gradient-tests) !important;
+  color: var(--text-white) !important;
+}
+
+.bg-content-section {
+  background: var(--gradient-content) !important;
+  color: var(--text-white) !important;
+}
+
+.bg-activities-section {
+  background: var(--gradient-activities) !important;
+  color: var(--text-white) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN - التصميم المتجاوب
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 0;
+  }
+  
+  .navbar-brand,
+  .navbar-brand-text {
+    font-size: 1.25rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DESKTOP OVERRIDE - تحسينات الديسكتوب
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 769px) {
+  .btn-primary,
+  .btn-outline-primary,
+  .btn-secondary,
+  .btn-outline-secondary {
+    background: var(--gradient-button) !important;
+    color: var(--text-white) !important;
+  }
+  
+  .btn-primary:hover,
+  .btn-outline-primary:hover,
+  .btn-secondary:hover,
+  .btn-outline-secondary:hover {
+    background: var(--gradient-button) !important;
+    color: var(--text-white) !important;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.1);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE & TABLET - ضمان الألوان على جميع الأجهزة
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 991.98px) {
+  /* تأكيد خلفية navbar على الموبايل */
+  .navbar,
+  .navbar-kids {
+    background: var(--gradient-header) !important;
+    border: none;
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 0;
+    border-radius: 0 0 2rem 2rem;
+  }
+  
+  .navbar-collapse {
+    background: var(--bg-white) !important;
+  }
+  
+  /* تأكيد ألوان النصوص */
+  .nav-link {
+    color: var(--text-white) !important;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-smooth);
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-link.active {
+    background: rgba(255, 255, 255, 0.35) !important;
+    color: var(--text-white) !important;
+    font-weight: 700;
+  }
+  
+  /* تأكيد ألوان الأزرار */
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-success,
+  .btn-info,
+  .btn-warning,
+  .btn-danger,
+  .btn-light,
+  .btn-dark {
+    background: var(--gradient-button) !important;
+    color: var(--text-white) !important;
+  }
+  
+  /* تأكيد تباين العناوين */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-indigo) !important;
+  }
+  
+  /* تأكيد تباين النصوص على الخلفية */
+  p, li, span, label {
+    color: var(--text-dark) !important;
+  }
+  
+  /* تأكيد خلفية البطاقات */
+  .card {
+    background: var(--bg-white) !important;
+    color: var(--text-dark) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CROSS-DEVICE COLOR CONSISTENCY - توحيد الألوان عبر الأجهزة
+   ═══════════════════════════════════════════════════════════════ */
+
+/* فرض الألوان على جميع الأجهزة */
+body {
+  background: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+}
+
+/* تأكيد من عدم وجود خلفيات شفافة */
+.navbar,
+.navbar-kids {
+  background: var(--gradient-header) !important;
+}
+
+.navbar-collapse,
+.dropdown-menu,
+.card,
+.modal-content {
+  background-color: var(--bg-white) !important;
+}
+
+/* تأكيد تباين جميع النصوص */
+h1, h2, h3, h4, h5, h6,
+.navbar-brand,
+.card-title {
+  color: var(--primary-indigo) !important;
+}
+
+p, span, li, label,
+.nav-link,
+.card-text,
+.form-control {
+  color: var(--text-dark) !important;
+}
+
+/* تأكيد ألوان الروابط */
+a:not(.btn):not(.nav-link) {
+  color: var(--link-primary) !important;
+}
+
+a:not(.btn):not(.nav-link):hover {
+  color: var(--link-hover) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   END OF FILE
+   ═══════════════════════════════════════════════════════════════ */

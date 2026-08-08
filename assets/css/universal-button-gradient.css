@@ -1,0 +1,253 @@
+/* Universal Button Gradient - Applied to ALL buttons across the entire website */
+/* Gradient: #4facfe → #00f2fe */
+
+/* Force override any conflicting styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure consistent button behavior across all devices */
+
+/* Target ALL possible button classes and elements */
+.btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info, 
+.btn-kids-primary, .btn-kids-secondary, .btn-kids-tertiary, .btn-outline-primary, 
+.btn-outline-secondary, .btn-outline-success, .btn-outline-warning, .btn-outline-danger, 
+.btn-outline-info, button, a[class*="btn"], input[type="button"], input[type="submit"] {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3) !important;
+  transition: all 0.3s ease !important;
+  /* Fix button width - remove full width */
+  width: auto !important;
+  max-width: 300px !important;
+  min-width: 120px !important;
+  display: inline-block !important;
+}
+
+/* Hover effects for ALL buttons */
+.btn:hover, .btn-primary:hover, .btn-secondary:hover, .btn-success:hover, 
+.btn-warning:hover, .btn-danger:hover, .btn-info:hover, 
+.btn-kids-primary:hover, .btn-kids-secondary:hover, .btn-kids-tertiary:hover, 
+.btn-outline-primary:hover, .btn-outline-secondary:hover, .btn-outline-success:hover, 
+.btn-outline-warning:hover, .btn-outline-danger:hover, .btn-outline-info:hover, 
+button:hover, a[class*="btn"]:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background: linear-gradient(135deg, #3d8bfe, #00d4f0) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4) !important;
+}
+
+/* Active effects for ALL buttons */
+.btn:active, .btn-primary:active, .btn-secondary:active, .btn-success:active, 
+.btn-warning:active, .btn-danger:active, .btn-info:active, 
+.btn-kids-primary:active, .btn-kids-secondary:active, .btn-kids-tertiary:active, 
+.btn-outline-primary:active, .btn-outline-secondary:active, .btn-outline-success:active, 
+.btn-outline-warning:active, .btn-outline-danger:active, .btn-outline-info:active, 
+button:active, a[class*="btn"]:active, input[type="button"]:active, input[type="submit"]:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 10px rgba(79, 172, 254, 0.3) !important;
+}
+
+/* Focus effects for accessibility */
+.btn:focus, .btn-primary:focus, .btn-secondary:focus, .btn-success:focus, 
+.btn-warning:focus, .btn-danger:focus, .btn-info:focus, 
+.btn-kids-primary:focus, .btn-kids-secondary:focus, .btn-kids-tertiary:focus, 
+.btn-outline-primary:focus, .btn-outline-secondary:focus, .btn-outline-success:focus, 
+.btn-outline-warning:focus, .btn-outline-danger:focus, .btn-outline-info:focus, 
+button:focus, a[class*="btn"]:focus, input[type="button"]:focus, input[type="submit"]:focus {
+  background: linear-gradient(135deg, #3d8bfe, #00d4f0) !important;
+  box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.3) !important;
+  outline: none !important;
+}
+
+/* Override any existing button styles */
+.btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  border-color: transparent !important;
+}
+
+/* Override outline buttons to use the gradient */
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-success, 
+.btn-outline-warning, .btn-outline-danger, .btn-outline-info {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  border-color: transparent !important;
+  color: white !important;
+}
+
+/* Ensure all button text is white and readable */
+.btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info, 
+.btn-kids-primary, .btn-kids-secondary, .btn-kids-tertiary, 
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-success, 
+.btn-outline-warning, .btn-outline-danger, .btn-outline-info, 
+button, a[class*="btn"], input[type="button"], input[type="submit"] {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Override w-100 class for buttons - make them reasonable width */
+.btn.w-100, .btn-primary.w-100, .btn-secondary.w-100, .btn-success.w-100, 
+.btn-warning.w-100, .btn-danger.w-100, .btn-info.w-100, 
+.btn-kids-primary.w-100, .btn-kids-secondary.w-100, .btn-kids-tertiary.w-100, 
+.btn-outline-primary.w-100, .btn-outline-secondary.w-100, .btn-outline-success.w-100, 
+.btn-outline-warning.w-100, .btn-outline-danger.w-100, .btn-outline-info.w-100, 
+button.w-100, a[class*="btn"].w-100, input[type="button"].w-100, input[type="submit"].w-100 {
+  width: auto !important;
+  max-width: 400px !important;
+  min-width: 150px !important;
+  display: inline-block !important;
+}
+
+/* Special cases where full width might be needed (forms, etc.) */
+.form-control + .btn, .form-group .btn, .modal-footer .btn, .card-footer .btn {
+  width: auto !important;
+  max-width: 200px !important;
+}
+
+/* Specific fixes for common button layouts */
+.hero-section .btn, .card .btn, .container .btn {
+  width: auto !important;
+  max-width: 350px !important;
+  min-width: 140px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Fix for objectives page and similar pages */
+.objectives-section .btn, .goals-section .btn {
+  width: auto !important;
+  max-width: 300px !important;
+  min-width: 120px !important;
+  display: inline-block !important;
+}
+
+/* Special handling for close buttons */
+.btn-close {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+  opacity: 1 !important;
+}
+
+/* Modal buttons */
+.modal-footer .btn, .modal-header .btn-close {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+}
+
+/* Navigation buttons */
+.navbar .btn, .navbar a[class*="btn"] {
+  background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+}
+
+/* Form buttons */
+.form-control:focus, .form-select:focus {
+  border-color: #4facfe !important;
+  box-shadow: 0 0 0 0.2rem rgba(79, 172, 254, 0.25) !important;
+}
+
+/* Hide navbar toggler on PC - Show only on mobile */
+@media (min-width: 769px) {
+  .navbar-toggler {
+    display: none !important;
+  }
+  
+  .navbar-collapse {
+    display: flex !important;
+  }
+  
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+}
+
+/* Mobile Responsive Fixes */
+@media (max-width: 768px) {
+  /* Show navbar toggler only on mobile */
+  .navbar-toggler {
+    display: block !important;
+  }
+  
+  .navbar-collapse {
+    display: none !important;
+  }
+  
+  .navbar-collapse.show {
+    display: block !important;
+  }
+  
+  .navbar-nav {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  
+  .btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info, 
+  .btn-kids-primary, .btn-kids-secondary, .btn-kids-tertiary, 
+  .btn-outline-primary, .btn-outline-secondary, .btn-outline-success, 
+  .btn-outline-warning, .btn-outline-danger, .btn-outline-info, 
+  button, a[class*="btn"], input[type="button"], input[type="submit"] {
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 100px !important;
+    font-size: 0.9rem !important;
+    padding: 12px 20px !important;
+  }
+  
+  /* Hide unwanted elements on mobile */
+  .d-none-mobile {
+    display: none !important;
+  }
+  
+  /* Fix button spacing on mobile */
+  .btn + .btn {
+    margin-top: 10px !important;
+  }
+}
+
+/* Tablet Responsive Fixes */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info, 
+  .btn-kids-primary, .btn-kids-secondary, .btn-kids-tertiary, 
+  .btn-outline-primary, .btn-outline-secondary, .btn-outline-success, 
+  .btn-outline-warning, .btn-outline-danger, .btn-outline-info, 
+  button, a[class*="btn"], input[type="button"], input[type="submit"] {
+    width: auto !important;
+    max-width: 350px !important;
+    min-width: 120px !important;
+  }
+  
+  /* Ensure navbar is always visible on tablet */
+  .navbar-toggler {
+    display: none !important;
+  }
+  
+  .navbar-collapse {
+    display: flex !important;
+  }
+}
+
+/* Desktop Specific Fixes */
+@media (min-width: 1025px) {
+  /* Force desktop layout */
+  .navbar-toggler {
+    display: none !important;
+  }
+  
+  .navbar-collapse {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+  
+  /* Desktop button sizes */
+  .btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info, 
+  .btn-kids-primary, .btn-kids-secondary, .btn-kids-tertiary, 
+  .btn-outline-primary, .btn-outline-secondary, .btn-outline-success, 
+  .btn-outline-warning, .btn-outline-danger, .btn-outline-info, 
+  button, a[class*="btn"], input[type="button"], input[type="submit"] {
+    width: auto !important;
+    max-width: 300px !important;
+    min-width: 120px !important;
+    font-size: 1rem !important;
+    padding: 15px 25px !important;
+  }
+}

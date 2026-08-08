@@ -1,0 +1,797 @@
+/**
+ * 🎨 MAIN CSS - الملف الموحد لجميع الأنماط
+ * بيئة التعلم النقال - Mobile Learning Environment
+ * 
+ * ملف موحد يحتوي على جميع أنماط الموقع
+ * تم دمج 11 ملف CSS في ملف واحد لتحسين الأداء
+ * 
+ * @version 2.0 - Kids Optimized Theme
+ * @date December 2024
+ */
+
+/* ============================================
+   KIDS THEME OVERRIDES - تجاوزات قالب الأطفال
+   ============================================ */
+
+/* Theme colors and animations are loaded separately in HTML */
+
+/* ============================================
+   GLOBAL STYLES - الأنماط العامة
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #FDF6E3 !important;
+  color: #161748 !important;
+  font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+  min-height: 100vh;
+  letter-spacing: normal;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Kids-friendly background with subtle gradient */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(0, 242, 254, 0.05));
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Remove any conflicting backgrounds */
+body::after {
+  display: none;
+}
+
+/* ============================================
+   TYPOGRAPHY - الطباعة والنصوص
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #161748 !important;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+h1:hover, h2:hover, h3:hover {
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+p, span, label, li {
+  color: #334155;
+  transition: color 0.3s ease;
+}
+
+.lead {
+  color: #161748;
+  font-weight: 500;
+}
+
+/* ============================================
+   BUTTONS - الأزرار
+   ============================================ */
+
+.btn {
+  border-radius: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.25);
+  animation: gradientFlow 8s ease infinite;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--gradient-cool);
+  color: var(--text-white);
+  box-shadow: 0 4px 15px var(--shadow-soft);
+}
+
+.btn-secondary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.btn-success {
+  background: var(--gradient-warm);
+  color: var(--text-white);
+  box-shadow: 0 4px 15px var(--shadow-soft);
+}
+
+.btn-success:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  color: var(--primary-solid);
+  border: 2px solid var(--primary-solid);
+  box-shadow: 0 4px 15px var(--shadow-soft);
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-gradient);
+  color: var(--text-white);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+/* ============================================
+   CARDS - البطاقات
+   ============================================ */
+
+.card {
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 8px 25px var(--shadow-soft);
+  transition: all 0.3s ease;
+  background: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px var(--shadow-color);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  animation: cardFloat 3s ease-in-out infinite;
+}
+
+.card-header {
+  background: var(--primary-gradient);
+  color: var(--text-white);
+  border-radius: 20px 20px 0 0;
+  border: none;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: gradientFlow 8s ease infinite;
+}
+
+.card-body {
+  padding: 24px;
+  background: var(--bg-card);
+  position: relative;
+}
+
+/* ============================================
+   NAVIGATION - التنقل
+   ============================================ */
+
+.navbar {
+  background: var(--primary-gradient);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  padding: 15px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: gradientFlow 8s ease infinite;
+  pointer-events: none;
+}
+
+.navbar-brand {
+  color: var(--text-white) !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-brand:hover {
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+.nav-link {
+  color: var(--text-white) !important;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-white) !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.navbar-toggler {
+  border: none;
+  color: var(--text-white);
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   FORMS - النماذج
+   ============================================ */
+
+.form-control {
+  border-radius: 16px;
+  border: 2px solid var(--border-color);
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px var(--shadow-soft);
+}
+
+.form-control:focus {
+  border-color: var(--primary-solid);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+  outline: none;
+  transform: scale(1.02);
+}
+
+.form-control:hover {
+  border-color: var(--primary-solid);
+  box-shadow: 0 4px 12px var(--shadow-soft);
+}
+
+.form-check-input {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background: var(--primary-gradient);
+  border-color: var(--primary-solid);
+  animation: buttonBounce 0.6s ease;
+}
+
+.form-check-input:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px var(--shadow-soft);
+}
+
+.form-check-label {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin: 4px 0;
+}
+
+.form-check-label:hover {
+  background: var(--gradient-subtle);
+  transform: translateX(4px);
+}
+
+/* ============================================
+   ANIMATIONS - الحركات
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES - الفئات المساعدة
+   ============================================ */
+
+.fade-in-scroll {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.8s ease-out;
+}
+
+.slide-left-scroll {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.slide-right-scroll {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.slide-up-scroll {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - التصميم المتجاوب
+   ============================================ */
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .card-body {
+    padding: 12px;
+  }
+}
+
+/* ============================================
+   QUIZ STYLES - أنماط الاختبارات
+   ============================================ */
+
+.question-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px var(--shadow-soft);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.question-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.question-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px var(--shadow-color);
+}
+
+.question-card:hover::before {
+  opacity: 1;
+}
+
+.question-card-interactive {
+  cursor: pointer;
+}
+
+.question-card-interactive:hover {
+  animation: cardFloat 3s ease-in-out infinite;
+}
+
+.quiz-container-enhanced {
+  background: var(--gradient-subtle);
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 12px 30px var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-container-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(79, 172, 254, 0.05), transparent);
+  animation: gradientFlow 8s ease infinite;
+  pointer-events: none;
+}
+
+.quiz-progress {
+  height: 12px;
+  background: var(--bg-light);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: inset 0 2px 4px var(--shadow-soft);
+}
+
+.quiz-progress-bar {
+  height: 100%;
+  background: var(--primary-gradient);
+  width: 0%;
+  transition: width 0.5s ease;
+  border-radius: 6px;
+  animation: gradientFlow 8s ease infinite;
+}
+
+/* ============================================
+   OBJECTIVES STYLES - أنماط الأهداف
+   ============================================ */
+
+.objectives-section {
+  background: var(--gradient-subtle);
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 12px 30px var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.objectives-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(79, 172, 254, 0.05), transparent);
+  animation: gradientFlow 8s ease infinite;
+  pointer-events: none;
+}
+
+.objectives-section ul li {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px var(--shadow-soft);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.objectives-section ul li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.objectives-section ul li:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.objectives-section ul li:hover::before {
+  opacity: 1;
+}
+
+.objectives-section ul li:hover {
+  animation: cardFloat 3s ease-in-out infinite;
+}
+
+/* ============================================
+   FLOATING ELEMENTS - العناصر الطافية
+   ============================================ */
+
+.floating-shape {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-shape.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-start);
+}
+
+.floating-shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 52px solid var(--gradient-end);
+}
+
+.floating-shape.square {
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-start);
+  transform: rotate(45deg);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* ============================================
+   CONTRAST FIXES - إصلاح التباين
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--bg-white) !important;
+    color: var(--text-dark) !important;
+  }
+  
+  .card {
+    background: var(--white) !important;
+    color: var(--text-dark) !important;
+  }
+  
+  .navbar {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%) !important;
+  }
+}
+
+/* ============================================
+   MOBILE OPTIMIZATIONS - تحسينات الموبايل
+   ============================================ */
+
+@media (max-width: 768px) {
+  .floating-shape {
+    display: none;
+  }
+  
+  .question-card {
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+  
+  .card {
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+  
+  .objectives-section {
+    padding: 24px;
+    border-radius: 20px;
+  }
+  
+  .quiz-container-enhanced {
+    padding: 24px;
+    border-radius: 20px;
+  }
+  
+  .form-control {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  
+  .form-check-label {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .question-card {
+    padding: 16px;
+  }
+  
+  .objectives-section {
+    padding: 20px;
+  }
+  
+  .quiz-container-enhanced {
+    padding: 20px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - إمكانية الوصول
+   ============================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-visible:focus {
+  outline: 2px solid var(--gradient-start);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   PRINT STYLES - أنماط الطباعة
+   ============================================ */
+
+@media print {
+  .navbar,
+  .floating-shape,
+  .btn {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}

@@ -1,0 +1,52 @@
+/* contrast-fix.css — include after theme-colors.css */
+
+/* Force overall light background */
+body, html {
+  background: #FDF6E3 !important; /* light cream */
+  color: #161748 !important;
+}
+
+/* Hero title text visibility fix */
+.hero-title,
+.title-kids-primary {
+  color: #161748 !important;
+  background: none !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #161748 !important;
+  -webkit-text-stroke: 0 !important;
+  filter: none !important;
+}
+
+.hero-card,
+.hero-content {
+  background: #ffffff !important;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure all hero elements have proper contrast */
+.hero-card,
+.hero-content,
+.card,
+.banner,
+.section-heading {
+  background: #ffffff !important;
+  color: #161748 !important;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .hero-title, .title-kids-primary { 
+    font-size: 1.2rem !important; 
+    padding: 20px !important; 
+    color: #161748 !important;
+    background: none !important;
+    text-shadow: none !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.4 !important;
+  }
+  .hero-card, .hero-content, .card { 
+    padding: 18px !important; 
+    background: #ffffff !important;
+  }
+}

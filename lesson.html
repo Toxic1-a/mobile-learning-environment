@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title id="page-title">الدرس | بيئة التعلم النقال</title>
+  <meta name="description" content="درس تفاعلي مع اختبارات وتتبع التقدم">
+  <meta name="theme-color" content="#4facfe">
+  
+  <!-- CSS Files - ملفات الأنماط -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- 🎨 Kids Theme Colors - نظام الألوان الموحد للأطفال -->
+  <link href="assets/css/theme-colors.css" rel="stylesheet">
+  <!-- 🎨 Kids Theme Animations - حركات الأطفال التفاعلية -->
+  <link href="assets/css/theme-animations.css" rel="stylesheet">
+  <!-- 🎨 Main CSS - ملف موحد لجميع الأنماط -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <!-- Animated Background Layers -->
+  <div class="background-overlay"></div>
+  <div class="parallax-layer parallax-layer-1"></div>
+  <div class="parallax-layer parallax-layer-2"></div>
+  <div class="animated-grid"></div>
+  <div class="floating-particles-bg"></div>
+
+  <!-- Floating Geometric Shapes -->
+  <div class="floating-shape circle" style="top: 15%; left: 5%; animation-delay: 0s;"></div>
+  <div class="floating-shape triangle" style="top: 25%; right: 10%; animation-delay: 4s;"></div>
+  <div class="floating-shape square" style="bottom: 15%; left: 15%; animation-delay: 8s;"></div>
+  
+  <nav class="navbar navbar-expand-lg navbar-kids fixed-top">
+    <div class="container">
+      <div class="navbar-brand-container">
+        <span class="navbar-brand-text">بيئة التعلم النقال</span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">🏠 الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="group-link">📚 المجموعة</a></li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row gap-2 align-items-center">
+          <span class="nav-link text-muted" id="studentInfo">مرحباً بك</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    
+    <!-- Lesson Header -->
+    <div class="text-center mb-5 fade-in-scroll">
+      <div class="badge bg-primary mb-3 animate-bounce-in" style="font-size: 1rem; padding: 10px 20px;">
+        <i class="bi bi-book me-2"></i><span id="axis-title">المحور</span>
+      </div>
+      <h1 class="display-5 fw-bold mb-3 animate-fade-in-up" style="color: var(--primary);" id="lesson-title">
+        عنوان الدرس
+      </h1>
+    </div>
+
+    <!-- مبررات دراسة المحور -->
+    <section class="mb-5 slide-up-scroll">
+      <div class="card shadow-sm border-0 card-interactive" style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);">
+        <div class="card-body p-4">
+          <h2 class="h4 fw-bold mb-3" style="color: var(--primary);">
+            <i class="bi bi-lightbulb me-2 icon-enhanced"></i>مبررات دراسة المحور
+          </h2>
+          <p class="lead mb-0" id="axis-justification">
+            مبررات دراسة المحور...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- الأهداف التعليمية -->
+    <section class="mb-5 slide-left-scroll objectives-section">
+      <div class="card shadow-sm border-0 card-interactive">
+        <div class="card-header" style="background-color: var(--primary); color: white;">
+          <h3 class="h5 mb-0">
+            <i class="bi bi-bullseye me-2 icon-enhanced"></i>الأهداف التعليمية للمحور
+          </h3>
+        </div>
+        <div class="card-body">
+          <p class="fw-bold">بعد دراستك عزيزي التلميذ لهذا المحور، ينبغى أن تكون قادرًا علي أن:</p>
+          <ul class="list-unstyled stagger-children" id="objectives-list">
+            <!-- الأهداف ستُحمل ديناميكياً -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- الاختبار القبلي -->
+    <section id="pretest-section" class="mb-5 slide-right-scroll">
+      <div class="card shadow-lg border-0 card-interactive">
+        <div class="card-header text-white" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+          <h3 class="h4 mb-0">
+            <i class="bi bi-clipboard-check me-2 icon-enhanced"></i>الاختبار القبلي للمحور
+          </h3>
+        </div>
+        <div class="card-body p-4">
+          <div class="alert alert-info mb-4">
+            <h5 class="alert-heading fw-bold">عزيزي التلميذ:</h5>
+            <ul class="mb-0">
+              <li>إذا حصلت على <strong>60٪ فأكثر</strong>، يمكنك مشاهدة محتوى الدرس والمتابعة.</li>
+              <li>أما إذا كانت نتيجتك <strong>أقل من 60٪</strong>، يُنصح بإعادة المحاولة.</li>
+            </ul>
+          </div>
+
+          <form id="pretest-form" class="quiz-container-enhanced">
+            <!-- الأسئلة ستُحمل ديناميكياً -->
+            <div id="questions-container">
+              <!-- محتوى الأسئلة -->
+            </div>
+
+            <!-- أزرار التحكم -->
+            <div class="text-center mt-4">
+              <button type="button" class="btn btn-lg btn-primary btn-interactive" id="submit-pretest">
+                <i class="bi bi-check2-circle me-2"></i>تقييم الإجابات
+              </button>
+              <button type="button" class="btn btn-lg btn-secondary" id="reset-pretest" style="display: none;">
+                <i class="bi bi-arrow-clockwise me-2"></i>إعادة الاختبار
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- محتوى الدرس (مخفي حتى ينجح في الاختبار) -->
+    <section id="lesson-content" style="display: none;">
+      
+      <!-- المحتوى التعليمي -->
+      <div class="mb-5">
+        <div class="card shadow-lg border-0">
+          <div class="card-header text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <h3 class="h4 mb-0">
+              <i class="bi bi-book me-2"></i>المحتوى التعليمي للمحور
+            </h3>
+          </div>
+          <div class="card-body p-4" id="lesson-content-body">
+            <!-- محتوى الدرس سيُحمل ديناميكياً -->
+          </div>
+        </div>
+      </div>
+
+      <!-- أزرار التنقل -->
+      <div class="d-flex justify-content-between mt-5">
+        <a href="#" id="back-to-group" class="btn btn-lg btn-outline-primary">
+          <i class="bi bi-arrow-right me-2"></i>العودة للفهرس
+        </a>
+        <a href="#" id="next-lesson" class="btn btn-lg btn-primary">
+          الدرس التالي<i class="bi bi-arrow-left ms-2"></i>
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="bg-light py-4 mt-5">
+    <div class="container text-center">
+      <p class="text-muted mb-0">Copyright © All rights reserved by Rasha Nabil</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files - ملفات الجافا سكريبت -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- 🚀 Main JS - ملف موحد لجميع الوظائف -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Lesson Data - بيانات الدروس -->
+  <script src="assets/js/lesson-data.js"></script>
+  
+  <script>
+    // تحميل بيانات الدرس بناءً على المعاملات
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const group = urlParams.get('group') || '1';
+      const lesson = urlParams.get('lesson') || '1';
+      
+      // تحميل بيانات الدرس
+      loadLessonData(group, lesson);
+    });
+  </script>
+</body>
+</html>

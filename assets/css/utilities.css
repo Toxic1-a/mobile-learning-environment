@@ -1,0 +1,245 @@
+/**
+ * ═══════════════════════════════════════════════════════════════
+ * ملف الخدمات المساعدة - UTILITIES CSS
+ * بيئة التعلم النقال - Mobile Learning Environment
+ * 
+ * يحتوي على:
+ * - Fixed Header Styles
+ * - Scroll to Top Button
+ * - Utility Classes
+ * 
+ * @version 1.0
+ * @date October 16, 2025
+ * ═══════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════
+   FIXED HEADER STYLING
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Make navbar fixed at top with proper z-index */
+.navbar-kids.fixed-top {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1030;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Enhanced shadow when scrolling */
+.navbar-kids.fixed-top.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Add padding to body to prevent content from going under fixed navbar */
+body {
+  padding-top: 80px !important; /* Adjust based on navbar height */
+}
+
+/* Adjust padding for different screen sizes */
+@media (max-width: 991px) {
+  body {
+    padding-top: 70px !important; /* Smaller navbar on mobile */
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding-top: 65px !important; /* Even smaller on very small screens */
+  }
+}
+
+/* Ensure floating clouds and stars don't overlap with fixed header */
+.floating-clouds,
+.floating-stars {
+  top: 80px;
+}
+
+/* Smooth scroll behavior for the page */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Account for fixed header when scrolling to anchors */
+}
+
+/* Ensure navbar backdrop on mobile is below navbar */
+.navbar-collapse {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile menu dropdown positioning */
+@media (max-width: 991px) {
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: inherit;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Ensure content doesn't jump when navbar is fixed */
+.navbar-kids {
+  min-height: 70px;
+}
+
+@media (min-width: 992px) {
+  .navbar-kids {
+    min-height: 80px;
+  }
+}
+
+/* Make sure scroll-to-top button doesn't conflict with fixed navbar */
+.scroll-to-top-btn {
+  z-index: 1020; /* Below navbar but above other content */
+}
+
+/* Adjust hero section spacing if needed */
+.hero-section {
+  margin-top: 20px;
+}
+
+/* Fix for modals to appear above fixed navbar */
+.modal {
+  z-index: 1050 !important;
+}
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL TO TOP BUTTON
+   ═══════════════════════════════════════════════════════════════ */
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  /* Color removed - using universal gradient instead */
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--border-radius-full);
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(94, 223, 255, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100px);
+  transition: var(--transition-bounce);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 12px 40px rgba(255, 168, 182, 0.25);
+  filter: brightness(1.2);
+}
+
+.scroll-to-top-btn:active {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.scroll-to-top-btn i {
+  transition: transform 0.2s ease;
+}
+
+.scroll-to-top-btn:hover i {
+  transform: translateY(-2px);
+}
+
+/* تأثيرات حركية إضافية */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.scroll-to-top-btn:hover {
+  animation: bounce 0.6s ease-in-out;
+}
+
+/* توافق مع الأجهزة الصغيرة */
+@media (max-width: 768px) {
+  .scroll-to-top-btn {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.3rem;
+  }
+  
+  .scroll-to-top-btn i {
+    font-size: 1.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Display utilities */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+
+/* Flex utilities */
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-around { justify-content: space-around; }
+.align-items-center { align-items: center; }
+.align-items-start { align-items: flex-start; }
+.align-items-end { align-items: flex-end; }
+
+/* Margin utilities */
+.m-0 { margin: 0; }
+.m-1 { margin: 0.25rem; }
+.m-2 { margin: 0.5rem; }
+.m-3 { margin: 1rem; }
+.m-4 { margin: 1.5rem; }
+.m-5 { margin: 3rem; }
+
+/* Padding utilities */
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 3rem; }
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .d-mobile-none { display: none; }
+  .d-mobile-block { display: block; }
+}
+
+@media (min-width: 769px) {
+  .d-desktop-none { display: none; }
+  .d-desktop-block { display: block; }
+}

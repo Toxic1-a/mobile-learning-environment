@@ -1,0 +1,206 @@
+/**
+ * 🎨 Kids Theme Colors - نظام الألوان الموحد للأطفال
+ * Bright, modern, kid-friendly theme with gradient (#4facfe → #00f2fe)
+ * 
+ * @version 1.0 - Kids Optimized Theme
+ * @date December 2024
+ */
+
+:root {
+  /* ============================================
+     PRIMARY GRADIENT COLORS - الألوان الأساسية
+     ============================================ */
+  
+  --gradient-start: #4facfe;        /* بداية التدرج */
+  --gradient-end: #00f2fe;          /* نهاية التدرج */
+  --primary-gradient: linear-gradient(135deg, #4facfe, #00f2fe);
+  --primary-solid: #00b4ff;        /* اللون الأساسي الصلب */
+  
+  /* ============================================
+     SECONDARY COLORS - الألوان الثانوية
+     ============================================ */
+  
+  --secondary: #8E9DFF;            /* اللون الثانوي */
+  --accent: #FFF685;               /* اللون المميز */
+  --success: #9DF9EF;              /* اللون الداعم */
+  --friendly-pink: #FFA8B6;        /* الوردي الودود */
+  --warning: #FFC26F;              /* اللون التحذيري */
+  --error: #FF6B81;                /* لون الخطأ */
+  
+  /* ============================================
+     BACKGROUND COLORS - ألوان الخلفيات
+     ============================================ */
+  
+  --bg-primary: #FDF6E3;           /* الخلفية الأساسية */
+  --bg-card: #FFFFFF;              /* خلفية البطاقات */
+  --bg-light: #F8FAFC;             /* خلفية فاتحة */
+  --bg-gradient: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+  
+  /* ============================================
+     TEXT COLORS - ألوان النصوص
+     ============================================ */
+  
+  --text-primary: #161748;         /* النص الأساسي */
+  --text-secondary: #334155;      /* النص الثانوي */
+  --text-muted: #64748B;           /* النص الباهت */
+  --text-white: #FFFFFF;           /* النص الأبيض */
+  --text-dark: #1E293B;            /* النص الداكن */
+  
+  /* ============================================
+     BORDER & SHADOW COLORS - ألوان الحدود والظلال
+     ============================================ */
+  
+  --border-color: #E2E8F0;         /* لون الحدود */
+  --border-soft: rgba(0, 0, 0, 0.08); /* حدود ناعمة */
+  --shadow-color: rgba(79, 172, 254, 0.25); /* لون الظلال */
+  --shadow-soft: rgba(0, 0, 0, 0.1); /* ظلال ناعمة */
+  
+  /* ============================================
+     INTERACTIVE COLORS - ألوان التفاعل
+     ============================================ */
+  
+  --hover-primary: linear-gradient(135deg, #3d8bfe, #00d4fe);
+  --hover-secondary: #7c8cff;
+  --active-primary: #0099cc;
+  --focus-ring: rgba(79, 172, 254, 0.3);
+  
+  /* ============================================
+     STATUS COLORS - ألوان الحالة
+     ============================================ */
+  
+  --success-bg: rgba(157, 249, 239, 0.2);
+  --success-border: #9DF9EF;
+  --warning-bg: rgba(255, 194, 111, 0.2);
+  --warning-border: #FFC26F;
+  --error-bg: rgba(255, 107, 129, 0.2);
+  --error-border: #FF6B81;
+  --info-bg: rgba(79, 172, 254, 0.2);
+  --info-border: #4facfe;
+  
+  /* ============================================
+     GRADIENT VARIATIONS - تدرجات متنوعة
+     ============================================ */
+  
+  --gradient-warm: linear-gradient(135deg, #FFA8B6, #FFC26F);
+  --gradient-cool: linear-gradient(135deg, #9DF9EF, #8E9DFF);
+  --gradient-rainbow: linear-gradient(135deg, #FFA8B6, #FFF685, #9DF9EF, #8E9DFF);
+  --gradient-subtle: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(0, 242, 254, 0.05));
+  
+  /* ============================================
+     ANIMATION COLORS - ألوان الحركات
+     ============================================ */
+  
+  --pulse-color: rgba(79, 172, 254, 0.4);
+  --bounce-color: rgba(0, 242, 254, 0.3);
+  --glow-color: rgba(79, 172, 254, 0.6);
+  
+  /* ============================================
+     MOBILE OPTIMIZATIONS - تحسينات الموبايل
+     ============================================ */
+  
+  --mobile-shadow: 0 4px 12px rgba(79, 172, 254, 0.15);
+  --mobile-border: 1px solid rgba(79, 172, 254, 0.2);
+  --mobile-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================================
+   DARK MODE DISABLED - تعطيل الوضع المظلم
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Force light mode colors */
+    --bg-primary: #FDF6E3 !important;
+    --bg-card: #FFFFFF !important;
+    --text-primary: #161748 !important;
+    --text-secondary: #334155 !important;
+    --border-color: #E2E8F0 !important;
+  }
+}
+
+/* ============================================
+   GLOBAL OVERRIDES - تجاوزات عامة
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   UTILITY CLASSES - فئات مساعدة
+   ============================================ */
+
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient {
+  background: var(--primary-gradient);
+}
+
+.bg-gradient-warm {
+  background: var(--gradient-warm);
+}
+
+.bg-gradient-cool {
+  background: var(--gradient-cool);
+}
+
+.bg-gradient-subtle {
+  background: var(--gradient-subtle);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 20px var(--shadow-soft);
+}
+
+.shadow-colored {
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.border-soft {
+  border: 1px solid var(--border-soft);
+}
+
+.rounded-kids {
+  border-radius: 16px;
+}
+
+.rounded-kids-lg {
+  border-radius: 20px;
+}
+
+/* ============================================
+   RESPONSIVE OVERRIDES - تجاوزات متجاوبة
+   ============================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --shadow-color: var(--mobile-shadow);
+    --border-color: var(--mobile-border);
+  }
+}
+
+/* ============================================
+   PRINT STYLES - أنماط الطباعة
+   ============================================ */
+
+@media print {
+  :root {
+    --bg-primary: #FFFFFF;
+    --text-primary: #000000;
+    --shadow-color: transparent;
+  }
+}

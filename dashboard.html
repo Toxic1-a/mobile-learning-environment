@@ -1,0 +1,519 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة المتابعة | بيئة التعلم النقال</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- ðŸŽ¨ Unified Gradient Theme -->`n  <link href="assets/css/unified-kids-theme.css" rel="stylesheet"><link href="assets/css/unified-kids-theme.css" rel="stylesheet">
+  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
+  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
+  <link href="assets/css/unified-kids-theme.css" rel="stylesheet">
+    <!-- ðŸŽ¨ Unified Gradient Theme -->`n  <link href="assets/css/unified-kids-theme.css" rel="stylesheet"><link href="assets/css/unified-kids-theme.css" rel="stylesheet">
+    <!-- ðŸŽ¨ Unified Gradient Theme -->`n  <link href="assets/css/unified-kids-theme.css" rel="stylesheet"></head>
+<body style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.05) 0%, rgba(0, 242, 254, 0.05) 100%) !important; color: var(--text-navy) !important;">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-kids fixed-top">
+    <div class="container">
+      <div class="navbar-brand-container">
+        <span class="navbar-brand-text">بيئة التعلم النقال</span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">🏠 الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="instructions.html">📋 التعليمات</a></li>
+          <li class="nav-item"><a class="nav-link" href="objectives.html">🎯 الأهداف العامة</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">👥 من نحن</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dashboard.html">📊 لوحة المتابعة</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">📞 تواصل معنا</a></li>
+        </ul>
+        <div class="navbar-nav">
+          <span class="nav-link text-muted" id="adminInfo">
+            🛡️ لوحة الإدارة
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container py-5 position-relative">
+    <!-- Decorative corner images -->
+    <!-- Large decorative images removed -->
+    
+    <!-- Header Section -->
+    <section class="text-center mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 fw-bold mb-4 fade-in">
+            <i class="bi bi-graph-up me-3 text-primary"></i>
+            لوحة المتابعة
+          </h1>
+          <p class="lead text-muted slide-up">
+            تعرض هذه الصفحة عدد الطلاب الذين قاموا بالدخول من كل مجموعة
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Control Panel -->
+    <section class="row mb-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+              <h5 class="mb-0">
+                <i class="bi bi-gear-fill me-2 text-primary"></i>
+                إدارة البيانات
+              </h5>
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary btn-sm" onclick="updateDashboard()">
+                  <i class="bi bi-arrow-clockwise me-1"></i>
+                  تحديث البيانات
+                </button>
+                <button class="btn btn-outline-danger btn-sm" onclick="resetStatistics()">
+                  <i class="bi bi-trash-fill me-1"></i>
+                  تصفير الإحصائيات
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Overview -->
+    <section class="row mb-5">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <i class="bi bi-people-fill fa-3x text-primary"></i>
+            </div>
+            <h3 class="fw-bold text-primary" id="totalCounter">0</h3>
+            <p class="text-muted mb-0">إجمالي الطلاب</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <i class="bi bi-calendar-day-fill fa-3x text-success"></i>
+            </div>
+            <h3 class="fw-bold text-success" id="todayCounter">0</h3>
+            <p class="text-muted mb-0">دخول اليوم</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <i class="bi bi-clock-history fa-3x text-info"></i>
+            </div>
+            <h5 class="fw-bold text-info" id="lastSession">لا توجد جلسات</h5>
+            <p class="text-muted mb-0">آخر دخول</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <i class="bi bi-activity fa-3x text-warning"></i>
+            </div>
+            <h3 class="fw-bold text-warning" id="activeGroups">4</h3>
+            <p class="text-muted mb-0">المجموعات النشطة</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group Statistics -->
+    <section class="row mb-5">
+      <div class="col-12">
+        <h3 class="fw-bold mb-4">
+          <i class="bi bi-bar-chart-fill me-2 text-primary"></i>
+          إحصائيات المجموعات
+        </h3>
+      </div>
+    </section>
+
+    <!-- Group 1 -->
+    <section class="row mb-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <div class="d-flex align-items-center">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-1-circle-fill fa-2x"></i>
+                  </div>
+                  <div>
+                    <h4 class="fw-bold mb-1">المجموعة الأولى</h4>
+                    <p class="text-muted mb-0">أساسيات التكنولوجيا والتعلم الرقمي</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 text-md-end">
+                <div class="d-flex flex-column align-items-md-end">
+                  <div class="mb-2">
+                    <span class="badge bg-success fs-6">
+                      <i class="bi bi-people-fill me-1"></i>
+                      <span id="group1Counter">0</span> طالب
+                    </span>
+                  </div>
+                  <div>
+                    <small class="text-muted">
+                      اليوم: <span id="group1TodayCounter">0</span> طالب
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group 2 -->
+    <section class="row mb-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <div class="d-flex align-items-center">
+                  <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-2-circle-fill fa-2x"></i>
+                  </div>
+                  <div>
+                    <h4 class="fw-bold mb-1">المجموعة الثانية</h4>
+                    <p class="text-muted mb-0">المهارات التحليلية وحل المشكلات</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 text-md-end">
+                <div class="d-flex flex-column align-items-md-end">
+                  <div class="mb-2">
+                    <span class="badge bg-success fs-6">
+                      <i class="bi bi-people-fill me-1"></i>
+                      <span id="group2Counter">0</span> طالب
+                    </span>
+                  </div>
+                  <div>
+                    <small class="text-muted">
+                      اليوم: <span id="group2TodayCounter">0</span> طالب
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group 3 -->
+    <section class="row mb-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <div class="d-flex align-items-center">
+                  <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-3-circle-fill fa-2x"></i>
+                  </div>
+                  <div>
+                    <h4 class="fw-bold mb-1">المجموعة الثالثة</h4>
+                    <p class="text-muted mb-0">التكنولوجيا المتقدمة والإبداع</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 text-md-end">
+                <div class="d-flex flex-column align-items-md-end">
+                  <div class="mb-2">
+                    <span class="badge bg-success fs-6">
+                      <i class="bi bi-people-fill me-1"></i>
+                      <span id="group3Counter">0</span> طالب
+                    </span>
+                  </div>
+                  <div>
+                    <small class="text-muted">
+                      اليوم: <span id="group3TodayCounter">0</span> طالب
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group 4 -->
+    <section class="row mb-5">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <div class="d-flex align-items-center">
+                  <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-4-circle-fill fa-2x"></i>
+                  </div>
+                  <div>
+                    <h4 class="fw-bold mb-1">المجموعة الرابعة</h4>
+                    <p class="text-muted mb-0">التطبيق العملي والمشاريع المتقدمة</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 text-md-end">
+                <div class="d-flex flex-column align-items-md-end">
+                  <div class="mb-2">
+                    <span class="badge bg-success fs-6">
+                      <i class="bi bi-people-fill me-1"></i>
+                      <span id="group4Counter">0</span> طالب
+                    </span>
+                  </div>
+                  <div>
+                    <small class="text-muted">
+                      اليوم: <span id="group4TodayCounter">0</span> طالب
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Activity -->
+    <section class="row">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-light">
+            <h5 class="mb-0">
+              <i class="bi bi-clock-history me-2 text-primary"></i>
+              النشاط الأخير
+            </h5>
+          </div>
+          <div class="card-body">
+            <div id="recentActivity" class="list-group list-group-flush">
+              <!-- سيتم ملء هذا القسم بواسطة JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>بيئة التعلم النقال</h5>
+          <p class="mb-0">منصة تعليمية تفاعلية لتعزيز التعلم الرقمي</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Copyright © All rights reserved by Rasha Nabil</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/lms-system.js"></script>
+  <script>
+    // تفعيل صوت التشجيع عند تحديث الإحصائيات
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.soundManager) {
+        setTimeout(() => soundManager.playSound('open'), 600);
+      }
+    });
+  </script>
+  <script src="assets/js/kids-sounds.js"></script>
+  <script>
+    // تحديث النشاط الأخير
+    function updateRecentActivity() {
+      const sessions = lmsManager.getStudentSessions();
+      const recentActivityElement = document.getElementById('recentActivity');
+      
+      if (sessions.length === 0) {
+        recentActivityElement.innerHTML = `
+          <div class="text-center py-4">
+            <i class="bi bi-inbox fa-3x text-muted mb-3"></i>
+            <p class="text-muted">لا توجد جلسات مسجلة بعد</p>
+          </div>
+        `;
+        return;
+      }
+
+      // عرض آخر 10 جلسات
+      const recentSessions = sessions.slice(-10).reverse();
+      let activityHTML = '';
+
+      recentSessions.forEach(session => {
+        const date = new Date(session.loginTime);
+        const timeAgo = getTimeAgo(date);
+        
+        activityHTML += `
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div>
+                <h6 class="mb-1">${session.groupName}</h6>
+                <small class="text-muted">${date.toLocaleString('ar-SA')}</small>
+              </div>
+            </div>
+            <span class="badge bg-light text-dark">${timeAgo}</span>
+          </div>
+        `;
+      });
+
+      recentActivityElement.innerHTML = activityHTML;
+    }
+
+    // حساب الوقت المنقضي
+    function getTimeAgo(date) {
+      const now = new Date();
+      const diff = now - date;
+      const minutes = Math.floor(diff / 60000);
+      const hours = Math.floor(diff / 3600000);
+      const days = Math.floor(diff / 86400000);
+
+      if (minutes < 1) return 'الآن';
+      if (minutes < 60) return `منذ ${minutes} دقيقة`;
+      if (hours < 24) return `منذ ${hours} ساعة`;
+      return `منذ ${days} يوم`;
+    }
+
+    // فحص تسجيل دخول الإدارة
+    function checkAdminLogin() {
+      const adminLoginStatus = localStorage.getItem('adminLoggedIn');
+      const adminUser = localStorage.getItem('adminUser');
+      const adminLoginTime = localStorage.getItem('adminLoginTime');
+      
+      if (!adminLoginStatus || adminLoginStatus !== 'true') {
+        alert('يجب تسجيل دخول الإدارة أولاً للوصول إلى لوحة المتابعة');
+        window.location.href = 'admin-login.html';
+        return false;
+      }
+      
+      if (!adminUser) {
+        alert('بيانات المستخدم غير موجودة. يرجى تسجيل الدخول مرة أخرى');
+        localStorage.removeItem('adminLoggedIn');
+        window.location.href = 'admin-login.html';
+        return false;
+      }
+      
+      try {
+        const userData = JSON.parse(adminUser);
+        
+        // عرض معلومات المدير المسجل
+        displayAdminInfo(userData);
+        return true;
+      } catch (error) {
+        console.error('خطأ في تحليل بيانات المستخدم:', error);
+        alert('خطأ في بيانات المستخدم. يرجى تسجيل الدخول مرة أخرى');
+        localStorage.clear();
+        window.location.href = 'admin-login.html';
+        return false;
+      }
+    }
+
+    // عرض معلومات المدير
+    function displayAdminInfo(adminUser) {
+      const adminInfoElement = document.getElementById('adminInfo');
+      if (adminInfoElement) {
+        adminInfoElement.innerHTML = `
+          <div class="d-flex align-items-center">
+            <i class="bi bi-person-circle me-2"></i>
+            <span>مرحباً ${adminUser.username}</span>
+          </div>
+        `;
+      }
+    }
+
+    // تسجيل الخروج من الإدارة
+    function adminLogout() {
+      if (confirm('هل أنت متأكد من تسجيل الخروج من لوحة الإدارة؟')) {
+        localStorage.removeItem('adminLoggedIn');
+        localStorage.removeItem('adminUser');
+        window.location.href = 'admin-login.html';
+      }
+    }
+
+    // تحديث جميع البيانات
+    function refreshAllData() {
+      lmsManager.updateDashboard();
+      updateRecentActivity();
+    }
+
+    // تحديث تلقائي كل 30 ثانية
+    setInterval(refreshAllData, 30000);
+
+    // تحديث عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', function() {
+      if (checkAdminLogin()) {
+        refreshAllData();
+        
+        // إضافة زر تسجيل الخروج
+        addLogoutButton();
+      }
+    });
+
+    // دالة تسجيل الخروج
+    function adminLogout() {
+      if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+        // مسح جميع بيانات تسجيل الدخول
+        localStorage.removeItem('adminLoggedIn');
+        localStorage.removeItem('adminUser');
+        localStorage.removeItem('adminLoginTime');
+        
+        
+        // توجيه لصفحة تسجيل الدخول
+        window.location.href = 'admin-login.html';
+      }
+    }
+
+    // إضافة زر تسجيل الخروج
+    function addLogoutButton() {
+      const logoutBtn = document.createElement('button');
+      logoutBtn.className = 'btn btn-outline-danger btn-sm';
+      logoutBtn.innerHTML = '<i class="bi bi-box-arrow-right me-1"></i>تسجيل الخروج';
+      logoutBtn.onclick = adminLogout;
+      
+      const navbarNav = document.querySelector('.navbar-nav');
+      if (navbarNav) {
+        const li = document.createElement('li');
+        li.className = 'nav-item';
+        li.appendChild(logoutBtn);
+        navbarNav.appendChild(li);
+      }
+    }
+  </script>
+  
+  <!-- نظام التبديل بين الوضع الفاتح والداكن - DISABLED -->
+  <script src="assets/js/scroll-to-top.js"></script>
+  <script src="assets/js/fixed-header.js"></script>
+  <!-- Contrast Fix JavaScript -->
+  <script src="assets/js/contrast-fix.js" defer></script>
+</body>
+</html>

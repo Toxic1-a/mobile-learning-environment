@@ -1,0 +1,12 @@
+﻿.DS_Store
+Thumbs.db
+Desktop.ini
+.env
+.env.*
+*.log
+.cursor/
+.vscode/
+.idea/
+*.ps1
+*.bat
+backup-*/

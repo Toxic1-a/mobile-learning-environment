@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title id="page-title">المجموعة | بيئة التعلم النقال</title>
+  <meta name="description" content="المحتوى التعليمي للمجموعة - بيئة التعلم النقال التفاعلية">
+  <meta name="theme-color" content="#4facfe">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="المجموعة - بيئة التعلم النقال">
+  <meta property="og:description" content="المحتوى التعليمي للمجموعة مع الواقع المعزز">
+  <meta property="og:locale" content="ar_AR">
+  
+  <!-- CSS Files - ملفات الأنماط -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- 🎨 Main CSS - ملف موحد لجميع الأنماط -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="icon" href="data:,">
+  
+  <style>
+    .lesson-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      border: none;
+      overflow: hidden;
+      position: relative;
+    }
+    .lesson-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+    }
+    .lesson-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    .lesson-number {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .progress-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .progress-badge.completed {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+    }
+    .progress-badge.in-progress {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+    }
+    .progress-badge.not-started {
+      background: linear-gradient(135deg, #6b7280, #4b5563);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Background Layers -->
+  <div class="background-overlay"></div>
+  <div class="parallax-layer parallax-layer-1"></div>
+  <div class="parallax-layer parallax-layer-2"></div>
+  <div class="animated-grid"></div>
+  <div class="floating-particles-bg"></div>
+
+  <!-- Floating Geometric Shapes -->
+  <div class="floating-shape circle" style="top: 15%; left: 5%; animation-delay: 0s;"></div>
+  <div class="floating-shape triangle" style="top: 25%; right: 10%; animation-delay: 4s;"></div>
+  <div class="floating-shape square" style="bottom: 15%; left: 15%; animation-delay: 8s;"></div>
+  
+  <nav class="navbar navbar-expand-lg navbar-kids fixed-top">
+    <div class="container">
+      <div class="navbar-brand-container">
+        <span class="navbar-brand-text">بيئة التعلم النقال</span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">🏠 الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">ℹ️ من نحن</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">📞 تواصل معنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="objectives.html">🎯 الأهداف العامة</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">📊 لوحة المتابعة</a></li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row gap-2 align-items-center">
+          <span class="nav-link text-muted" id="studentInfo">مرحباً بك</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    
+    <!-- Group Header -->
+    <div class="text-center mb-5 fade-in-scroll">
+      <div class="badge bg-primary mb-3 animate-bounce-in" style="font-size: 1rem; padding: 10px 20px;">
+        <i class="bi bi-book me-2"></i><span id="group-badge">المجموعة</span>
+      </div>
+      <h1 class="display-5 fw-bold mb-3 animate-fade-in-up" style="color: var(--primary);" id="group-title">
+        عنوان المجموعة
+      </h1>
+      <p class="lead animate-fade-in-up" style="animation-delay: 0.2s;" id="group-description">
+        وصف المجموعة...
+      </p>
+    </div>
+
+    <!-- مبررات دراسة المحور -->
+    <section class="mb-5 slide-up-scroll">
+      <div class="card shadow-sm border-0 card-interactive" style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);">
+        <div class="card-body p-4">
+          <h2 class="h4 fw-bold mb-3" style="color: var(--primary);">
+            <i class="bi bi-lightbulb me-2 icon-enhanced"></i>مبررات دراسة المحور
+          </h2>
+          <p class="lead mb-0" id="group-justification">
+            مبررات دراسة المحور...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- الأهداف التعليمية -->
+    <section class="mb-5 slide-left-scroll objectives-section">
+      <div class="card shadow-sm border-0 card-interactive">
+        <div class="card-header" style="background-color: var(--primary); color: white;">
+          <h3 class="h5 mb-0">
+            <i class="bi bi-bullseye me-2 icon-enhanced"></i>الأهداف التعليمية للمحور
+          </h3>
+        </div>
+        <div class="card-body">
+          <p class="fw-bold">بعد دراستك عزيزي التلميذ لهذا المحور، ينبغى أن تكون قادرًا علي أن:</p>
+          <ul class="list-unstyled stagger-children" id="objectives-list">
+            <!-- الأهداف ستُحمل ديناميكياً -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- الدروس -->
+    <section class="mb-5 slide-right-scroll">
+      <div class="text-center mb-4">
+        <h2 class="h3 fw-bold mb-3" style="color: var(--primary);">
+          <i class="bi bi-list-ol me-2"></i>دروس المجموعة
+        </h2>
+        <p class="text-muted">اختر الدرس الذي تريد البدء به</p>
+      </div>
+      
+      <div class="row g-4" id="lessons-container">
+        <!-- الدروس ستُحمل ديناميكياً -->
+      </div>
+    </section>
+
+    <!-- إحصائيات التقدم -->
+    <section class="mb-5 slide-up-scroll">
+      <div class="card shadow-sm border-0 card-interactive">
+        <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+          <h3 class="h5 mb-0">
+            <i class="bi bi-graph-up me-2"></i>تقدمك في هذه المجموعة
+          </h3>
+        </div>
+        <div class="card-body">
+          <div class="row text-center">
+            <div class="col-md-3">
+              <div class="stat-item">
+                <div class="stat-number text-primary" id="completed-lessons">0</div>
+                <div class="stat-label">دروس مكتملة</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-item">
+                <div class="stat-number text-success" id="total-quizzes">0</div>
+                <div class="stat-label">اختبارات مكتملة</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-item">
+                <div class="stat-number text-info" id="average-score">0%</div>
+                <div class="stat-label">متوسط النتائج</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-item">
+                <div class="stat-number text-warning" id="time-spent">0 دقيقة</div>
+                <div class="stat-label">وقت التعلم</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- أزرار التنقل -->
+    <div class="d-flex justify-content-between mt-5">
+      <a href="index.html" class="btn btn-lg btn-outline-primary">
+        <i class="bi bi-arrow-right me-2"></i>العودة للرئيسية
+      </a>
+      <a href="#" id="next-group" class="btn btn-lg btn-primary" style="display: none;">
+        المجموعة التالية<i class="bi bi-arrow-left ms-2"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-light py-4 mt-5">
+    <div class="container text-center">
+      <p class="text-muted mb-0">Copyright © All rights reserved by Rasha Nabil</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files - ملفات الجافا سكريبت -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- 🚀 Main JS - ملف موحد لجميع الوظائف -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Lesson Data - بيانات الدروس -->
+  <script src="assets/js/lesson-data.js"></script>
+  
+  <script>
+    // تحميل بيانات المجموعة بناءً على المعاملات
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const group = urlParams.get('group') || '3';
+      
+      // تحميل بيانات المجموعة
+      loadGroupData(group);
+    });
+    
+    // دالة تحميل بيانات المجموعة
+    function loadGroupData(group) {
+      const groupData = groupsData[group];
+      
+      if (!groupData) {
+        console.error('بيانات المجموعة غير موجودة');
+        return;
+      }
+      
+      // تحديث العنوان
+      document.getElementById('page-title').textContent = `المجموعة ${group} | بيئة التعلم النقال`;
+      document.getElementById('group-badge').textContent = `المجموعة ${group}`;
+      document.getElementById('group-title').textContent = groupData.title;
+      document.getElementById('group-description').textContent = groupData.justification;
+      document.getElementById('group-justification').textContent = groupData.justification;
+      
+      // تحديث الأهداف
+      const objectivesList = document.getElementById('objectives-list');
+      objectivesList.innerHTML = groupData.objectives.map(obj => 
+        `<li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2 icon-enhanced"></i>${obj}</li>`
+      ).join('');
+      
+      // تحديث الدروس
+      loadLessons(group, groupData.lessons);
+      
+      // تحديث الإحصائيات
+      updateProgressStats(group);
+      
+      // تحديث رابط المجموعة التالية
+      const nextGroup = parseInt(group) + 1;
+      if (nextGroup <= 4) {
+        document.getElementById('next-group').href = `group${nextGroup}.html`;
+        document.getElementById('next-group').style.display = 'inline-block';
+      }
+    }
+    
+    // دالة تحميل الدروس
+    function loadLessons(group, lessons) {
+      const container = document.getElementById('lessons-container');
+      let html = '';
+      
+      Object.keys(lessons).forEach((lessonNum, index) => {
+        const lesson = lessons[lessonNum];
+        const lessonNumber = parseInt(lessonNum);
+        
+        // تحديد حالة الدرس
+        const progress = getLessonProgress(group, lessonNum);
+        let progressClass = 'not-started';
+        let progressText = 'لم يبدأ';
+        
+        if (progress.completed) {
+          progressClass = 'completed';
+          progressText = 'مكتمل';
+        } else if (progress.started) {
+          progressClass = 'in-progress';
+          progressText = 'قيد التقدم';
+        }
+        
+        html += `
+          <div class="col-lg-4 col-md-6">
+            <div class="card lesson-card card-interactive">
+              <div class="progress-badge ${progressClass}">${progressText}</div>
+              <div class="lesson-number" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));">
+                ${lessonNumber}
+              </div>
+              <div class="card-body text-center p-4">
+                <div class="lesson-icon" style="color: var(--primary);">
+                  <i class="bi bi-book"></i>
+                </div>
+                <h4 class="fw-bold mb-3">${lesson.title}</h4>
+                <p class="text-muted mb-4">درس تفاعلي مع اختبارات</p>
+                <a href="lesson.html?group=${group}&lesson=${lessonNum}" class="btn btn-primary">
+                  <i class="bi bi-arrow-left me-2"></i>ابدأ الدرس
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      container.innerHTML = html;
+    }
+    
+    // دالة الحصول على تقدم الدرس
+    function getLessonProgress(group, lesson) {
+      const studentData = JSON.parse(localStorage.getItem('studentData') || '{}');
+      const progressKey = `group${group}_lesson${lesson}`;
+      
+      if (studentData.lessonProgress && studentData.lessonProgress[progressKey]) {
+        return studentData.lessonProgress[progressKey];
+      }
+      
+      return { started: false, completed: false, score: 0 };
+    }
+    
+    // دالة تحديث إحصائيات التقدم
+    function updateProgressStats(group) {
+      const studentData = JSON.parse(localStorage.getItem('studentData') || '{}');
+      const groupProgress = studentData.groupProgress || {};
+      const currentGroup = groupProgress[group] || {};
+      
+      document.getElementById('completed-lessons').textContent = currentGroup.completedLessons || 0;
+      document.getElementById('total-quizzes').textContent = currentGroup.totalQuizzes || 0;
+      document.getElementById('average-score').textContent = currentGroup.averageScore || '0%';
+      document.getElementById('time-spent').textContent = currentGroup.timeSpent || '0 دقيقة';
+    }
+  </script>
+</body>
+</html>
