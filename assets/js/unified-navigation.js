@@ -86,7 +86,7 @@ class UnifiedNavigation {
         }
 
         const navbar = document.createElement('nav');
-        navbar.className = 'navbar navbar-expand-lg navbar-kids fixed-top';
+        navbar.className = 'navbar navbar-expand-xl navbar-kids fixed-top';
         navbar.innerHTML = this.getNavbarHTML();
 
         // Insert at the beginning of body
@@ -117,7 +117,7 @@ class UnifiedNavigation {
                 </button>
                 
                 <div class="collapse navbar-collapse" id="mainNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                         <li class="nav-item">
                             <a href="index.html" class="nav-link ${this.isActivePage('home') ? 'active' : ''}">
                                 <i class="bi bi-house me-2"></i>الرئيسية
@@ -146,7 +146,7 @@ class UnifiedNavigation {
                         ${this.getGroupNavigation(currentGroup)}
                     </ul>
                     
-                    <div class="d-flex flex-column flex-lg-row gap-2 align-items-center">
+                    <div class="d-flex flex-column flex-xl-row gap-2 align-items-stretch align-items-xl-center">
                         ${this.getStudentInfo()}
                         ${this.getAdminLink()}
                     </div>

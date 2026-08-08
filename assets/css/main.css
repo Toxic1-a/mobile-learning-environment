@@ -63,6 +63,23 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
 }
 
+/* لا تفرض لون عناوين داكن داخل الهيرو أو الهيدر الداكن */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section .display-4,
+.hero-section .display-5,
+.navbar-kids h1,
+.navbar-kids .navbar-brand-text,
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6 {
+  color: #ffffff !important;
+}
+
 h1:hover, h2:hover, h3:hover {
   animation: textGlow 2s ease-in-out infinite;
 }
@@ -694,6 +711,18 @@ p, span, label, li {
     margin-bottom: 12px;
     padding: 14px 20px;
     font-size: 16px;
+  }
+
+  .navbar-kids .btn,
+  .navbar-kids .btn-kids-tertiary,
+  .btn-group .btn {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .navbar-kids .navbar-collapse .btn-kids-tertiary,
+  .hero-buttons .btn {
+    width: 100%;
   }
   
   .card {
